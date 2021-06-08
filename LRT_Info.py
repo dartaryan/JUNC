@@ -1,6 +1,6 @@
 class LRT_Info:
     """
-      A class used to represent the LRT info of the junc
+      A class used to represent the LRT info of the junction
     """
 
     def __init__(self):
@@ -11,7 +11,7 @@ class LRT_Info:
         self.__MCU = 1
         self.__lost_time = 0
         self.__Metro_Dir = 0  # 0= no metro, 1 = North & South, 2 = East & West
-        self.__LRT_orig_dir = [0, 0]  # [0] = North & South, [1] = East & West
+        self.__LRT_orig_dir = [0, 0]  # [North & South , East & West]
 
     @property
     def LRT_Dir(self):
@@ -98,13 +98,11 @@ class LRT_Info:
         The method translates the received LRT direction to a number that represents that LRT direction,
         stored in LRT_Dir.
 
-        [0,1] --> [North & South , East & West]
-
+        [North & South , East & West] ->  0/1/2/3
         0 = no LRT
         1 = North & South
         2 = East & West
         3 = North, South, East & West
-
         """
         lrt_options = {'[0, 0]': 0, '[1, 0]': 1, '[0, 1]': 2, '[1, 1]': 3}
         self.LRT_Dir = lrt_options[str(self.LRT_Orig)]
