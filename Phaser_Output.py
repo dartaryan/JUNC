@@ -1,6 +1,6 @@
 class PhsrOutput:
     """
-    A class used to represent the list of lists containing the output of Phaser .
+    A class used to represent the list of lists containing the output of Phaser.
     """
 
     def __init__(self, Phaser_list):
