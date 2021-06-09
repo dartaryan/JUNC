@@ -127,6 +127,7 @@ class Section:
                 images[img[0]].split_direction(img[1:])
 
     def set_los(self):
+        """The method converts the VOC to a level of service character."""
         if self.VOC < 0.8:
             self.LOS = "C"
         elif self.VOC < 0.9:
