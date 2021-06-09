@@ -1,5 +1,5 @@
-from Section import *
 from Building_Table import *
+from Section import *
 
 
 class Table:
@@ -66,12 +66,44 @@ class Table:
         """Set the phaser list info"""
         self.__phaser_info_list = value
 
-    def set_lrt_status(self):
-        """Sets the IS_LRT property, based on the info about it in Diagram"""
-        if JUNC_Diagram.LRT_INF.LRT_Dir > 0:
-            self.IS_LRT = True
-        else:
-            self.IS_LRT = False
+    def push_deter_vol(self):
+        """the method uses the output determining volumes of Phaser to push them into the right subclass of each images,
+        divided to the morning and evening sections."""
+        vol_img = ['A', 'B', 'C', 'D', 'E', 'F']
+        time_section = {"MOR": self.phsrlst.MOR_DETER_VOL, "EVE": self.phsrlst.EVE_DETER_VOL}
+        for cur_time in time_section.keys():
+            for img in vol_img:
+                cur_vol_img = "image" + img
+                cur_section = getattr(self, cur_time)
+                cur_img = getattr(cur_section, img)
+                value_to_push = int(time_section[cur_time][cur_vol_img])
+                setattr(cur_img, "VOL", value_to_push)
+
+    def push_section_info(self):
+        """the method uses the output section info of Phaser to push it into the right subclass of each section->
+        divided to the morning and evening sections."""
+        info_index = ["MOR_VOC", "MOR_TOT", "MOR_LRT", "EVE_VOC", "EVE_TOT", "EVE_LRT"]
+        time_section = ["MOR", "EVE"]
+        sections_info_list = ["VOC", "TOT", "LRT"]
+        inf_count = 0
+        for cur_time in time_section:
+            for sect in sections_info_list:
+                attr_time = getattr(self, cur_time)
+                value_to_push = getattr(self.phsrlst, info_index[inf_count])
+                if sect == "TOT" or sect == "LRT":
+                    value_to_push = int(value_to_push)
+                setattr(attr_time, sect, value_to_push)
+                inf_count += 1
+        self.MOR.set_los()
+        self.EVE.set_los()
+
+    def push_arrow_imgs(self):
+        """the method uses the output arrows of Phaser to push them into the right subclass of each section,
+        divided to morning and evening. """
+        arrow_imgs = {"MOR": self.phsrlst.MOR_ARROW_TABLE, "EVE": self.phsrlst.EVE_ARROW_TABLE}
+        for cur_time in arrow_imgs.keys():
+            cur_section = getattr(self, cur_time)
+            cur_section.split_img(arrow_imgs[cur_time])
 
     def deter_num_of_img(self):
         """The method checks how many images the output contains and sets the amount to self.IMG"""
@@ -90,6 +122,13 @@ class Table:
             if temp_count > img_counter:
                 img_counter = temp_count
         self.IMG = img_counter
+
+    def set_lrt_status(self):
+        """Sets the IS_LRT property, based on the info about it in Diagram"""
+        if JUNC_Diagram.LRT_INF.LRT_Dir > 0:
+            self.IS_LRT = True
+        else:
+            self.IS_LRT = False
 
     def get_type_of_table_for_choosing_slide(self):
         """The method chooses the type of table based on the info about num of images and LRT status"""
@@ -195,45 +234,6 @@ class Table:
                                     font.name = 'Traffic Arrows 2 Med normal'
                                     run.text = arrow[0] * arrow[1]
         pres.save("Dirc_Table.pptx")
-
-    def push_deter_vol(self):
-        """the method uses the output determining volumes of Phaser to push them into the right subclass of each images,
-        divided to the morning and evening sections."""
-        vol_img = ['A', 'B', 'C', 'D', 'E', 'F']
-        time_section = {"MOR": self.phsrlst.MOR_DETER_VOL, "EVE": self.phsrlst.EVE_DETER_VOL}
-        for cur_time in time_section.keys():
-            for img in vol_img:
-                cur_vol_img = "image" + img
-                cur_section = getattr(self, cur_time)
-                cur_img = getattr(cur_section, img)
-                value_to_push = int(time_section[cur_time][cur_vol_img])
-                setattr(cur_img, "VOL", value_to_push)
-
-    def push_section_info(self):
-        """the method uses the output section info of Phaser to push it into the right subclass of each section->
-        divided to the morning and evening sections."""
-        info_index = ["MOR_VOC", "MOR_TOT", "MOR_LRT", "EVE_VOC", "EVE_TOT", "EVE_LRT"]
-        time_section = ["MOR", "EVE"]
-        sections_info_list = ["VOC", "TOT", "LRT"]
-        inf_count = 0
-        for cur_time in time_section:
-            for sect in sections_info_list:
-                attr_time = getattr(self, cur_time)
-                value_to_push = getattr(self.phsrlst, info_index[inf_count])
-                if sect == "TOT" or sect == "LRT":
-                    value_to_push = int(value_to_push)
-                setattr(attr_time, sect, value_to_push)
-                inf_count += 1
-        self.MOR.set_los()
-        self.EVE.set_los()
-
-    def push_arrow_imgs(self):
-        """the method uses the output arrows of Phaser to push them into the right subclass of each section,
-        divided to morning and evening. """
-        arrow_imgs = {"MOR": self.phsrlst.MOR_ARROW_TABLE, "EVE": self.phsrlst.EVE_ARROW_TABLE}
-        for cur_time in arrow_imgs.keys():
-            cur_section = getattr(self, cur_time)
-            cur_section.split_img(arrow_imgs[cur_time])
 
 
 JUNC_Table = Table(JUNC_Diagram.phsr_lst)

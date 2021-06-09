@@ -32,12 +32,14 @@ def save_table(pres):
     export_png(save_export_path)
 
 
-def delete_temp_table_pres():
-    """The function deletes all the temporary powerpoint files created while creating the final one"""
-    prs_to_del = ["Table_new_template.pptx", "Del_Table.pptx", "Vol_Table.pptx", "Info_Table.pptx", "Dirc_Table.pptx"]
-    for temp_prs in prs_to_del:
-        if os.path.exists(temp_prs):
-            os.remove(temp_prs)
+def export_png(path):
+    """The function creates a folder and exports a png photo of the table to that folder; before that,
+    it calls 'fix_text_table' """
+    f = os.path.abspath(path)
+    fix_text_table(path)
+    powerpoint = cli.CreateObject('Powerpoint.Application')
+    powerpoint.ActivePresentation.Export(f, 'PNG')
+    powerpoint.ActivePresentation.Close()
 
 
 def fix_text_table(received_table):
@@ -50,11 +52,9 @@ def fix_text_table(received_table):
     Pres.Save()
 
 
-def export_png(path):
-    """The function creates a folder and exports a png photo of the table to that folder; before that,
-    it calls 'fix_text_table' """
-    f = os.path.abspath(path)
-    fix_text_table(path)
-    powerpoint = cli.CreateObject('Powerpoint.Application')
-    powerpoint.ActivePresentation.Export(f, 'PNG')
-    powerpoint.ActivePresentation.Close()
+def delete_temp_table_pres():
+    """The function deletes all the temporary powerpoint files created while creating the final one"""
+    prs_to_del = ["Table_new_template.pptx", "Del_Table.pptx", "Vol_Table.pptx", "Info_Table.pptx", "Dirc_Table.pptx"]
+    for temp_prs in prs_to_del:
+        if os.path.exists(temp_prs):
+            os.remove(temp_prs)
