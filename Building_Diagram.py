@@ -103,7 +103,7 @@ def fix_text(received):
     Pres.Save()
 
 
-def delete_temp_junc_pres():
+def delete_temp_diagram_pres():
     """The function deletes all the temporary powerpoint files created while creating the final one"""
     prs_to_del = ["Diagram_new_template.pptx", "Del_Diagram.pptx", "Street_Diagram.pptx", "Morn_Diagram.pptx",
                   "Eve_Diagram.pptx",
