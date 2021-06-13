@@ -29,10 +29,10 @@ def save_table(pres):
     path = desktop_table + "\×JUNC×"
     save_export_path = path + r'\×Table×.pptx'
     pres.save(save_export_path)
-    export_png(save_export_path)
+    export_png_table(save_export_path)
 
 
-def export_png(path):
+def export_png_table(path):
     """The function creates a folder and exports a png photo of the table to that folder; before that,
     it calls 'fix_text_table' """
     f = os.path.abspath(path)

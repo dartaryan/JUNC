@@ -18,18 +18,21 @@ def save_id(pres):
     path = desktop_id + r"\×JUNC×"
     save_export_path = path + r'\×ID×.pptx'
     pres.save(save_export_path)
-    export_png(save_export_path)
+    export_png_id(save_export_path)
 
 
-def delete_temp_id_pres():
-    """The function deletes all the temporary powerpoint files created while creating the final one"""
-    prs_to_del = ["id_template.pptx", "id_info.pptx"]
-    for temp_prs in prs_to_del:
-        if os.path.exists(temp_prs):
-            os.remove(temp_prs)
+def export_png_id(path):
+    """The function creates a folder and exports a png photo of the ID to that folder; before that,
+    it calls 'fix_text_ID' """
+    f = os.path.abspath(path)
+    fix_text_id(path)
+    powerpoint = cli.CreateObject('Powerpoint.Application')
+    powerpoint.ActivePresentation.Export(f, 'PNG')
+    powerpoint.ActivePresentation.Close()
+    powerpoint.Quit()
 
 
-def fix_text_ID(received_id):
+def fix_text_id(received_id):
     """The function fixes an issue occurs when trying to apply TEXT_TO_FIT_SHAPE in the other functions.
     It uses a different type of library (not python-pptx) that acts like VBA"""
     App = win32com.client.Dispatch("PowerPoint.Application")
@@ -39,15 +42,12 @@ def fix_text_ID(received_id):
     Pres.Save()
 
 
-def export_png(path):
-    """The function creates a folder and exports a png photo of the ID to that folder; before that,
-    it calls 'fix_text_ID' """
-    f = os.path.abspath(path)
-    fix_text_ID(path)
-    powerpoint = cli.CreateObject('Powerpoint.Application')
-    powerpoint.ActivePresentation.Export(f, 'PNG')
-    powerpoint.ActivePresentation.Close()
-    powerpoint.Quit()
+def delete_temp_id_pres():
+    """The function deletes all the temporary powerpoint files created while creating the final one"""
+    prs_to_del = ["id_template.pptx", "id_info.pptx"]
+    for temp_prs in prs_to_del:
+        if os.path.exists(temp_prs):
+            os.remove(temp_prs)
 
 
 def crop_table(img_path, phase_num):
