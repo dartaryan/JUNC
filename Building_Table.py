@@ -10,7 +10,7 @@ def create_new_table_templates_file():
     prs_tbl.save("Table_new_template.pptx")
 
 
-def del_slides(pres, chosen_type):
+def del_slides_table(pres, chosen_type):
     """The function gets the Table file and the chosen type of table and deletes all slides that don't match that
     number """
     i = len(pres.slides)

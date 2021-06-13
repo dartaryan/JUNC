@@ -9,6 +9,7 @@ from Building_Diagram import *
 from pptx.dml.color import RGBColor
 from pptx.enum.text import MSO_AUTO_SIZE
 from pptx.enum.lang import MSO_LANGUAGE_ID
+from pptx.util import Pt
 
 
 class Diagram:
@@ -172,7 +173,7 @@ class Diagram:
         while inf_counter < len(info_types):
             if inf_counter == 8 or inf_counter == 9:
                 curr_inf = info_list[1]
-                lrt_types[inf_counter-8] = phaser_gen_info_list[inf_counter]
+                lrt_types[inf_counter - 8] = phaser_gen_info_list[inf_counter]
                 data_to_push = lrt_types
             else:
                 curr_inf = info_list[0]

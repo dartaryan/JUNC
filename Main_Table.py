@@ -244,7 +244,7 @@ JUNC_Table.push_arrow_imgs()
 
 create_new_table_templates_file()
 prs = Presentation("Table_new_template.pptx")
-del_slides(prs, JUNC_Table.get_type_of_table_for_choosing_slide())
+del_slides_table(prs, JUNC_Table.get_type_of_table_for_choosing_slide())
 prs = Presentation("Del_Table.pptx")
 JUNC_Table.add_deter_volumes(prs)
 prs = Presentation("Vol_Table.pptx")

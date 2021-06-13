@@ -1,19 +1,9 @@
-import copy
 import os
-import os.path
-import pathlib
 import shutil
 import time
-from pathlib import Path
 import comtypes.client as cli
-import win32com
 import win32com.client
 from pptx import Presentation
-from pptx.shapes.autoshape import Shape
-from pptx.shapes.graphfrm import GraphicFrame
-from pptx.util import Cm
-from pptx.util import Pt
-
 desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 
 
@@ -107,7 +97,7 @@ def fix_text(received):
     App = win32com.client.Dispatch("PowerPoint.Application")
     App.Visible = True
     Pres = App.Presentations.Open(received)
-    for Slide in Pres.Slides:
+    for _ in Pres.Slides:
         App.CommandBars.ExecuteMso("SlideReset")
         App.CommandBars.ExecuteMso("SlideReset")
     Pres.Save()

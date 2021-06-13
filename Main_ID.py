@@ -97,6 +97,18 @@ class ID:
         """Set the phaser list info"""
         self.__phaser_info_list = value
 
+    def push_id_info(self, diagram):
+        """the method uses the output section info of Phaser and the excel properties of the volume_calculator to
+        push it into the right property of the class. """
+        self.PROJ_NAME = self.phsrlst[0]
+        self.PROJ_NUM = self.phsrlst[1]
+        self.COUNT = self.phsrlst[3]
+        self.INFO = self.phsrlst[4]
+        self.AUTHOR = diagram.xlprop[0].lastModifiedBy
+        streets = str(diagram.WE.NAME) + " · " + str(diagram.EA.NAME) + " · " + str(diagram.SO.NAME) + " · " + str(
+            diagram.NO.NAME)
+        self.STREETS = streets
+
     def add_info(self, pres):
         """
         The method goes through all the shapes in ID pptx file and checks if it represents the information
@@ -130,18 +142,6 @@ class ID:
                         for run in paragraph.runs:
                             run.font.language_id = MSO_LANGUAGE_ID.HEBREW
         pres.save("id_info.pptx")
-
-    def push_id_info(self, diagram):
-        """the method uses the output section info of Phaser and the excel properties of the volume_calculator to
-        push it into the right property of the class. """
-        self.PROJ_NAME = self.phsrlst[0]
-        self.PROJ_NUM = self.phsrlst[1]
-        self.COUNT = self.phsrlst[3]
-        self.INFO = self.phsrlst[4]
-        self.AUTHOR = diagram.xlprop[0].lastModifiedBy
-        streets = str(diagram.WE.NAME) + " · " + str(diagram.EA.NAME) + " · " + str(diagram.SO.NAME) + " · " + str(
-            diagram.NO.NAME)
-        self.STREETS = streets
 
 
 new_info = JUNC_Table.phsrlst.ID_INFO
