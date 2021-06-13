@@ -35,9 +35,9 @@ def rearrange_folders():
             os.makedirs(old_path)
         else:
             if os.path.exists(old_id_path):
-                path_created = os.path.getctime(old_id_path)
+                path_created = os.path.getmtime(old_id_path)
             else:
-                path_created = os.path.getctime(old_path)
+                path_created = os.path.getmtime(old_path)
             year, month, day, hour, minute, second = time.localtime(path_created)[:-3]
             folder = "\×JUNC× " + str(" %02d⌟%02d⌟%d %02d∶%02d" % (day, month, year, hour, minute))
             new_path = desktop + folder
