@@ -1,15 +1,16 @@
 # Version date 8/6/2021
 
+from pptx.dml.color import RGBColor
+from pptx.enum.lang import MSO_LANGUAGE_ID
+from pptx.enum.text import MSO_AUTO_SIZE
+from pptx.util import Pt
+
 import Phaser
+from Building_Diagram import *
 from Directions import *
 from General_Info import *
 from LRT_Info import *
 from Phaser_Output import *
-from Building_Diagram import *
-from pptx.dml.color import RGBColor
-from pptx.enum.text import MSO_AUTO_SIZE
-from pptx.enum.lang import MSO_LANGUAGE_ID
-from pptx.util import Pt
 
 
 class Diagram:
@@ -17,7 +18,7 @@ class Diagram:
     A class used to represent all the info about the junction that is needed for creating the Diagram presentation file.
     """
 
-    def __init__(self, output_phaser_list, xlprop):
+    def __init__(self):
         """ The constructor of the Diagram class,called when a new instance of a class is created.
          To initialize, it needs the output of Phaser and the info from the excel"""
         self.__North = Direction(
@@ -28,10 +29,9 @@ class Diagram:
         self.__West = Direction("West")  # A property representing the west direction. Initialized with the name "West"
         self.__GenInfo = General_Info()  # A property representing general info about the junction.
         self.__LRTInfo = LRT_Info()  # A property representing LRT info about the junction.
-        self.__InfoFromPhaser = PhsrOutput(
-            output_phaser_list)  # A class that holds the output from Phaser. That is the data the will be pushed to
+        self.__InfoFromPhaser = ""  # A class that holds the output from Phaser. That is the data the will be pushed to
         # the different class in Diagram and Table.
-        self.__ExcelProperties = xlprop  # A list with info about the creator of the volume_calculator excel file. It is
+        self.__ExcelProperties = ""  # A list with info about the creator of the volume_calculator excel file. It is
         # used in the ID file
 
     @property
@@ -417,29 +417,38 @@ class Diagram:
                 slide.shapes.add_picture(img_path, oneway_prop[OneWay][0], oneway_prop[OneWay][1])
 
 
-rearrange_folders()
-new_phaser_list, new_excel_properties = Phaser.main()
-JUNC_Diagram = Diagram(new_phaser_list, new_excel_properties)
+JUNC_Diagram = Diagram()
 
-print("-----")
-JUNC_Diagram.push_arr()
-JUNC_Diagram.push_vol()
-JUNC_Diagram.push_general_info()
-JUNC_Diagram.push_lrt_info()
-JUNC_Diagram.push_street_names()
 
-create_new_diagram_template_file()
+def run_junc_diagram():
+    global JUNC_Diagram
+    rearrange_folders()
+    new_phaser_list, new_excel_properties = Phaser.main()
 
-prs = Presentation("Diagram_new_template.pptx")
-del_slides(prs, JUNC_Diagram.get_type_of_junc_for_choosing_slide())
-prs = Presentation("Del_Diagram.pptx")
-JUNC_Diagram.add_street_name_and_lrt(prs)
-prs = Presentation("Street_Diagram.pptx")
-JUNC_Diagram.add_morning_volumes(prs)
-prs = Presentation("Morn_Diagram.pptx")
-JUNC_Diagram.add_evening_volumes(prs)
-prs = Presentation("Eve_Diagram.pptx")
-JUNC_Diagram.add_direction_arrows(prs)
-prs = Presentation("Dirc_Diagram.pptx")
-save_diagram(prs)
-delete_temp_diagram_pres()
+    JUNC_Diagram.phsr_lst = PhsrOutput(new_phaser_list)
+    JUNC_Diagram.xlprop = new_excel_properties
+    print("-----")
+    JUNC_Diagram.push_arr()
+    JUNC_Diagram.push_vol()
+    JUNC_Diagram.push_general_info()
+    JUNC_Diagram.push_lrt_info()
+    JUNC_Diagram.push_street_names()
+
+    create_new_diagram_template_file()
+
+    prs = Presentation("Diagram_new_template.pptx")
+    del_slides(prs, JUNC_Diagram.get_type_of_junc_for_choosing_slide())
+    prs = Presentation("Del_Diagram.pptx")
+    JUNC_Diagram.add_street_name_and_lrt(prs)
+    prs = Presentation("Street_Diagram.pptx")
+    JUNC_Diagram.add_morning_volumes(prs)
+    prs = Presentation("Morn_Diagram.pptx")
+    JUNC_Diagram.add_evening_volumes(prs)
+    prs = Presentation("Eve_Diagram.pptx")
+    JUNC_Diagram.add_direction_arrows(prs)
+    prs = Presentation("Dirc_Diagram.pptx")
+    save_diagram(prs)
+    delete_temp_diagram_pres()
+
+
+
