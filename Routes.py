@@ -1,6 +1,6 @@
 class Routes:
     """
-      A class used to represent the counting of a route with right, left and through
+      A class used to represent the volumes of a route with right, left and through
     """
 
     def __init__(self, left=0, right=0, through=0):

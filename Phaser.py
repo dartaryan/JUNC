@@ -1,12 +1,15 @@
+import ctypes
+import timeit
+
 import openpyxl as xl
+
 from b_optimiztion import b_optimization
 from c_optimization import c_optimization
-from queue_length import queue_length
-
 from personal_filter import personal_filter
+from queue_length import queue_length
 from rakal_capacity import rakal_capacity
-import timeit
-import ctypes
+
+
 # import pulp as pl
 # import os
 # import pprint
@@ -24,10 +27,10 @@ def main():
     start = timeit.default_timer()
     run = 0
     junc_list = []
-    excel_properties_list= []
+    excel_properties_list = []
     queue_max_list = [0] * 28
     # poisson_cars = [0] * 12
-    runlist = ["Morning","Evening"]
+    runlist = ["Morning", "Evening"]
     while run < 2:
         junc_list.append(runlist[run])
         if run == 0:
@@ -93,9 +96,8 @@ def main():
             volume = []
             lanes = []
             nataz = []
-            junc_nataz=[]
+            junc_nataz = []
             streets = []
-
 
             junc_instructions = [suppress_null(ws.cell(row=36 + i, column=19).value) for i in range(5)]
 
@@ -158,8 +160,7 @@ def main():
             # print("streets=", streets)
 
             wb.properties
-            return volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions,wb.properties,junc_nataz
-
+            return volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, wb.properties, junc_nataz
 
         def update_excel(optimal_lanes, min_v_c):
             for i in range(4):
@@ -173,7 +174,8 @@ def main():
         wb = xl.load_workbook('volume_calculator.xlsx')
         ws = wb.active
         print("after morning")
-        volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, excel_properties,junc_nataz = read_from_excel(run)
+        volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, excel_properties, junc_nataz = read_from_excel(
+            run)
 
         # שליחת נתונים לגאנק
         junc_list.append(volume)
@@ -394,14 +396,14 @@ def main():
             junc_list.append(sum_of_images)
             junc_list.append(current_pulp_vars)
             junc_list.append(real_capacity)
-            if run==1:
+            if run == 1:
                 junc_list.append(streets)
                 junc_list.append(junc_instructions)
                 excel_properties_list.append(excel_properties)
 
         run = run + 1
         print("junc_list")
-        print (excel_properties_list)
+        print(excel_properties_list)
         for li in junc_list:
             print(li)
             # volume, lanes, instructions, rakal_instructions, nataz, v_c, sum_of_images, current_pulp_vars, run, real_capacity =
@@ -420,13 +422,13 @@ def main():
             print(i, "=", car_length_dict[i])
     # pprint.pprint (car_length_dict)
 
-    #MessageBox = ctypes.windll.user32.MessageBoxW
-    #MessageBox(None, 'calculation complete \n\n\nAM LOS=' + morning_LOS + '\nPM LOS=' + night_LOS, 'Phaser massage', 0)
+    # MessageBox = ctypes.windll.user32.MessageBoxW
+    # MessageBox(None, 'calculation complete \n\n\nAM LOS=' + morning_LOS + '\nPM LOS=' + night_LOS, 'Phaser massage', 0)
 
     # for i in range(2):
     #    print ('i = ', i)
 
-    return (junc_list,excel_properties_list)
+    return (junc_list, excel_properties_list)
 
 
 if __name__ == "__main__":
