@@ -10,3 +10,6 @@ prs = Presentation("id_info.pptx")
 save_id(prs)
 delete_temp_id_pres()
 organize_final_folder(JUNC_Table.IMG)
+
+
+# Last working version without UI
