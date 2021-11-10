@@ -7,14 +7,15 @@ class Table:
       A class used to represent the structure of the table with different fields"
     """
 
-    def __init__(self, phsr_list):
+    def __init__(self, InputDiagram):
         """ The constructor of the Table class,called when a new instance of a class is created.
          To initialize, it needs the output of Phaser"""
         self.__Morning = Section()  # A property representing the Morning section in the table.
         self.__Evening = Section()  # A property representing the Evening section in the table.
         self.__LRT_status = False  # A property representing the status of the LRT. Affects the type of the table.
         self.__num_of_images = 3  # A property representing the number of images in the table.
-        self.__phaser_info_list = phsr_list
+        self.__inputDiagram = InputDiagram
+        self.__phaser_info_list = InputDiagram.phsr_lst
 
     @property
     def MOR(self):
@@ -65,6 +66,11 @@ class Table:
     def phsrlst(self, value):
         """Set the phaser list info"""
         self.__phaser_info_list = value
+
+    @property
+    def DIAGRAM(self):
+        """Get the number of the images in the table"""
+        return self.__inputDiagram
 
     def push_deter_vol(self):
         """the method uses the output determining volumes of Phaser to push them into the right subclass of each images,
@@ -125,7 +131,7 @@ class Table:
 
     def set_lrt_status(self):
         """Sets the IS_LRT property, based on the info about it in Diagram"""
-        if JUNC_Diagram.LRT_INF.LRT_Dir > 0:
+        if self.DIAGRAM.LRT_INF.LRT_Dir > 0:
             self.IS_LRT = True
         else:
             self.IS_LRT = False

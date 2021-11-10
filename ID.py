@@ -104,7 +104,7 @@ class ID:
         self.PROJ_NUM = self.phsrlst[1]
         self.COUNT = self.phsrlst[3]
         self.INFO = self.phsrlst[4]
-        self.AUTHOR = diagram.xlprop[0].lastModifiedBy
+        self.AUTHOR = "ben~" #  diagram.xlprop[0].lastModifiedBy
         streets = str(diagram.WE.NAME) + " · " + str(diagram.EA.NAME) + " · " + str(diagram.SO.NAME) + " · " + str(
             diagram.NO.NAME)
         self.STREETS = streets

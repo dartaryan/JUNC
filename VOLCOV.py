@@ -16,7 +16,7 @@ class VolCov:
     A class used to get data from a volume calculator file and format it to a Diagram Class
     """
 
-    def __init__(self, VC_file_directory):
+    def __init__(self, VC_file_directory=""):
         """ The constructor of the Volume calculator format. To initialize, gets the directory of the VC file and
         sets each sublist to the right property. """
 

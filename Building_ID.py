@@ -3,7 +3,12 @@ import win32com.client
 from Main_Table import *
 from PIL import Image
 
-output_directory = JUNC_Diagram.OUTPUT
+id_output_directory = ""
+
+
+def set_id_output_directory(output_dir):
+    global id_output_directory
+    id_output_directory = output_dir
 
 
 def create_new_id_templates_file():
@@ -19,7 +24,7 @@ def save_id(pres):
     # desktop_id = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
     # path = desktop_id + r"\×JUNC×"
     # desktop_id = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    path = output_directory + r"\×JUNC×"
+    path = id_output_directory + r"\×JUNC×"
     save_export_path = path + r'\×ID×.pptx'
     pres.save(save_export_path)
     export_png_id(save_export_path)
@@ -78,7 +83,7 @@ def organize_final_folder(img_num):
     # shutil.copyfile(vol_calc, path + r"\volume_calculator.xlsx")
 
     # desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    path = output_directory + r"\×JUNC×"
+    path = id_output_directory + r"\×JUNC×"
     foldersList = ["×ID×", "×Diagram×", "×Table×"]
     os.makedirs(path + r"\×pptx files×")
     for cur_name in foldersList:

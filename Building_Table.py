@@ -1,7 +1,12 @@
 import os.path
 from Main_Diagram import *
 
-output_directory = JUNC_Diagram.OUTPUT
+table_output_directory = ""
+
+
+def set_output_directory(output_dir):
+    global table_output_directory
+    table_output_directory = output_dir
 
 
 def create_new_table_templates_file():
@@ -28,7 +33,7 @@ def del_slides_table(pres, chosen_type):
 def save_table(pres):
     """The function gets the final Table pptx file and saves it in the created ×JUNC× folder on the output_directory"""
     # desktop_table = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    path = output_directory + "\×JUNC×"
+    path = table_output_directory + "\×JUNC×"
     save_export_path = path + r'\×Table×.pptx'
     pres.save(save_export_path)
     export_png_table(save_export_path)

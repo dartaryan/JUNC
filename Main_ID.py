@@ -1,7 +1,19 @@
+import Main_Table
+import Main_Diagram
 from ID import *
+
+Input_Diagram = Diagram()
+
+
+def set_Diagram(DiagramInput):
+    global Input_Diagram
+    Input_Diagram = DiagramInput
 
 
 def main():
+    JUNC_Diagram = Main_Diagram.main(Input_Diagram)
+    JUNC_Table = Main_Table.main(JUNC_Diagram)
+    set_id_output_directory(JUNC_Diagram.OUTPUT)
     new_info = JUNC_Table.phsrlst.ID_INFO
     JUNC_ID = ID(new_info)
     JUNC_ID.push_id_info(JUNC_Diagram)
