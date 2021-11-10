@@ -22,23 +22,6 @@ class VolCov:
 
         self.__VC_file = VC_file_directory
         self.vc_json = {}
-        # self.__Morning_Volumes = ""
-        # self.__Regular_Arrows = ""
-        # self.__General_Information = ""
-        # self.__LRT_Information = ""
-        # self.__PublicTransport_Arrows = ""
-        # self.__Evening_Volumes = ""
-        # self.__Street_Names = ""
-        # self.__ID_Information = ""
-
-    # 0 ['Morning volume', [0, 1515, 560, 820, 594, 0, 685, 0, 76, 0, 0, 0]]
-    # 1 ['lanes', [0, 0, 1, 0, 1, 0, 0, 9, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    # 2 ['instructions', [1800, 0, 1, 1, 0, 3, 3, 0, 0, 0, 1]]
-    # 3 ['rakal_instructions', [0, 120, 25, 4, 1, 0]]
-    # 4 ['junc_public_trans', [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    # 5 ['Evening volume', [0, 1749, 615, 743, 774, 0, 312, 0, 110, 0, 0, 0]]
-    # 6 ['streets', ['משה דיין', 'משה דיין', 'שמשון', 0]]
-    # 7 ['junc_instructions', [0, 0, 0, 0, 0]]
 
     def toJSON(self):
         VC_list, xl_prop = self.getVC()
@@ -47,12 +30,12 @@ class VolCov:
         for title, data in zip(VC_titles, VC_list):
             self.vc_json[title] = data
         self.vc_json["VC_Author"] = xl_prop[0].lastModifiedBy
+        print(self.vc_json)
         return self.vc_json
 
     def saveFile(self, directory=""):
         time_stamp = datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
         location = directory + "×JUCSON×" + time_stamp + ".json"
-        print(location)
         with open(location, "w+") as f:
             json.dump(self.toJSON(), f)
 
@@ -64,7 +47,6 @@ class VolCov:
         public_trans = []
         junc_public_trans = []
         streets = []
-
         junc_instructions = [suppress_null(ws.cell(row=36 + i, column=19).value) for i in range(5)]
 
         for i in range(4):
@@ -98,7 +80,6 @@ class VolCov:
                 exit()
         for i in range(11):
 
-            # אם בעתיד מגדילים את הריינג' לשנות את פקדות הברייק שמתחת
             if i == 10 and isinstance(instructions[i], float):
                 break
             if not isinstance(instructions[i], int):
@@ -135,7 +116,6 @@ class VolCov:
             volume, lanes, instructions, rakal_instructions, public_trans, streets, junc_instructions, \
             excel_properties, junc_public_trans = self.read_from_excel(run)
 
-            # שליחת נתונים לגאנק
             junc_list.append(volume)
 
             if run == 0:
@@ -155,11 +135,10 @@ class VolCov:
 
     @property
     def VC(self):
-        """Get the phaser list info"""
+        """Get the VC file full info"""
         return self.__VC_file
 
-
-if __name__ == "__main__":
-    vc = VolCov(r"C:\Users\darta\Desktop\Bens\Work\Python\JUNC\git\JUNC\volume_calculator.xlsx")
-    vc.saveFile()
-    print(vc.getVC())
+    @VC.setter
+    def VC(self, vc_file):
+        """Set the VC file full info"""
+        self.__VC_file = vc_file
