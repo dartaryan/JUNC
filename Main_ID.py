@@ -24,7 +24,7 @@ def main():
     save_id(id_prs)
     delete_temp_id_pres()
     organize_final_folder(JUNC_Table.IMG)
-
+    return ("Done!")
 
 if __name__ == "__main__":
     main()

@@ -95,7 +95,7 @@ class MainWindow(QMainWindow):
         self.ui.slide_menu.setMaximumWidth(1)
         self.current_user_name = get_display_name()
 
-        self.ui.b_destfolder.clicked.connect(lambda: self.changeScreen())
+        self.ui.b_destfolder.clicked.connect(lambda: self.setOutputDirectory())
 
         self.ui.no_check.setChecked(True)
         self.ui.ea_check.setChecked(True)
@@ -177,7 +177,11 @@ class MainWindow(QMainWindow):
 
     def run_JUNC(self):
         Main_ID.set_Diagram(self.mainDiagram)
-        Main_ID.main()
+        final_message = Main_ID.main()
+        msgBox = QMessageBox()
+        msgBox.setText(final_message)
+        msgBox.exec()
+
 
     def setProjectName(self):
         self.phaser_input_list[21][0] = self.ui.txt_pro_name.text()
@@ -637,19 +641,17 @@ class MainWindow(QMainWindow):
             return file
 
     def setOutputDirectory(self):
-        location = str(QFileDialog.getExistingDirectory(self, "בחירת מיקום לשמירת הקובץ"))
+        print(self.mainDiagram.OUTPUT)
+        location = str(QFileDialog.getExistingDirectory(self, "בחירת מיקום לייצוא הקובץ הסופי"))
         if location == "":
-                msgBox = QMessageBox()
-                msgBox.setText("יש לבחור מיקום לשמירת הקובץ")
-                msgBox.exec()
-                return ""
+            msgBox = QMessageBox()
+            msgBox.setText("יש לבחור מיקום לייצוא הקובץ הסופי")
+            msgBox.exec()
+            return ""
         else:
-            return "d"
 
-
-
-
-
+            self.mainDiagram.OUTPUT = location.replace("/", "\\")
+            print(self.mainDiagram.OUTPUT)
 
     def updateMainDiagramFromJucson(self):
         jucson_methods = ["push_id_info", "push_arr", "push_vol", "push_general_info", "push_lrt_info",
