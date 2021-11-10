@@ -4,19 +4,24 @@ import time
 import comtypes.client as cli
 import win32com.client
 from pptx import Presentation
-desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+
+output_directory = ""
+
+
+def set_output_directory(new_output_directory):
+    global output_directory
+    output_directory = new_output_directory
 
 
 def rearrange_folders():
-    """The function takes care of the old JUNC folder on the desktop: It checks if there is an old folder with some
-    files -> if there is, it moves them to a new folder with the date stamp of creation date;
-    If there is a folder but it's empty -> delete and create a fresh folder (important for saving the creation date)
-    If there is no old JUNC folder -> it creates a new one.
-    If there is a folder with the same timestamp, it creates another one, and adds an index number to it.
+    """The function takes care of the old JUNC folder on the output_directory: It checks if there is an old folder
+    with some files -> if there is, it moves them to a new folder with the date stamp of creation date; If there is a
+    folder but it's empty -> delete and create a fresh folder (important for saving the creation date) If there is no
+    old JUNC folder -> it creates a new one. If there is a folder with the same timestamp, it creates another one,
+    and adds an index number to it.
     """
 
-    global desktop
-    old_path = desktop + "\×JUNC×"
+    old_path = output_directory + "\×JUNC×"
     if os.path.exists(old_path):
         old_id_path = old_path + "\×ID×.png"
 
@@ -30,7 +35,7 @@ def rearrange_folders():
                 path_created = os.path.getmtime(old_path)
             year, month, day, hour, minute, second = time.localtime(path_created)[:-3]
             folder = "\×JUNC× " + str(" %02d⌟%02d⌟%d %02d∶%02d" % (day, month, year, hour, minute))
-            new_path = desktop + folder
+            new_path = output_directory + folder
 
             if not os.path.exists(new_path):
                 os.makedirs(new_path)
@@ -73,9 +78,10 @@ def del_slides(pres, chosen_type):
 
 
 def save_diagram(pres):
-    """The function gets the final diagram pptx file and saves it in the created ×JUNC× folder on the desktop"""
-    global desktop
-    path = desktop + "\×JUNC×"
+    """The function gets the final diagram pptx file and saves it in the created ×JUNC× folder on the
+    output_directory """
+
+    path = output_directory + "\×JUNC×"
     save_export_path = path + r'\×Diagram×.pptx'
     pres.save(save_export_path)
     export_png(save_export_path)

@@ -29,6 +29,7 @@ class Diagram:
         # the different class in Diagram and Table.
         self.__ExcelProperties = ""  # A list with info about the creator of the volume_calculator excel file. It is
         # used in the ID file
+        self.__OutputFolder = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 
     @property
     def NO(self):
@@ -109,6 +110,16 @@ class Diagram:
     def xlprop(self, value):
         """Set the excel properties of the current JUNC"""
         self.__ExcelProperties = value
+
+    @property
+    def OUTPUT(self):
+        """Get the output path of the final JUNC"""
+        return self.__OutputFolder
+
+    @OUTPUT.setter
+    def OUTPUT(self, destination_path):
+        """Set the output path of the final JUNC"""
+        self.__OutputFolder = destination_path
 
     def push_arr(self):
         """the method uses the output arrows of Phaser to push them into the right subclass of each direction,

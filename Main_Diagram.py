@@ -3,13 +3,14 @@ from Diagram import *
 from Phaser_Output import PhsrOutput
 
 JUNC_Diagram = Diagram()
+set_output_directory(JUNC_Diagram.OUTPUT)
 rearrange_folders()
+
 new_phaser_list, new_excel_properties = Phaser.main()
 
-
 # insert here all the info from junc
-print("new_phaser_list: ",new_phaser_list)
-print("new_excel_properties: ",new_excel_properties)
+print("new_phaser_list: ", new_phaser_list)
+print("new_excel_properties: ", new_excel_properties)
 
 JUNC_Diagram.phsr_lst = PhsrOutput(new_phaser_list)
 JUNC_Diagram.xlprop = new_excel_properties

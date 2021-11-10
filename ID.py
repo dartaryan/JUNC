@@ -142,3 +142,4 @@ class ID:
                         for run in paragraph.runs:
                             run.font.language_id = MSO_LANGUAGE_ID.HEBREW
         pres.save("id_info.pptx")
+        

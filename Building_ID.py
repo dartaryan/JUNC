@@ -3,6 +3,8 @@ import win32com.client
 from Main_Table import *
 from PIL import Image
 
+output_directory = JUNC_Diagram.OUTPUT
+
 
 def create_new_id_templates_file():
     """The function creates a new copy of the ID templates; that will be the file to start working on
@@ -13,9 +15,11 @@ def create_new_id_templates_file():
 
 
 def save_id(pres):
-    """The function gets the final ID pptx file and saves it in the created ×JUNC× folder on the desktop"""
-    desktop_id = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    path = desktop_id + r"\×JUNC×"
+    """The function gets the final ID pptx file and saves it in the created ×JUNC× folder on the output_directory"""
+    # desktop_id = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    # path = desktop_id + r"\×JUNC×"
+    # desktop_id = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    path = output_directory + r"\×JUNC×"
     save_export_path = path + r'\×ID×.pptx'
     pres.save(save_export_path)
     export_png_id(save_export_path)
@@ -68,10 +72,13 @@ def organize_final_folder(img_num):
         - Pptx files are moved into one folder called ×pptx files×.
         - A copy of the volume_calculator that was used to create the JUNC, is copied into that folder.
         """
-    vol_calc = os.getcwd() + r"\volume_calculator.xlsx"
-    desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    path = desktop_path + r"\×JUNC×"
-    shutil.copyfile(vol_calc, path + r"\volume_calculator.xlsx")
+
+    # TODO change vol calc to jucson file
+    # vol_calc = os.getcwd() + r"\volume_calculator.xlsx"
+    # shutil.copyfile(vol_calc, path + r"\volume_calculator.xlsx")
+
+    # desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    path = output_directory + r"\×JUNC×"
     foldersList = ["×ID×", "×Diagram×", "×Table×"]
     os.makedirs(path + r"\×pptx files×")
     for cur_name in foldersList:
