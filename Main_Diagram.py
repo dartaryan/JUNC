@@ -7,7 +7,6 @@ rearrange_folders()
 new_phaser_list, new_excel_properties = Phaser.main()
 
 
-
 # insert here all the info from junc
 print("new_phaser_list: ",new_phaser_list)
 print("new_excel_properties: ",new_excel_properties)
