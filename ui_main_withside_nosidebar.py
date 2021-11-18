@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebarZIYPML.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebarHyhkGl.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1240, 987)
+        MainWindow.resize(1003, 987)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -283,52 +283,49 @@ class Ui_MainWindow(object):
 "#f_so,\n"
 "#f_no,\n"
 "#f_we {\n"
-"  color: rgb(38, 38, 38);\n"
-"  background-color: rgba(236, 168, 66, 250);\n"
-"  border-radius: 20px;\n"
-"\n"
-"\n"
+"    color: rgb(38, 38, 38);\n"
+"    background-color: rgba(236, 168, 66, 250);\n"
+"    border-radius: 20px;\n"
 "}\n"
 "\n"
 "QCheckBox#no_check:indicator,\n"
 "#so_check:indicator,\n"
 "#we_check:indicator,\n"
 "#ea_check:indicator {\n"
-"  width: 160px;\n"
-"  height: 40px;\n"
-"  border-top-left-radius: 20px;\n"
-"  border-top-right-radius: 20px;\n"
+"    width: 160px;\n"
+"    height: 40px;\n"
+"    border-top-left-radius: 20px;\n"
+"    border-top-right-radius: 20px;\n"
 "}\n"
 "\n"
 "QCheckBox#no_check:indicator:checked,\n"
 "#so_check:indicator:checked,\n"
 "#we_check:indicator:checked,\n"
 "#ea_check:indicator:checked {\n"
-"  background-color: rgba(15, 143, 137, 255);\n"
+"    background-color: rgba(15, 143, 137, 255);\n"
 "}\n"
 "\n"
 "QCheckBox#no_check:indicator:unchecked,\n"
 "#so_check:indicator:unchecked,\n"
 "#we_check:indicator:unchecked,\n"
 "#ea_check:indicator:unchecked {\n"
-"  background-color: rgb(201, 142, 46);\n"
+"    background-color: rgb(201, 142, 46);\n"
 "}\n"
 "\n"
 "QCheckBox#no_check:indicator:unchecked:hover,\n"
 "#so_check:indicator:unchecked:hover,\n"
 "#we_check:indicator:unchecked:hover,\n"
 "#ea_check:indicator:unchecked:hover {\n"
-"  background-color: rgba(0, 0, 0, 20);\n"
+"    background-color: rgba(0, 0, 0, 20);\n"
 "}\n"
 "\n"
 "QCheckBox#no_check:indicator:checked:hover,\n"
 "#so_check:indicator:checked:hover,\n"
 "#we_check:indicator:checked:hover,\n"
 "#ea_check:indicator:checked:hover {\n"
-"  background-color: rgb(19, 191, 183);\n"
+"    background-color: rgb(19, 191, 183);\n"
 "    background-color: rgb(11, 108, 103);\n"
 "}\n"
-"\n"
 "\n"
 "QPushButton#no_dir,\n"
 "#no_vol,\n"
@@ -338,10 +335,10 @@ class Ui_MainWindow(object):
 "#ea_vol,\n"
 "#we_dir,\n"
 "#we_vol {\n"
-"  background-color: rgba(0, 0, 0, 0);\n"
-"  color: rgba(59, 59, 59, 255);\n"
-"\n"
+"    background-color: rgba(0, 0, 0, 0);\n"
+"    color: rgba(59, 59, 59, 255);\n"
 "}\n"
+"\n"
 "QPushButton#no_dir:hover,\n"
 "#no_vol:hover,\n"
 "#so_dir:hover,\n"
@@ -350,7 +347,7 @@ class Ui_MainWindow(object):
 "#ea_vol:hover,\n"
 "#we_dir:hover,\n"
 "#we_vol:hover {\n"
-"  color: rgba(52, 52, 52, 120);\n"
+"    color: rgba(52, 52, 52, 120);\n"
 "}\n"
 "\n"
 "QPushButton#no_dir:pressed,\n"
@@ -361,20 +358,19 @@ class Ui_MainWindow(object):
 "#ea_vol:pressed,\n"
 "#we_dir:pressed,\n"
 "#we_vol:pressed {\n"
-"  color: rgba(0, 0, 0, 120);\n"
+"    color: rgba(0, 0, 0, 120);\n"
 "}\n"
 "\n"
 "QLineEdit#no_name,\n"
 "#so_name,\n"
 "#ea_name,\n"
 "#we_name {\n"
-"  font: 15pt \"Rubik\";\n"
-"  color: rgba(59, 59, 59, 220);\n"
-"  background-color: rgba(225, 225, 225, 0);\n"
-"  border: none;\n"
-"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
-"}\n"
-"")
+"    font: 15pt \"Rubik\";\n"
+"    color: rgba(59, 59, 59, 220);\n"
+"    background-color: rgba(225, 225, 225, 0);\n"
+"    border: none;\n"
+"    border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}")
         self.f_dirs.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.f_dirs.setFrameShadow(QtWidgets.QFrame.Plain)
         self.f_dirs.setLineWidth(0)
@@ -1449,7 +1445,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.main_body_contents)
         self.horizontalLayout.addWidget(self.main_body)
         self.slide_menu_container = QtWidgets.QFrame(self.full_body)
-        self.slide_menu_container.setMinimumSize(QtCore.QSize(0, 0))
+        self.slide_menu_container.setMinimumSize(QtCore.QSize(350, 0))
         self.slide_menu_container.setMaximumSize(QtCore.QSize(0, 16777215))
         self.slide_menu_container.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.slide_menu_container.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1463,21 +1459,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.slide_menu.setFont(font)
-        self.slide_menu.setStyleSheet("QFrame#slide_menu{\n"
-"background-color: rgb(242, 242, 242);\n"
-"border-top-right-radius: 25px;\n"
-"border-bottom-right-radius: 25px;\n"
-"\n"
-"}\n"
-"\n"
-"QLineEdit{\n"
-"  font: 12pt \"Rubik\";\n"
-"  color: rgba(59, 59, 59, 220);\n"
-"  background-color: rgba(225, 225, 225, 0);\n"
-"  border: none;\n"
-"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
-"}\n"
-"")
+        self.slide_menu.setStyleSheet("")
         self.slide_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.slide_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.slide_menu.setObjectName("slide_menu")
@@ -1500,7 +1482,7 @@ class Ui_MainWindow(object):
         self.tb_menu.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.tb_menu.setStyleSheet("QToolBox::tab {\n"
 "    font: 15pt \"Rubik\";\n"
-"    background-color: rgba(217, 217, 217,100);\n"
+"    background-color: rgba(217, 217, 217,180);\n"
 "    color: rgba(83, 98, 123,150);\n"
 "    text-align: right;\n"
 "    border-radius: 12px;\n"
@@ -1526,14 +1508,29 @@ class Ui_MainWindow(object):
         self.tb_menu.setLineWidth(0)
         self.tb_menu.setObjectName("tb_menu")
         self.p_general = QtWidgets.QWidget()
-        self.p_general.setGeometry(QtCore.QRect(0, 0, 333, 754))
-        self.p_general.setStyleSheet("")
+        self.p_general.setGeometry(QtCore.QRect(0, 0, 331, 752))
+        self.p_general.setStyleSheet("QFrame#p_f_general {\n"
+"    border-radius: 12px;\n"
+"    background-color: rgba(237, 237, 237,240);\n"
+"}\n"
+"\n"
+"QWidget#p_general{\n"
+"background-color: rgb(42,48,63);\n"
+"\n"
+"}")
         self.p_general.setObjectName("p_general")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.p_general)
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_10.setSpacing(0)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.f_general = QtWidgets.QFrame(self.p_general)
+        self.p_f_general = QtWidgets.QFrame(self.p_general)
+        self.p_f_general.setStyleSheet("")
+        self.p_f_general.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.p_f_general.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.p_f_general.setObjectName("p_f_general")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.p_f_general)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.f_general = QtWidgets.QFrame(self.p_f_general)
         self.f_general.setMaximumSize(QtCore.QSize(16777215, 500))
         self.f_general.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.f_general.setStyleSheet("")
@@ -1573,7 +1570,17 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_pro_name.sizePolicy().hasHeightForWidth())
         self.txt_pro_name.setSizePolicy(sizePolicy)
-        self.txt_pro_name.setStyleSheet("")
+        self.txt_pro_name.setStyleSheet("\n"
+"QLineEdit{\n"
+"  font: 12pt \"Rubik\";\n"
+"  color: rgba(59, 59, 59, 220);\n"
+"  background-color: rgba(225, 225, 225, 0);\n"
+"  border: none;\n"
+"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.txt_pro_name.setInputMask("")
         self.txt_pro_name.setText("")
         self.txt_pro_name.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1609,7 +1616,17 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_author.sizePolicy().hasHeightForWidth())
         self.txt_author.setSizePolicy(sizePolicy)
-        self.txt_author.setStyleSheet("")
+        self.txt_author.setStyleSheet("\n"
+"QLineEdit{\n"
+"  font: 12pt \"Rubik\";\n"
+"  color: rgba(59, 59, 59, 220);\n"
+"  background-color: rgba(225, 225, 225, 0);\n"
+"  border: none;\n"
+"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.txt_author.setInputMask("")
         self.txt_author.setText("")
         self.txt_author.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1683,7 +1700,17 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_pro_num.sizePolicy().hasHeightForWidth())
         self.txt_pro_num.setSizePolicy(sizePolicy)
-        self.txt_pro_num.setStyleSheet("")
+        self.txt_pro_num.setStyleSheet("\n"
+"QLineEdit{\n"
+"  font: 12pt \"Rubik\";\n"
+"  color: rgba(59, 59, 59, 220);\n"
+"  background-color: rgba(225, 225, 225, 0);\n"
+"  border: none;\n"
+"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.txt_pro_num.setInputMask("")
         self.txt_pro_num.setText("")
         self.txt_pro_num.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1719,7 +1746,17 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_ver.sizePolicy().hasHeightForWidth())
         self.txt_ver.setSizePolicy(sizePolicy)
-        self.txt_ver.setStyleSheet("")
+        self.txt_ver.setStyleSheet("\n"
+"QLineEdit{\n"
+"  font: 12pt \"Rubik\";\n"
+"  color: rgba(59, 59, 59, 220);\n"
+"  background-color: rgba(225, 225, 225, 0);\n"
+"  border: none;\n"
+"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.txt_ver.setInputMask("")
         self.txt_ver.setText("")
         self.txt_ver.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1730,8 +1767,8 @@ class Ui_MainWindow(object):
         self.f_info.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_info.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_info.setObjectName("f_info")
-        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.f_info)
-        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.f_info)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
         self.l_info = QtWidgets.QLabel(self.f_info)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -1748,35 +1785,66 @@ class Ui_MainWindow(object):
         self.l_info.setFont(font)
         self.l_info.setStyleSheet("")
         self.l_info.setObjectName("l_info")
-        self.horizontalLayout_12.addWidget(self.l_info)
+        self.verticalLayout_36.addWidget(self.l_info)
         self.txt_info = QtWidgets.QLineEdit(self.f_info)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_info.sizePolicy().hasHeightForWidth())
         self.txt_info.setSizePolicy(sizePolicy)
-        self.txt_info.setStyleSheet("")
+        self.txt_info.setStyleSheet("\n"
+"QLineEdit{\n"
+"  font: 12pt \"Rubik\";\n"
+"  color: rgba(59, 59, 59, 220);\n"
+"  background-color: rgba(225, 225, 225, 0);\n"
+"  border: none;\n"
+"  border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.txt_info.setInputMask("")
         self.txt_info.setText("")
         self.txt_info.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.txt_info.setObjectName("txt_info")
-        self.horizontalLayout_12.addWidget(self.txt_info)
+        self.verticalLayout_36.addWidget(self.txt_info)
         self.verticalLayout_11.addWidget(self.f_info)
-        self.verticalLayout_10.addWidget(self.f_general)
-        self.spacer = QtWidgets.QFrame(self.p_general)
+        self.verticalLayout_38.addWidget(self.f_general)
+        self.spacer = QtWidgets.QFrame(self.p_f_general)
         self.spacer.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.spacer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.spacer.setObjectName("spacer")
-        self.verticalLayout_10.addWidget(self.spacer)
+        self.verticalLayout_38.addWidget(self.spacer)
+        self.verticalLayout_10.addWidget(self.p_f_general)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/icons-svg/info_black_24dp (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tb_menu.addItem(self.p_general, icon, "")
         self.p_junction = QtWidgets.QWidget()
-        self.p_junction.setGeometry(QtCore.QRect(0, 0, 340, 733))
+        self.p_junction.setGeometry(QtCore.QRect(0, 0, 340, 731))
+        self.p_junction.setStyleSheet("QFrame#p_f_junction{\n"
+"    border-radius: 12px;\n"
+"    background-color: rgba(237, 237, 237,240);\n"
+"}\n"
+"\n"
+"QWidget#p_junction{\n"
+"background-color: rgb(42,48,63);\n"
+"\n"
+"}")
         self.p_junction.setObjectName("p_junction")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.p_junction)
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.f_junction = QtWidgets.QFrame(self.p_junction)
+        self.p_f_junction = QtWidgets.QFrame(self.p_junction)
+        self.p_f_junction.setStyleSheet("")
+        self.p_f_junction.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.p_f_junction.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.p_f_junction.setObjectName("p_f_junction")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.p_f_junction)
+        self.verticalLayout_39.setContentsMargins(11, 11, 11, 11)
+        self.verticalLayout_39.setSpacing(7)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.f_junction = QtWidgets.QFrame(self.p_f_junction)
         self.f_junction.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.f_junction.setStyleSheet("QDoubleSpinBox {\n"
 "     font: 13pt \"Rubik\";\n"
@@ -1903,6 +1971,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.f_junction)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.f_cap = QtWidgets.QFrame(self.f_junction)
+        self.f_cap.setStyleSheet("")
         self.f_cap.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_cap.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_cap.setObjectName("f_cap")
@@ -1918,7 +1987,13 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_cap.setFont(font)
-        self.l_cap.setStyleSheet("")
+        self.l_cap.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.l_cap.setObjectName("l_cap")
         self.horizontalLayout_14.addWidget(self.l_cap)
         self.spin_cap = QtWidgets.QSpinBox(self.f_cap)
@@ -1938,9 +2013,73 @@ class Ui_MainWindow(object):
         self.spin_cap.setFont(font)
         self.spin_cap.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.spin_cap.setAutoFillBackground(False)
-        self.spin_cap.setStyleSheet("")
+        self.spin_cap.setStyleSheet("QSpinBox#spin_cap{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"    background-color: rgb(200,200,200);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"    background-color: rgb(200,200,200);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cap::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox#spin_cap:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"")
         self.spin_cap.setMinimum(1)
         self.spin_cap.setMaximum(10000)
+        self.spin_cap.setSingleStep(50)
         self.spin_cap.setProperty("value", 1800)
         self.spin_cap.setObjectName("spin_cap")
         self.horizontalLayout_14.addWidget(self.spin_cap)
@@ -1962,7 +2101,13 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_lefts.setFont(font)
-        self.l_lefts.setStyleSheet("")
+        self.l_lefts.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.l_lefts.setObjectName("l_lefts")
         self.verticalLayout_14.addWidget(self.l_lefts)
         self.f_check_lefts = QtWidgets.QFrame(self.f_lefts)
@@ -1981,10 +2126,24 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.check_noso.setFont(font)
+        self.check_noso.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.check_noso.setObjectName("check_noso")
         self.horizontalLayout_16.addWidget(self.check_noso)
         self.check_weea = QtWidgets.QCheckBox(self.f_check_lefts)
         self.check_weea.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.check_weea.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.check_weea.setObjectName("check_weea")
         self.horizontalLayout_16.addWidget(self.check_weea)
         self.verticalLayout_14.addWidget(self.f_check_lefts)
@@ -2005,7 +2164,13 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_inf.setFont(font)
-        self.l_inf.setStyleSheet("")
+        self.l_inf.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.l_inf.setObjectName("l_inf")
         self.horizontalLayout_17.addWidget(self.l_inf)
         self.spin_inf = QtWidgets.QDoubleSpinBox(self.f_inf)
@@ -2019,34 +2184,118 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.spin_inf.setFont(font)
         self.spin_inf.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.spin_inf.setStyleSheet("")
+        self.spin_inf.setStyleSheet("\n"
+"QDoubleSpinBox#spin_inf{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"\n"
+"}\n"
+"QDoubleSpinBox#spin_inf::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QDoubleSpinBox#spin_inf:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::up-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_inf::down-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"")
         self.spin_inf.setInputMethodHints(QtCore.Qt.ImhFormattedNumbersOnly)
         self.spin_inf.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.spin_inf.setSingleStep(0.01)
         self.spin_inf.setProperty("value", 1.0)
         self.spin_inf.setObjectName("spin_inf")
         self.horizontalLayout_17.addWidget(self.spin_inf)
         self.verticalLayout_12.addWidget(self.f_inf)
-        self.f_lefts_2 = QtWidgets.QFrame(self.f_junction)
-        self.f_lefts_2.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.f_lefts_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_lefts_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_lefts_2.setObjectName("f_lefts_2")
-        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.f_lefts_2)
+        self.f_images = QtWidgets.QFrame(self.f_junction)
+        self.f_images.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.f_images.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_images.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_images.setObjectName("f_images")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.f_images)
         self.verticalLayout_35.setContentsMargins(11, 11, 11, 11)
         self.verticalLayout_35.setSpacing(7)
         self.verticalLayout_35.setObjectName("verticalLayout_35")
-        self.l_lefts_2 = QtWidgets.QLabel(self.f_lefts_2)
+        self.l_images = QtWidgets.QLabel(self.f_images)
         font = QtGui.QFont()
         font.setFamily("Rubik")
         font.setPointSize(13)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
-        self.l_lefts_2.setFont(font)
-        self.l_lefts_2.setStyleSheet("")
-        self.l_lefts_2.setObjectName("l_lefts_2")
-        self.verticalLayout_35.addWidget(self.l_lefts_2)
-        self.f_enable_image = QtWidgets.QFrame(self.f_lefts_2)
+        self.l_images.setFont(font)
+        self.l_images.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
+        self.l_images.setObjectName("l_images")
+        self.verticalLayout_35.addWidget(self.l_images)
+        self.f_enable_image = QtWidgets.QFrame(self.f_images)
         self.f_enable_image.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_enable_image.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_enable_image.setObjectName("f_enable_image")
@@ -2062,53 +2311,67 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.check_fifth.setFont(font)
+        self.check_fifth.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.check_fifth.setObjectName("check_fifth")
         self.horizontalLayout_45.addWidget(self.check_fifth)
         self.check_sixth = QtWidgets.QCheckBox(self.f_enable_image)
         self.check_sixth.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.check_sixth.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}")
         self.check_sixth.setObjectName("check_sixth")
         self.horizontalLayout_45.addWidget(self.check_sixth)
         self.verticalLayout_35.addWidget(self.f_enable_image)
-        self.verticalLayout_12.addWidget(self.f_lefts_2)
-        self.verticalLayout_13.addWidget(self.f_junction, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_12.addWidget(self.f_images)
+        self.verticalLayout_39.addWidget(self.f_junction)
+        self.spacer_2 = QtWidgets.QFrame(self.p_f_junction)
+        self.spacer_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.spacer_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.spacer_2.setObjectName("spacer_2")
+        self.verticalLayout_39.addWidget(self.spacer_2)
+        self.verticalLayout_13.addWidget(self.p_f_junction)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/icons-svg/assessment_black_24dp (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tb_menu.addItem(self.p_junction, icon1, "")
         self.p_lrt = QtWidgets.QWidget()
-        self.p_lrt.setGeometry(QtCore.QRect(0, 0, 338, 733))
+        self.p_lrt.setGeometry(QtCore.QRect(0, 0, 338, 731))
+        self.p_lrt.setStyleSheet("QFrame#p_f_lrt{\n"
+"    border-radius: 12px;\n"
+"    background-color: rgba(237, 237, 237,240);\n"
+"}\n"
+"\n"
+"QWidget#p_lrt{\n"
+"background-color: rgb(42,48,63);\n"
+"\n"
+"}")
         self.p_lrt.setObjectName("p_lrt")
         self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.p_lrt)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName("verticalLayout_15")
-        self.f_lrt = QtWidgets.QFrame(self.p_lrt)
-        self.f_lrt.setStyleSheet(" QCheckBox{\n"
-"     font: 13pt \"Rubik\";\n"
-"     color: rgb(48, 54, 69);\n"
-"}\n"
-" QCheckBox::indicator {\n"
-"     width: 22px;\n"
-"     height: 22px;\n"
-"}\n"
-" QCheckBox::indicator:checked {\n"
-"     image: url(:/icons/icons-svg/check_box_checked_2.svg);\n"
-"}\n"
-" QCheckBox::indicator:unchecked {\n"
-"     image: url(:/icons/icons-svg/check_box_2.svg);\n"
-"}\n"
-" QCheckBox::indicator:checked:hover {\n"
-"     image: url(:/icons/icons-svg/check_box_checked_2_hover.svg);\n"
-"}\n"
-" QCheckBox::indicator:unchecked:hover {\n"
-"     image: url(:/icons/icons-svg/check_box_2_hov.svg);\n"
-"}\n"
-" QCheckBox::indicator:checked:pressed {\n"
-"     image: url(:/icons/icons-svg/check_box_checked.svg);\n"
-"}\n"
-" QCheckBox::indicator:unchecked:pressed {\n"
-"     image: url(:/icons/icons-svg/check_box.svg);\n"
-"}\n"
-" ")
+        self.p_f_lrt = QtWidgets.QFrame(self.p_lrt)
+        self.p_f_lrt.setStyleSheet("")
+        self.p_f_lrt.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.p_f_lrt.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.p_f_lrt.setObjectName("p_f_lrt")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.p_f_lrt)
+        self.verticalLayout_40.setContentsMargins(11, 11, 11, 11)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.f_lrt = QtWidgets.QFrame(self.p_f_lrt)
+        self.f_lrt.setStyleSheet("")
         self.f_lrt.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_lrt.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_lrt.setLineWidth(0)
         self.f_lrt.setObjectName("f_lrt")
         self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.f_lrt)
         self.verticalLayout_19.setObjectName("verticalLayout_19")
@@ -2139,42 +2402,224 @@ class Ui_MainWindow(object):
         self.horizontalLayout_27.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_27.setSpacing(0)
         self.horizontalLayout_27.setObjectName("horizontalLayout_27")
-        self.check_dir_noso = QtWidgets.QCheckBox(self.f_tr_dir_check)
+        self.check_lrt_weea = QtWidgets.QCheckBox(self.f_tr_dir_check)
+        self.check_lrt_weea.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.check_lrt_weea.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QCheckBox {\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48, 54, 69);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 22px;\n"
+"    height: 22px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    image: url(:/icons/icons-svg/check_box_checked_2.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"    image: url(:/icons/icons-svg/check_box_2.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked:hover {\n"
+"    image: url(:/icons/icons-svg/check_box_checked_2_hover.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked:hover {\n"
+"    image: url(:/icons/icons-svg/check_box_2_hov.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked:pressed {\n"
+"    image: url(:/icons/icons-svg/check_box_checked.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked:pressed {\n"
+"    image: url(:/icons/icons-svg/check_box.svg);\n"
+"}")
+        self.check_lrt_weea.setObjectName("check_lrt_weea")
+        self.horizontalLayout_27.addWidget(self.check_lrt_weea)
+        self.check_lrt_noso = QtWidgets.QCheckBox(self.f_tr_dir_check)
         font = QtGui.QFont()
         font.setFamily("Rubik")
         font.setPointSize(13)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
-        self.check_dir_noso.setFont(font)
-        self.check_dir_noso.setObjectName("check_dir_noso")
-        self.horizontalLayout_27.addWidget(self.check_dir_noso)
-        self.check_dir_weea = QtWidgets.QCheckBox(self.f_tr_dir_check)
-        self.check_dir_weea.setStyleSheet("")
-        self.check_dir_weea.setObjectName("check_dir_weea")
-        self.horizontalLayout_27.addWidget(self.check_dir_weea)
+        self.check_lrt_noso.setFont(font)
+        self.check_lrt_noso.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.check_lrt_noso.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QCheckBox {\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48, 54, 69);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator {\n"
+"    width: 22px;\n"
+"    height: 22px;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    image: url(:/icons/icons-svg/check_box_checked_2.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"    image: url(:/icons/icons-svg/check_box_2.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked:hover {\n"
+"    image: url(:/icons/icons-svg/check_box_checked_2_hover.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked:hover {\n"
+"    image: url(:/icons/icons-svg/check_box_2_hov.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked:pressed {\n"
+"    image: url(:/icons/icons-svg/check_box_checked.svg);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked:pressed {\n"
+"    image: url(:/icons/icons-svg/check_box.svg);\n"
+"}")
+        self.check_lrt_noso.setChecked(False)
+        self.check_lrt_noso.setObjectName("check_lrt_noso")
+        self.horizontalLayout_27.addWidget(self.check_lrt_noso)
         self.verticalLayout_18.addWidget(self.f_tr_dir_check, 0, QtCore.Qt.AlignTop)
         self.verticalLayout_19.addWidget(self.f_tr_dir)
-        self.f_cyc = QtWidgets.QFrame(self.f_lrt)
+        self.f_lrt_enable = QtWidgets.QFrame(self.f_lrt)
+        self.f_lrt_enable.setEnabled(True)
+        self.f_lrt_enable.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_lrt_enable.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_lrt_enable.setObjectName("f_lrt_enable")
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout(self.f_lrt_enable)
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.f_cyc = QtWidgets.QFrame(self.f_lrt_enable)
+        self.f_cyc.setEnabled(True)
+        self.f_cyc.setStyleSheet("\n"
+"\n"
+"")
         self.f_cyc.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_cyc.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_cyc.setObjectName("f_cyc")
-        self.horizontalLayout_29 = QtWidgets.QHBoxLayout(self.f_cyc)
-        self.horizontalLayout_29.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_29.setSpacing(0)
-        self.horizontalLayout_29.setObjectName("horizontalLayout_29")
-        self.txt_cyc = QtWidgets.QLineEdit(self.f_cyc)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.f_cyc)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.spin_cyc = QtWidgets.QSpinBox(self.f_cyc)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.txt_cyc.sizePolicy().hasHeightForWidth())
-        self.txt_cyc.setSizePolicy(sizePolicy)
-        self.txt_cyc.setStyleSheet("")
-        self.txt_cyc.setInputMask("")
-        self.txt_cyc.setText("")
-        self.txt_cyc.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.txt_cyc.setObjectName("txt_cyc")
-        self.horizontalLayout_29.addWidget(self.txt_cyc)
+        sizePolicy.setHeightForWidth(self.spin_cyc.sizePolicy().hasHeightForWidth())
+        self.spin_cyc.setSizePolicy(sizePolicy)
+        self.spin_cyc.setMinimumSize(QtCore.QSize(100, 40))
+        self.spin_cyc.setMaximumSize(QtCore.QSize(100, 40))
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.spin_cyc.setFont(font)
+        self.spin_cyc.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.spin_cyc.setAutoFillBackground(False)
+        self.spin_cyc.setStyleSheet("QSpinBox#spin_cyc{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"    background-color: rgb(200,200,200);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"    background-color: rgb(200,200,200);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox#spin_cyc:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox#spin_cyc::up-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_cyc::down-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0}")
+        self.spin_cyc.setMinimum(1)
+        self.spin_cyc.setMaximum(10000)
+        self.spin_cyc.setSingleStep(10)
+        self.spin_cyc.setProperty("value", 120)
+        self.spin_cyc.setObjectName("spin_cyc")
+        self.horizontalLayout_12.addWidget(self.spin_cyc)
         self.l_cyc = QtWidgets.QLabel(self.f_cyc)
         font = QtGui.QFont()
         font.setFamily("Rubik")
@@ -2183,30 +2628,133 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_cyc.setFont(font)
-        self.l_cyc.setStyleSheet("")
+        self.l_cyc.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QLabel:disabled {\n"
+"    color: gray;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(48, 54, 69);\n"
+"}")
         self.l_cyc.setObjectName("l_cyc")
-        self.horizontalLayout_29.addWidget(self.l_cyc)
-        self.verticalLayout_19.addWidget(self.f_cyc)
-        self.f_tr_lost_time = QtWidgets.QFrame(self.f_lrt)
+        self.horizontalLayout_12.addWidget(self.l_cyc)
+        self.verticalLayout_41.addWidget(self.f_cyc)
+        self.f_tr_lost_time = QtWidgets.QFrame(self.f_lrt_enable)
+        self.f_tr_lost_time.setEnabled(True)
+        self.f_tr_lost_time.setStyleSheet("")
         self.f_tr_lost_time.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_tr_lost_time.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_tr_lost_time.setObjectName("f_tr_lost_time")
         self.horizontalLayout_28 = QtWidgets.QHBoxLayout(self.f_tr_lost_time)
-        self.horizontalLayout_28.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_28.setSpacing(0)
+        self.horizontalLayout_28.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout_28.setSpacing(7)
         self.horizontalLayout_28.setObjectName("horizontalLayout_28")
-        self.txt_tr_lost_time = QtWidgets.QLineEdit(self.f_tr_lost_time)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        self.spin_tr_lost_time = QtWidgets.QSpinBox(self.f_tr_lost_time)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.txt_tr_lost_time.sizePolicy().hasHeightForWidth())
-        self.txt_tr_lost_time.setSizePolicy(sizePolicy)
-        self.txt_tr_lost_time.setStyleSheet("")
-        self.txt_tr_lost_time.setInputMask("")
-        self.txt_tr_lost_time.setText("")
-        self.txt_tr_lost_time.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.txt_tr_lost_time.setObjectName("txt_tr_lost_time")
-        self.horizontalLayout_28.addWidget(self.txt_tr_lost_time)
+        sizePolicy.setHeightForWidth(self.spin_tr_lost_time.sizePolicy().hasHeightForWidth())
+        self.spin_tr_lost_time.setSizePolicy(sizePolicy)
+        self.spin_tr_lost_time.setMinimumSize(QtCore.QSize(100, 40))
+        self.spin_tr_lost_time.setMaximumSize(QtCore.QSize(100, 40))
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.spin_tr_lost_time.setFont(font)
+        self.spin_tr_lost_time.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.spin_tr_lost_time.setAutoFillBackground(False)
+        self.spin_tr_lost_time.setStyleSheet("QSpinBox#spin_tr_lost_time{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox#spin_tr_lost_time:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::up-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_tr_lost_time::down-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}")
+        self.spin_tr_lost_time.setMinimum(1)
+        self.spin_tr_lost_time.setMaximum(10000)
+        self.spin_tr_lost_time.setSingleStep(1)
+        self.spin_tr_lost_time.setProperty("value", 25)
+        self.spin_tr_lost_time.setObjectName("spin_tr_lost_time")
+        self.horizontalLayout_28.addWidget(self.spin_tr_lost_time)
         self.l_tr_lost_time = QtWidgets.QLabel(self.f_tr_lost_time)
         font = QtGui.QFont()
         font.setFamily("Rubik")
@@ -2215,30 +2763,133 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_tr_lost_time.setFont(font)
-        self.l_tr_lost_time.setStyleSheet("color: rgb(48, 54, 69);")
+        self.l_tr_lost_time.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QLabel:disabled {\n"
+"    color: gray;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(48, 54, 69);\n"
+"}")
         self.l_tr_lost_time.setObjectName("l_tr_lost_time")
         self.horizontalLayout_28.addWidget(self.l_tr_lost_time, 0, QtCore.Qt.AlignVCenter)
-        self.verticalLayout_19.addWidget(self.f_tr_lost_time)
-        self.f_tr_hd = QtWidgets.QFrame(self.f_lrt)
+        self.verticalLayout_41.addWidget(self.f_tr_lost_time)
+        self.f_tr_hd = QtWidgets.QFrame(self.f_lrt_enable)
+        self.f_tr_hd.setEnabled(True)
+        self.f_tr_hd.setStyleSheet("")
         self.f_tr_hd.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_tr_hd.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_tr_hd.setObjectName("f_tr_hd")
         self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.f_tr_hd)
-        self.horizontalLayout_25.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_25.setSpacing(0)
+        self.horizontalLayout_25.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout_25.setSpacing(7)
         self.horizontalLayout_25.setObjectName("horizontalLayout_25")
-        self.txt_tr_hd = QtWidgets.QLineEdit(self.f_tr_hd)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        self.spin_hd = QtWidgets.QSpinBox(self.f_tr_hd)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.txt_tr_hd.sizePolicy().hasHeightForWidth())
-        self.txt_tr_hd.setSizePolicy(sizePolicy)
-        self.txt_tr_hd.setStyleSheet("")
-        self.txt_tr_hd.setInputMask("")
-        self.txt_tr_hd.setText("")
-        self.txt_tr_hd.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.txt_tr_hd.setObjectName("txt_tr_hd")
-        self.horizontalLayout_25.addWidget(self.txt_tr_hd)
+        sizePolicy.setHeightForWidth(self.spin_hd.sizePolicy().hasHeightForWidth())
+        self.spin_hd.setSizePolicy(sizePolicy)
+        self.spin_hd.setMinimumSize(QtCore.QSize(100, 40))
+        self.spin_hd.setMaximumSize(QtCore.QSize(100, 40))
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.spin_hd.setFont(font)
+        self.spin_hd.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.spin_hd.setAutoFillBackground(False)
+        self.spin_hd.setStyleSheet("QSpinBox#spin_hd{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox#spin_hd:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::up-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_hd::down-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}")
+        self.spin_hd.setMinimum(1)
+        self.spin_hd.setMaximum(10000)
+        self.spin_hd.setSingleStep(1)
+        self.spin_hd.setProperty("value", 5)
+        self.spin_hd.setObjectName("spin_hd")
+        self.horizontalLayout_25.addWidget(self.spin_hd)
         self.l_tr_hd = QtWidgets.QLabel(self.f_tr_hd)
         font = QtGui.QFont()
         font.setFamily("Rubik")
@@ -2247,30 +2898,128 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_tr_hd.setFont(font)
-        self.l_tr_hd.setStyleSheet("color: rgb(48, 54, 69);")
+        self.l_tr_hd.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QLabel:disabled {\n"
+"    color: gray;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(48, 54, 69);\n"
+"}")
         self.l_tr_hd.setObjectName("l_tr_hd")
         self.horizontalLayout_25.addWidget(self.l_tr_hd)
-        self.verticalLayout_19.addWidget(self.f_tr_hd)
-        self.f_mcu = QtWidgets.QFrame(self.f_lrt)
+        self.verticalLayout_41.addWidget(self.f_tr_hd)
+        self.f_mcu = QtWidgets.QFrame(self.f_lrt_enable)
+        self.f_mcu.setEnabled(True)
+        self.f_mcu.setStyleSheet("")
         self.f_mcu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_mcu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_mcu.setObjectName("f_mcu")
         self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.f_mcu)
-        self.horizontalLayout_24.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_24.setSpacing(0)
+        self.horizontalLayout_24.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout_24.setSpacing(7)
         self.horizontalLayout_24.setObjectName("horizontalLayout_24")
-        self.txt_mcu = QtWidgets.QLineEdit(self.f_mcu)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        self.spin_mcu = QtWidgets.QDoubleSpinBox(self.f_mcu)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.txt_mcu.sizePolicy().hasHeightForWidth())
-        self.txt_mcu.setSizePolicy(sizePolicy)
-        self.txt_mcu.setStyleSheet("")
-        self.txt_mcu.setInputMask("")
-        self.txt_mcu.setText("")
-        self.txt_mcu.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.txt_mcu.setObjectName("txt_mcu")
-        self.horizontalLayout_24.addWidget(self.txt_mcu)
+        sizePolicy.setHeightForWidth(self.spin_mcu.sizePolicy().hasHeightForWidth())
+        self.spin_mcu.setSizePolicy(sizePolicy)
+        self.spin_mcu.setMinimumSize(QtCore.QSize(100, 40))
+        self.spin_mcu.setMaximumSize(QtCore.QSize(100, 40))
+        self.spin_mcu.setSizeIncrement(QtCore.QSize(0, 0))
+        self.spin_mcu.setStyleSheet("\n"
+"QDoubleSpinBox#spin_mcu{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::up-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::up-arrow:hover{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::up-button{\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"\n"
+"}\n"
+"QDoubleSpinBox#spin_mcu::down-arrow{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QDoubleSpinBox#spin_mcu:disabled{\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::up-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox#spin_mcu::down-arrow:disabled{\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"")
+        self.spin_mcu.setDecimals(3)
+        self.spin_mcu.setMinimum(1.0)
+        self.spin_mcu.setMaximum(1.125)
+        self.spin_mcu.setSingleStep(0.125)
+        self.spin_mcu.setProperty("value", 1.0)
+        self.spin_mcu.setObjectName("spin_mcu")
+        self.horizontalLayout_24.addWidget(self.spin_mcu)
         self.l_mcu = QtWidgets.QLabel(self.f_mcu)
         font = QtGui.QFont()
         font.setFamily("Rubik")
@@ -2279,31 +3028,34 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_mcu.setFont(font)
-        self.l_mcu.setStyleSheet("color: rgb(48, 54, 69);")
+        self.l_mcu.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QLabel:disabled {\n"
+"    color: gray;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(48, 54, 69);\n"
+"}")
         self.l_mcu.setObjectName("l_mcu")
-        self.horizontalLayout_24.addWidget(self.l_mcu)
-        self.verticalLayout_19.addWidget(self.f_mcu)
-        self.f_lost_time = QtWidgets.QFrame(self.f_lrt)
+        self.horizontalLayout_24.addWidget(self.l_mcu, 0, QtCore.Qt.AlignVCenter)
+        self.verticalLayout_41.addWidget(self.f_mcu)
+        self.f_lost_time = QtWidgets.QFrame(self.f_lrt_enable)
+        self.f_lost_time.setEnabled(True)
+        self.f_lost_time.setStyleSheet("")
         self.f_lost_time.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_lost_time.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_lost_time.setObjectName("f_lost_time")
-        self.horizontalLayout_26 = QtWidgets.QHBoxLayout(self.f_lost_time)
-        self.horizontalLayout_26.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_26.setSpacing(0)
-        self.horizontalLayout_26.setObjectName("horizontalLayout_26")
-        self.txt_lost_time = QtWidgets.QLineEdit(self.f_lost_time)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.txt_lost_time.sizePolicy().hasHeightForWidth())
-        self.txt_lost_time.setSizePolicy(sizePolicy)
-        self.txt_lost_time.setStyleSheet("")
-        self.txt_lost_time.setInputMask("")
-        self.txt_lost_time.setText("")
-        self.txt_lost_time.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.txt_lost_time.setObjectName("txt_lost_time")
-        self.horizontalLayout_26.addWidget(self.txt_lost_time)
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.f_lost_time)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
         self.l_lost_time = QtWidgets.QLabel(self.f_lost_time)
+        self.l_lost_time.setEnabled(True)
         font = QtGui.QFont()
         font.setFamily("Rubik")
         font.setPointSize(13)
@@ -2311,32 +3063,217 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.l_lost_time.setFont(font)
-        self.l_lost_time.setStyleSheet("color: rgb(48, 54, 69);")
+        self.l_lost_time.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.l_lost_time.setStyleSheet("QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
+"}\n"
+"\n"
+"QLabel:disabled {\n"
+"    color: gray;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: rgb(48, 54, 69);\n"
+"}")
         self.l_lost_time.setObjectName("l_lost_time")
-        self.horizontalLayout_26.addWidget(self.l_lost_time)
-        self.verticalLayout_19.addWidget(self.f_lost_time)
-        self.verticalLayout_15.addWidget(self.f_lrt, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_37.addWidget(self.l_lost_time)
+        self.f_lost_time_number = QtWidgets.QFrame(self.f_lost_time)
+        self.f_lost_time_number.setEnabled(True)
+        self.f_lost_time_number.setStyleSheet("")
+        self.f_lost_time_number.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_lost_time_number.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_lost_time_number.setObjectName("f_lost_time_number")
+        self.horizontalLayout_26 = QtWidgets.QHBoxLayout(self.f_lost_time_number)
+        self.horizontalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_26.setSpacing(0)
+        self.horizontalLayout_26.setObjectName("horizontalLayout_26")
+        self.spin_lost_time = QtWidgets.QSpinBox(self.f_lost_time_number)
+        self.spin_lost_time.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.spin_lost_time.sizePolicy().hasHeightForWidth())
+        self.spin_lost_time.setSizePolicy(sizePolicy)
+        self.spin_lost_time.setMinimumSize(QtCore.QSize(100, 40))
+        self.spin_lost_time.setMaximumSize(QtCore.QSize(100, 40))
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.spin_lost_time.setFont(font)
+        self.spin_lost_time.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.spin_lost_time.setAutoFillBackground(False)
+        self.spin_lost_time.setStyleSheet("QSpinBox#spin_lost_time {\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: rgb(48,54,69);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(217,217,217);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::up-arrow {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::up-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::up-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::down-arrow {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid rgb(48,54,69);\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::down-arrow:hover {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::down-button {\n"
+"    width: 20px;\n"
+"    height: 20px;\n"
+"    background-color: rgb(200,200,200);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time:disabled {\n"
+"    font: 13pt \"Rubik\";\n"
+"    color: gray;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227,227,227);\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::up-arrow:disabled {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-bottom: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QSpinBox#spin_lost_time::down-arrow:disabled {\n"
+"    border-left: 4px solid none;\n"
+"    border-right: 4px solid none;\n"
+"    border-top: 10px solid gray;\n"
+"    width: 0px;\n"
+"    height: 0px;\n"
+"}")
+        self.spin_lost_time.setMinimum(0)
+        self.spin_lost_time.setMaximum(10000)
+        self.spin_lost_time.setSingleStep(1)
+        self.spin_lost_time.setProperty("value", 0)
+        self.spin_lost_time.setObjectName("spin_lost_time")
+        self.horizontalLayout_26.addWidget(self.spin_lost_time)
+        self.check_lost_time = QtWidgets.QCheckBox(self.f_lost_time_number)
+        self.check_lost_time.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.check_lost_time.setFont(font)
+        self.check_lost_time.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.check_lost_time.setStyleSheet("\n"
+" QCheckBox{\n"
+"     font: 10pt \"Rubik\";\n"
+"     color: rgb(48, 54, 69);\n"
+"}\n"
+" QCheckBox::indicator {\n"
+"     width: 22px;\n"
+"     height: 22px;\n"
+"}\n"
+" QCheckBox::indicator:checked {\n"
+"     image: url(:/icons/icons-svg/check_box_checked_2.svg);\n"
+"}\n"
+" QCheckBox::indicator:unchecked {\n"
+"     image: url(:/icons/icons-svg/check_box_2.svg);\n"
+"}\n"
+" QCheckBox::indicator:checked:hover {\n"
+"     image: url(:/icons/icons-svg/check_box_checked_2_hover.svg);\n"
+"}\n"
+" QCheckBox::indicator:unchecked:hover {\n"
+"     image: url(:/icons/icons-svg/check_box_2_hov.svg);\n"
+"}\n"
+" QCheckBox::indicator:checked:pressed {\n"
+"     image: url(:/icons/icons-svg/check_box_checked.svg);\n"
+"}\n"
+" QCheckBox::indicator:unchecked:pressed {\n"
+"     image: url(:/icons/icons-svg/check_box.svg);\n"
+"}\n"
+"\n"
+" QCheckBox::indicator:checked:disabled {\n"
+"    image: url(:/icons/icons-svg/check_box_2_disabled.svg);\n"
+"}\n"
+" QCheckBox::indicator:unchecked:disabled  {\n"
+"    image: url(:/icons/icons-svg/check_box_2_disabled.svg);\n"
+"}\n"
+"\n"
+"\n"
+" QCheckBox:disabled{\n"
+"     font: 10pt \"Rubik\";\n"
+"     color: gray;\n"
+"}\n"
+"\n"
+"")
+        self.check_lost_time.setChecked(True)
+        self.check_lost_time.setObjectName("check_lost_time")
+        self.horizontalLayout_26.addWidget(self.check_lost_time)
+        self.verticalLayout_37.addWidget(self.f_lost_time_number)
+        self.verticalLayout_41.addWidget(self.f_lost_time)
+        self.verticalLayout_19.addWidget(self.f_lrt_enable, 0, QtCore.Qt.AlignVCenter)
+        self.verticalLayout_40.addWidget(self.f_lrt)
+        self.spacer_3 = QtWidgets.QFrame(self.p_f_lrt)
+        self.spacer_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.spacer_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.spacer_3.setObjectName("spacer_3")
+        self.verticalLayout_40.addWidget(self.spacer_3)
+        self.verticalLayout_15.addWidget(self.p_f_lrt)
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/icons/icons-svg/tram_black_24dp (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tb_menu.addItem(self.p_lrt, icon2, "")
         self.verticalLayout_4.addWidget(self.tb_menu)
         self.f_update_buttons = QtWidgets.QFrame(self.slide_menu)
-        self.f_update_buttons.setStyleSheet("QPushButton#b_restart,#b_update{\n"
-"background-color: rgb(55, 62, 78);\n"
-"    color: rgb(255, 255, 255);\n"
-"border-radius: 5px;\n"
+        self.f_update_buttons.setStyleSheet("QPushButton#b_restart,#b_update {\n"
+"    background-color: rgb(242, 242, 242);\n"
+"    color: rgb(55, 62, 78);\n"
+"    border-radius: 5px;\n"
 "    font: 10pt \"Rubik\";\n"
 "}\n"
 "\n"
-"\n"
 "QPushButton#b_restart:hover,#b_update:hover {\n"
-"  background-color: rgba(52, 52, 52, 120);\n"
-"}\n"
-"QPushButton#b_restart:pressed,#b_update:pressed {\n"
-"  background-color: rgba(0, 0, 0, 120);\n"
+"    background-color: rgba(242, 242, 242, 120);\n"
 "}\n"
 "\n"
-"")
+"QPushButton#b_restart:pressed,#b_update:pressed {\n"
+"    background-color: rgba(120, 120,120, 120);\n"
+"}")
         self.f_update_buttons.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_update_buttons.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_update_buttons.setObjectName("f_update_buttons")
@@ -2368,7 +3305,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
-        self.tb_menu.setCurrentIndex(0)
+        self.tb_menu.setCurrentIndex(2)
         self.tb_menu.layout().setSpacing(7)
         self.no_name.textChanged['QString'].connect(self.dig_no_name.setText)
         self.ea_name.textChanged['QString'].connect(self.dig_ea_name.setText)
@@ -2402,9 +3339,8 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.spin_cap, self.check_noso)
         MainWindow.setTabOrder(self.check_noso, self.check_weea)
         MainWindow.setTabOrder(self.check_weea, self.spin_inf)
-        MainWindow.setTabOrder(self.spin_inf, self.check_dir_noso)
-        MainWindow.setTabOrder(self.check_dir_noso, self.check_dir_weea)
-        MainWindow.setTabOrder(self.check_dir_weea, self.b_restart)
+        MainWindow.setTabOrder(self.spin_inf, self.check_lrt_weea)
+        MainWindow.setTabOrder(self.check_lrt_weea, self.b_restart)
         MainWindow.setTabOrder(self.b_restart, self.b_update)
 
     def retranslateUi(self, MainWindow):
@@ -2483,23 +3419,51 @@ class Ui_MainWindow(object):
         self.l_ver.setText(_translate("MainWindow", "מספר הרצה"))
         self.l_info.setText(_translate("MainWindow", "הערות נוספות"))
         self.tb_menu.setItemText(self.tb_menu.indexOf(self.p_general), _translate("MainWindow", "מידע כללי"))
+        self.l_cap.setToolTip(_translate("MainWindow", "קיבולת מקסימלית לנתיב. \n"
+"ברירת מחדל היא 1800.\n"
+"כאשר נבחר בערך זה:\n"
+"קיבולת ל-2 תמונות: 1500\n"
+"קיבולת ל-3 תמונות: 1450\n"
+"קיבולת ל-4 תמונות: 1400"))
         self.l_cap.setText(_translate("MainWindow", "קיבולת הצומת"))
         self.l_lefts.setText(_translate("MainWindow", "פניות שמאלה במקביל"))
+        self.check_noso.setToolTip(_translate("MainWindow", "נסמן כאשר נרצה לאפשר פנייה שמאלה במקביל מזרועות צפון ודרום."))
         self.check_noso.setText(_translate("MainWindow", "צפון | דרום"))
+        self.check_weea.setToolTip(_translate("MainWindow", "נסמן כאשר נרצה לאפשר פנייה שמאלה במקביל מזרועות מזרח ומערב."))
         self.check_weea.setText(_translate("MainWindow", "מזרח | מערב"))
+        self.l_inf.setToolTip(_translate("MainWindow", "ניתן להכניס ערך אחר על מנת לבצע ניפוח של הספירות.\n"
+"ערך ניפוח הוא בדרך כלל מקדם בחזקה. \n"
+"נדרש להכניס כקלט ערך סופי בלבד\n"
+"(לדוגמא, 1.1 לניפוח של 10%)."))
         self.l_inf.setText(_translate("MainWindow", "מקדם ניפוח"))
-        self.l_lefts_2.setText(_translate("MainWindow", "אפשר תמונה"))
+        self.l_images.setToolTip(_translate("MainWindow", "חישוב מתקדם עבור פאזה מתמשכת (תיתכן התארכות של תהליך החישוב)."))
+        self.l_images.setText(_translate("MainWindow", "אַפשֵׁר תמונה"))
+        self.check_fifth.setToolTip(_translate("MainWindow", "נסמן אפשרות זו על מנת להתיר ביצוע חישוב עבור 5 תמונות."))
         self.check_fifth.setText(_translate("MainWindow", "חמישית"))
+        self.check_sixth.setToolTip(_translate("MainWindow", "נסמן אפשרות זו על מנת להתיר ביצוע חישוב עבור 6 תמונות."))
         self.check_sixth.setText(_translate("MainWindow", "שישית"))
         self.tb_menu.setItemText(self.tb_menu.indexOf(self.p_junction), _translate("MainWindow", "נתונים כלליים"))
         self.l_tr_dir.setText(_translate("MainWindow", "כיווני מסלול רכבת קלה בצומת"))
-        self.check_dir_noso.setText(_translate("MainWindow", "צפון ⇋ דרום"))
-        self.check_dir_weea.setText(_translate("MainWindow", "מזרח ⇋ מערב"))
+        self.check_lrt_weea.setToolTip(_translate("MainWindow", "נבחר באפשרות זו על מנת לדרוש כי תמונה A תאפשר תנועת העדפה לרכב הנוסע ישר ממזרח למערב."))
+        self.check_lrt_weea.setText(_translate("MainWindow", "מזרח ⇋ מערב"))
+        self.check_lrt_noso.setToolTip(_translate("MainWindow", "נבחר באפשרות זו על מנת לדרוש כי תמונה A תאפשר תנועת העדפה לרכב הנוסע ישר מצפון לדרום"))
+        self.check_lrt_noso.setText(_translate("MainWindow", "צפון ⇋ דרום"))
         self.l_cyc.setText(_translate("MainWindow", "זמן מחזור"))
+        self.l_tr_lost_time.setToolTip(_translate("MainWindow", "זמן אבוד כתוצאה ממעבר הרק\"ל בשניות.\n"
+"עפ\"י הנחיות, 20 שניות פינוי + 5 שניות נסיעה (=25)."))
         self.l_tr_lost_time.setText(_translate("MainWindow", "זמן רק\"ל אבוד"))
+        self.l_tr_hd.setToolTip(_translate("MainWindow", "זמן בדקות בין רכבות המגיעות מאותו כיוון."))
         self.l_tr_hd.setText(_translate("MainWindow", "זמן בין רכבות"))
+        self.l_mcu.setToolTip(_translate("MainWindow", "מקדם ית\"ן משמש בחישובי רמת שירות לרק\"ל,\n"
+"כאשר רוצים לתת משקל עודף לפניות ימינה ושמאלה.\n"
+"על פי הנוהל נשתמש במקדם ית\"ן 1.125. \n"
+"במידה ונרצה לוותר עליו נבחר בערך 1."))
         self.l_mcu.setText(_translate("MainWindow", "מקדם ית\"ן"))
+        self.l_lost_time.setToolTip(_translate("MainWindow", "יש להזין זמן אבוד עפ\"י תכנית הזמנים ללא רק\"ל.\n"
+"במידה וזמן זה אינו ידוע ניתן לבחור באפשרות \"ברירת מחדל\", \n"
+"אשר תעריך זמן אבוד משוער לפי מספר."))
         self.l_lost_time.setText(_translate("MainWindow", "זמן אבוד"))
+        self.check_lost_time.setText(_translate("MainWindow", "ברירת מחדל"))
         self.tb_menu.setItemText(self.tb_menu.indexOf(self.p_lrt), _translate("MainWindow", "נתוני רכבת קלה"))
         self.b_restart.setText(_translate("MainWindow", "אפס נתונים"))
         self.b_update.setText(_translate("MainWindow", "עדכן נתונים"))

@@ -7,15 +7,15 @@ class ID:
       A class used to represent an ID for the created JUNC "
     """
 
-    def __init__(self, phsr_list):
+    def __init__(self):
         self.__Project_name = ""
         self.__Project_number = ""
         self.__Author = ""
         self.__Date_time = str(time.strftime("%d/%m/%Y   %H:%M"))
         self.__Counter = 0
         self.__More_info = ""
-        self.__Street_names = ""
-        self.__phaser_info_list = phsr_list
+        self.__Street_names = ["צפון", "דרום", "מזרח", "מערב"]  # ["North", "South", "East", "West"]
+        self.__Edited_streets = ""
 
     @property
     def PROJ_NAME(self):
@@ -86,28 +86,21 @@ class ID:
     def STREETS(self, streets):
         """Set the names of the streets for this JUNC | DO NOT USE UNLESS NEEDED!"""
         self.__Street_names = streets
+        self.STREETS_DECOR = self.push_street_names()
 
     @property
-    def phsrlst(self):
-        """Get the phaser list info"""
-        return self.__phaser_info_list
+    def STREETS_DECOR(self):
+        """Get the names of the streets for this JUNC"""
+        return self.__Street_names
 
-    @phsrlst.setter
-    def phsrlst(self, value):
-        """Set the phaser list info"""
-        self.__phaser_info_list = value
+    @STREETS_DECOR.setter
+    def STREETS_DECOR(self, value):
+        """Set the names of the streets for this JUNC | DO NOT USE UNLESS NEEDED!"""
+        self.__Street_names = value
 
-    def push_id_info(self, diagram):
-        """the method uses the output section info of Phaser and the excel properties of the volume_calculator to
-        push it into the right property of the class. """
-        self.PROJ_NAME = self.phsrlst[0]
-        self.PROJ_NUM = self.phsrlst[1]
-        self.COUNT = self.phsrlst[3]
-        self.INFO = self.phsrlst[4]
-        self.AUTHOR = "ben~" #  diagram.xlprop[0].lastModifiedBy
-        streets = str(diagram.WE.NAME) + " · " + str(diagram.EA.NAME) + " · " + str(diagram.SO.NAME) + " · " + str(
-            diagram.NO.NAME)
-        self.STREETS = streets
+    def push_street_names(self):
+        return str(self.STREETS[3]) + " · " + str(self.STREETS[2]) + " · " + str(self.STREETS[1]) + " · " + str(
+            self.STREETS[0])
 
     def add_info(self, pres):
         """
@@ -142,4 +135,3 @@ class ID:
                         for run in paragraph.runs:
                             run.font.language_id = MSO_LANGUAGE_ID.HEBREW
         pres.save("id_info.pptx")
-        

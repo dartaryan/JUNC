@@ -1,0 +1,42 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>junc gif - 2.gif</file>
+    <file>icons-svg/check_box_2_disabled.svg</file>
+    <file>icons-svg/check_box_checked_2_hover.svg</file>
+    <file>icons-svg/check_box_checked_2.svg</file>
+    <file>icons-svg/check_box_2_hov.svg</file>
+    <file>icons-svg/check_box_2.svg</file>
+    <file>icons-svg/11653256221617447730.svg</file>
+    <file>icons-svg/add_black_24dp.svg</file>
+    <file>icons-svg/arrow_back_ios_black_24dp.svg</file>
+    <file>icons-svg/assessment_black_24dp (1).svg</file>
+    <file>icons-svg/assessment_black_24dp.svg</file>
+    <file>icons-svg/call_split_black_24dp.svg</file>
+    <file>icons-svg/check_box.svg</file>
+    <file>icons-svg/check_box_checked.svg</file>
+    <file>icons-svg/close_black_24dp.svg</file>
+    <file>icons-svg/description_black_24dp.svg</file>
+    <file>icons-svg/drive_file_move_black_24dp.svg</file>
+    <file>icons-svg/folder_black_24dp.svg</file>
+    <file>icons-svg/folder_open_black_24dp.svg</file>
+    <file>icons-svg/fullscreen_black_24dp.svg</file>
+    <file>icons-svg/gen_1.svg</file>
+    <file>icons-svg/general.svg</file>
+    <file>icons-svg/info.svg</file>
+    <file>icons-svg/info_1.svg</file>
+    <file>icons-svg/info_black_24dp (1).svg</file>
+    <file>icons-svg/info_black_24dp.svg</file>
+    <file>icons-svg/junc_logo.svg</file>
+    <file>icons-svg/logout_black_24dp.svg</file>
+    <file>icons-svg/menu_black_24dp.svg</file>
+    <file>icons-svg/minimize_black_24dp.svg</file>
+    <file>icons-svg/pin_black_24dp.svg</file>
+    <file>icons-svg/play_circle_outline_black_24dp.svg</file>
+    <file>icons-svg/save_black_24dp.svg</file>
+    <file>icons-svg/tram.svg</file>
+    <file>icons-svg/tram_1.svg</file>
+    <file>icons-svg/tram_black_24dp (1).svg</file>
+    <file>icons-svg/tram_black_24dp.svg</file>
+  </qresource>
+  <qresource prefix="new"/>
+</RCC>

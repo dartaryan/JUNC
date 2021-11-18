@@ -29,7 +29,6 @@ def main(JUNC_Diagram):
     # print("new_excel_properties: ", new_excel_properties)
 
     JUNC_Diagram.phsr_lst = PhsrOutput(new_phaser_list)
-    JUNC_Diagram.xlprop = "new_excel_properties"
     print("-----")
     JUNC_Diagram.push_arr()
     JUNC_Diagram.push_vol()

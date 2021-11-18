@@ -11,13 +11,7 @@ class Jucson:
     def __init__(self, output_diagram, jucson_object=""):
         self.__output_diagram = output_diagram
         self.__jucson_obj = jucson_object
-        self.__Project_name = ""
-        self.__Project_number = ""
-        self.__Author = ""
         self.__Date_time = str(time.strftime("%d/%m/%Y   %H:%M"))
-        self.__Counter = 0
-        self.__More_info = ""
-        self.__Street_names = ""
         self.__output_jucson = {}
 
     @property
@@ -51,36 +45,6 @@ class Jucson:
         self.__output_jucson = out_jucson_obj
 
     @property
-    def PROJ_NAME(self):
-        """Get the name of the project"""
-        return self.__Project_name
-
-    @PROJ_NAME.setter
-    def PROJ_NAME(self, name):
-        """Set the name of the project"""
-        self.__Project_name = name
-
-    @property
-    def PROJ_NUM(self):
-        """Get the project number"""
-        return self.__Project_number
-
-    @PROJ_NUM.setter
-    def PROJ_NUM(self, number):
-        """Set the project number"""
-        self.__Project_number = number
-
-    @property
-    def AUTHOR(self):
-        """Get the name of the author, based on the info written in office"""
-        return self.__Author
-
-    @AUTHOR.setter
-    def AUTHOR(self, author):
-        """Set the name of the author | DO NOT USE UNLESS NEEDED!"""
-        self.__Author = author
-
-    @property
     def DATETIME(self):
         """Get the time of the created JUNC"""
         return self.__Date_time
@@ -90,42 +54,7 @@ class Jucson:
         """Set the time of the created JUNC | DO NOT USE UNLESS NEEDED!"""
         self.__Date_time = datetime
 
-    @property
-    def COUNT(self):
-        """Get the number of tries or versions for this JUNC"""
-        return self.__Counter
-
-    @COUNT.setter
-    def COUNT(self, count):
-        """Set  the number of tries or versions for this JUNC"""
-        self.__Counter = count
-
-    @property
-    def INFO(self):
-        """Get the additional info about the JUNC"""
-        return self.__More_info
-
-    @INFO.setter
-    def INFO(self, info):
-        """Set the additional info about the JUNC"""
-        self.__More_info = info
-
-    @property
-    def STREETS(self):
-        """Get the names of the streets for this JUNC"""
-        return self.__Street_names
-
-    @STREETS.setter
-    def STREETS(self, streets):
-        """Set the names of the streets for this JUNC | DO NOT USE UNLESS NEEDED!"""
-        self.__Street_names = streets
-
     def loadJucson(self, file_directory):
-        # f = open(file_directory, )
-        # self.JUCSON = json.load(f)
-        # with codecs.open(file_directory, encoding='utf-8') as f:
-        #     self.JUCSON = json.loads(f)
-
         with open(file_directory, encoding='utf-8') as fh:
             self.JUCSON = json.load(fh)
 
@@ -160,23 +89,20 @@ class Jucson:
     def push_id_info(self):
         """the method uses the output section info of Phaser and the excel properties of the volume_calculator to
         push it into the right property of the class. """
-        self.PROJ_NAME = self.JUCSON["ID_Information"][0]
-        self.PROJ_NUM = self.JUCSON["ID_Information"][1]
-        self.COUNT = self.JUCSON["ID_Information"][3]
-        self.INFO = self.JUCSON["ID_Information"][4]
-        self.AUTHOR = self.JUCSON["VC_Author"]
-        streets = str(self.OUTJUNC.WE.NAME) + " · " + str(self.OUTJUNC.EA.NAME) + " · " + str(
-            self.OUTJUNC.SO.NAME) + " · " + str(
-            self.OUTJUNC.NO.NAME)
-        self.STREETS = streets
+        self.OUTJUNC.ID.PROJ_NAME = self.JUCSON["ID_Information"]["Project_Name"]
+        self.OUTJUNC.ID.PROJ_NUM = self.JUCSON["ID_Information"]["Project_Number"]
+        self.OUTJUNC.ID.COUNT = self.JUCSON["ID_Information"]["Project_Count"]
+        self.OUTJUNC.ID.INFO = self.JUCSON["ID_Information"]["Project_Info"]
+        self.OUTJUNC.ID.AUTHOR = self.JUCSON["ID_Information"]["Project_Author"]
+        self.OUTJUNC.ID.STREETS = self.JUCSON["Street_Names"]
 
     def pull_id_info(self):
-        self.OUTJUCSON["ID_Information"] = ["", "", "", "", ""]
-        self.OUTJUCSON["ID_Information"][0] = self.PROJ_NAME
-        self.OUTJUCSON["ID_Information"][1] = self.PROJ_NUM
-        self.OUTJUCSON["ID_Information"][3] = self.COUNT
-        self.OUTJUCSON["ID_Information"][4] = self.INFO
-        self.OUTJUCSON["VC_Author"] = self.AUTHOR
+        self.OUTJUCSON["ID_Information"]["Project_Name"] = self.OUTJUNC.ID.PROJ_NAME
+        self.OUTJUCSON["ID_Information"]["Project_Number"] = self.OUTJUNC.ID.PROJ_NUM
+        self.OUTJUCSON["ID_Information"]["Project_Count"] = self.OUTJUNC.ID.COUNT
+        self.OUTJUCSON["ID_Information"]["Project_Info"] = self.OUTJUNC.ID.INFO
+        self.OUTJUCSON["ID_Information"]["Project_Author"] = self.OUTJUNC.ID.AUTHOR
+        self.OUTJUCSON["Street_Names"] = self.OUTJUNC.ID.STREETS
 
     def push_arr(self):
         """the method uses the output arrows of Phaser to push them into the right subclass of each direction,

@@ -96,6 +96,7 @@ class MainWindow(QMainWindow):
         self.current_user_name = get_display_name()
 
         self.ui.b_destfolder.clicked.connect(lambda: self.setOutputDirectory())
+        self.ui.b_run.clicked.connect(lambda: self.run_JUNC())
 
         self.ui.no_check.setChecked(True)
         self.ui.ea_check.setChecked(True)
@@ -120,19 +121,58 @@ class MainWindow(QMainWindow):
 
         # fix screen sizing #
 
-        self.ui.b_run.clicked.connect(lambda: self.run_JUNC())
-
+        self.ui.slide_menu_container.setFixedWidth(0)
         self.tempAuthor = ""
         self.setMonitorSize()
         self.rotate_pixmap()
         self.ui.b_open_close_edit.checkedState = False
         self.ui.b_open_close_edit.setText("W")
         self.ui.f_edit_control_buttons.setMaximumWidth(0)
+
         self.show()
         self.rotate_pixmap()
         self.editSize()
 
         #  Edit menu info
+        self.style_mcu = \
+            "QDoubleSpinBox#spin_mcu {font: 13pt 'Rubik';color: rgb(48,54,69);border-radius: " \
+            "10px;background-color: rgb(217,217,217);}QDoubleSpinBox#spin_mcu::up-arrow {border-left: " \
+            "4px solid none;border-right: 4px solid none;border-bottom: 10px solid rgb(48,54,69);width: " \
+            "0px;height: 0px;}QDoubleSpinBox#spin_mcu::up-arrow:hover {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-bottom: 10px solid gray;width: 0px;height: " \
+            "0px;}QDoubleSpinBox#spin_mcu::up-button {width: 20px;height: 20px;background-color: rgb(" \
+            "200,200,200);border-radius: 5px;}QDoubleSpinBox#spin_mcu::down-arrow {border-left: 4px " \
+            "solid none;border-right: 4px solid none;border-top: 10px solid rgb(48,54,69);width: " \
+            "0px;height: 0px;}QDoubleSpinBox#spin_mcu::down-arrow:hover {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: " \
+            "0px;}QDoubleSpinBox#spin_mcu::down-button {width: 20px;height: 20px;background-color: rgb(" \
+            "200,200,200);border-radius: 5px;}QDoubleSpinBox#spin_mcu:disabled {font: 13pt " \
+            "'Rubik';color: gray;border-radius: 10px;background-color: rgb(227,227," \
+            "227);}QDoubleSpinBox#spin_mcu::up-arrow:disabled {border-left: 4px solid none;border-right: " \
+            "4px solid none;border-bottom: 10px solid gray;width: 0px;height: " \
+            "0px;}QDoubleSpinBox#spin_mcu::down-arrow:disabled {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: 0px;} "
+
+        self.style_lost_time_spinner = \
+            "QSpinBox#spin_lost_time {font: 13pt 'Rubik';color: rgb(48,54," \
+            "69);border-radius: " \
+            "10px;background-color: rgb(217,217,217);}QSpinBox#spin_lost_time::up-arrow {border-left: " \
+            "4px solid none;border-right: 4px solid none;border-bottom: 10px solid rgb(48,54," \
+            "69);width: 0px;height: 0px;}QSpinBox#spin_lost_time::up-arrow:hover {border-left: 4px " \
+            "solid none;border-right: 4px solid none;border-bottom: 10px solid gray;width: " \
+            "0px;height: 0px;}QSpinBox#spin_lost_time::up-button {width: 20px;height: " \
+            "20px;background-color: rgb(200,200,200);border-radius: " \
+            "5px;}QSpinBox#spin_lost_time::down-arrow {border-left: 4px solid none;border-right: 4px " \
+            "solid none;border-top: 10px solid rgb(48,54,69);width: 0px;height: " \
+            "0px;}QSpinBox#spin_lost_time::down-arrow:hover {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: " \
+            "0px;}QSpinBox#spin_lost_time::down-button {width: 20px;height: 20px;background-color: " \
+            "rgb(200,200,200);border-radius: 5px;}QSpinBox#spin_lost_time:disabled {font: 13pt " \
+            "'Rubik';color: gray;border-radius: 10px;background-color: rgb(227,227," \
+            "227);}QSpinBox#spin_lost_time::up-arrow:disabled {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-bottom: 10px solid gray;width: 0px;height: " \
+            "0px;}QSpinBox#spin_lost_time::down-arrow:disabled {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: 0px;} "
 
         self.phaser_input_list = ['Morning',  # 0
                                   "Morning_Volumes",  # 1
@@ -161,6 +201,38 @@ class MainWindow(QMainWindow):
                                   ["PROJ_NAME", "PROJ_NUM", "AUTHOR", "COUNT", "INFO"]  # 21 --> Get from sidebar
                                   ]
 
+        self.setLostTime()
+        self.first_checks_state()
+
+    def createSpinnerStyle(self, spinner):
+        style_spinner = \
+            "QSpinBox#%s {font: 13pt 'Rubik';color: rgb(48,54," \
+            "69);border-radius: " \
+            "10px;background-color: rgb(217,217,217);}QSpinBox#%s::up-arrow {border-left: " \
+            "4px solid none;border-right: 4px solid none;border-bottom: 10px solid rgb(48,54," \
+            "69);width: 0px;height: 0px;}QSpinBox#%s::up-arrow:hover {border-left: 4px " \
+            "solid none;border-right: 4px solid none;border-bottom: 10px solid gray;width: " \
+            "0px;height: 0px;}QSpinBox#%s::up-button {width: 20px;height: " \
+            "20px;background-color: rgb(200,200,200);border-radius: " \
+            "5px;}QSpinBox#%s::down-arrow {border-left: 4px solid none;border-right: 4px " \
+            "solid none;border-top: 10px solid rgb(48,54,69);width: 0px;height: " \
+            "0px;}QSpinBox#%s::down-arrow:hover {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: " \
+            "0px;}QSpinBox#%s::down-button {width: 20px;height: 20px;background-color: " \
+            "rgb(200,200,200);border-radius: 5px;}QSpinBox#%s:disabled {font: 13pt " \
+            "'Rubik';color: gray;border-radius: 10px;background-color: rgb(227,227," \
+            "227);}QSpinBox#%s::up-arrow:disabled {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-bottom: 10px solid gray;width: 0px;height: " \
+            "0px;}QSpinBox#%s::down-arrow:disabled {border-left: 4px solid " \
+            "none;border-right: 4px solid none;border-top: 10px solid gray;width: 0px;height: 0px;} " \
+            % (spinner, spinner, spinner, spinner, spinner, spinner, spinner, spinner, spinner, spinner)
+        return style_spinner
+
+    def first_checks_state(self):
+        self.updatePhaserFromUI()
+        self.ui.check_lrt_noso.setChecked(False)
+        self.enabledLRT()
+
         # First Page
         self.ui.txt_pro_name.textEdited.connect(lambda: self.setProjectName())
         self.ui.txt_pro_num.textEdited.connect(lambda: self.setProjectNumber())
@@ -170,10 +242,108 @@ class MainWindow(QMainWindow):
         self.ui.txt_info.textEdited.connect(lambda: self.setMoreInfo())
 
         # Second Page
+        self.ui.spin_cap.valueChanged.connect(lambda: self.setCapacity())
+        self.ui.check_noso.stateChanged.connect(lambda: self.setNLSL())
+        self.ui.check_weea.stateChanged.connect(lambda: self.setELWL())
+        self.ui.check_fifth.stateChanged.connect(lambda: self.set5Image())
+        self.ui.check_sixth.stateChanged.connect(lambda: self.set6Image())
+        self.ui.spin_inf.valueChanged.connect(lambda: self.setInflation())
 
         # Third Page
+        self.ui.check_lrt_noso.clicked.connect(lambda: self.setLrtNS())
+        self.ui.check_lrt_weea.clicked.connect(lambda: self.setLrtEW())
+        self.ui.spin_cyc.valueChanged.connect(lambda: self.setCycleTime())
+        self.ui.spin_tr_lost_time.valueChanged.connect(lambda: self.setTrainLostTime())
+        self.ui.spin_hd.valueChanged.connect(lambda: self.setTrainHeadway())
+        self.ui.spin_mcu.valueChanged.connect(lambda: self.setMCU())
+        self.ui.spin_lost_time.valueChanged.connect(lambda: self.setSpinLostTime())
+        self.ui.check_lost_time.stateChanged.connect(lambda: self.setLostTime())
 
         self.ui.b_update.clicked.connect(lambda: self.printPhaserList())
+        self.ui.b_restart.clicked.connect(lambda: self.setMenuToDefault())
+
+    def getVolFromJucson(self):
+        self.jucson.pull_vol()
+        self.phaser_input_list[1] = (self.jucson.OUTJUCSON["Morning_Volumes"])
+        self.phaser_input_list[16] = (self.jucson.OUTJUCSON["Evening_Volumes"])
+
+    def getArrowsFromJucson(self):
+        self.jucson.pull_arr()
+        self.phaser_input_list[2] = (self.jucson.OUTJUCSON["Regular_Arrows"])
+        self.phaser_input_list[5] = (self.jucson.OUTJUCSON["PublicTransport_Arrows"])
+
+    def getInfoFromJucson(self):
+        lrt_NS = self.mainDiagram.LRT_INF.LRT_Orig[0]
+        lrt_EW = self.mainDiagram.LRT_INF.LRT_Orig[1]
+        general_lost_time = self.mainDiagram.LRT_INF.GEN_LOST_TIME
+        self.ui.txt_pro_name.setText(self.mainDiagram.ID.PROJ_NAME)
+        self.ui.txt_author.setText(self.mainDiagram.ID.AUTHOR)
+        self.ui.txt_pro_num.setText(self.mainDiagram.ID.PROJ_NUM)
+        self.ui.txt_ver.setText(self.mainDiagram.ID.COUNT)
+        self.ui.txt_info.setText(self.mainDiagram.ID.INFO)
+        self.ui.spin_cap.setValue(self.mainDiagram.G_INF.CAP)
+        self.ui.check_weea.setChecked(self.mainDiagram.G_INF.ELWL)
+        self.ui.check_noso.setChecked(self.mainDiagram.G_INF.NLSL)
+        self.ui.spin_inf.setValue(self.mainDiagram.G_INF.INF)
+        self.ui.check_fifth.setChecked(True if self.mainDiagram.G_INF.IMG5 == 1 else False)
+        self.ui.check_sixth.setChecked(True if self.mainDiagram.G_INF.IMG6 == 1 else False)
+        self.ui.check_lrt_noso.setChecked(True if lrt_NS == 1 else False)
+        self.ui.check_lrt_weea.setChecked(True if lrt_EW == 1 else False)
+        self.enabledLRT()
+        if self.ui.check_lrt_noso.isChecked() or self.ui.check_lrt_weea.isChecked():
+            self.ui.spin_cyc.setValue(self.mainDiagram.LRT_INF.CYC_TIME)
+            self.ui.spin_tr_lost_time.setValue(self.mainDiagram.LRT_INF.LRT_LOST_TIME)
+            self.ui.spin_hd.setValue(self.mainDiagram.LRT_INF.LRT_HDWAY)
+            self.ui.spin_mcu.setValue(self.mainDiagram.LRT_INF.LRT_MCU)
+            if general_lost_time == 0:
+                self.ui.check_lost_time.setChecked(True)
+            else:
+                self.ui.check_lost_time.setChecked(False)
+                self.ui.spin_lost_time.setValue(general_lost_time)
+
+    def setMenuToDefault(self):
+        self.ui.txt_pro_name.setText("")
+        self.ui.txt_author.setText("")
+        self.ui.txt_pro_num.setText("")
+        self.ui.txt_ver.setText("")
+        self.ui.txt_info.setText("")
+        self.ui.spin_cap.setValue(1800)
+
+        self.ui.spin_inf.setValue(1)
+        self.ui.check_fifth.setChecked(False)
+        self.ui.check_sixth.setChecked(False)
+        self.ui.check_lrt_noso.setChecked(False)
+        self.ui.check_lrt_weea.setChecked(False)
+        self.ui.spin_cyc.setValue(120)
+        self.ui.spin_tr_lost_time.setValue(25)
+        self.ui.spin_hd.setValue(5)
+        self.ui.spin_mcu.setValue(1)
+        self.ui.spin_lost_time.setValue(0)
+        self.ui.check_lost_time.setChecked(True)
+        self.ui.check_weea.setChecked(False)
+        self.ui.check_noso.setChecked(False)
+        self.enabledLRT()
+
+    def updatePhaserFromUI(self):
+        self.setLrtNS()
+        self.setLrtEW()
+        self.setCycleTime()
+        self.setTrainLostTime()
+        self.setTrainHeadway()
+        self.setMCU()
+        self.setLostTime()
+        self.setSpinLostTime()
+        self.setCapacity()
+        self.setNLSL()
+        self.setELWL()
+        self.set5Image()
+        self.set6Image()
+        self.setInflation()
+        self.setProjectName()
+        self.setProjectNumber()
+        self.setAuthorName()
+        self.setCount()
+        self.setMoreInfo()
 
     def run_JUNC(self):
         Main_ID.set_Diagram(self.mainDiagram)
@@ -182,6 +352,82 @@ class MainWindow(QMainWindow):
         msgBox.setText(final_message)
         msgBox.exec()
 
+    def setLrtNS(self):
+        lrt_NS = 1 if self.ui.check_lrt_noso.isChecked() else 0
+        self.phaser_input_list[3][8] = lrt_NS
+        self.mainDiagram.LRT_INF.LRT_Orig[0] = lrt_NS
+        self.enabledLRT()
+
+    def setLrtEW(self):
+        lrt_EW = 1 if self.ui.check_lrt_weea.isChecked() else 0
+        self.phaser_input_list[3][9] = lrt_EW
+        self.mainDiagram.LRT_INF.LRT_Orig[0] = lrt_EW
+        self.enabledLRT()
+
+    def enabledLRT(self):
+        if self.ui.check_lrt_noso.isChecked() or self.ui.check_lrt_weea.isChecked():
+            self.phaser_input_list[4][0] = 1
+            self.ui.f_lrt_enable.setEnabled(True)
+
+        else:
+            self.phaser_input_list[4][0] = 0
+            self.ui.f_lrt_enable.setEnabled(False)
+
+        self.ui.spin_cyc.setStyleSheet(self.createSpinnerStyle("spin_cyc"))
+        self.ui.spin_tr_lost_time.setStyleSheet(self.createSpinnerStyle("spin_tr_lost_time"))
+        self.ui.spin_hd.setStyleSheet(self.createSpinnerStyle("spin_hd"))
+        self.ui.spin_mcu.setStyleSheet(self.style_mcu)
+
+    def setCycleTime(self):
+        cycleTime = int(self.ui.spin_cyc.text())
+        self.phaser_input_list[4][1] = cycleTime
+        self.mainDiagram.LRT_INF.CYC_TIME = cycleTime
+
+    def setTrainLostTime(self):
+        LrtLostTime = int(self.ui.spin_tr_lost_time.text())
+        self.phaser_input_list[4][2] = LrtLostTime
+        self.mainDiagram.LRT_INF.LRT_LOST_TIME = LrtLostTime
+
+    def setTrainHeadway(self):
+        TrainHeadway = int(self.ui.spin_hd.text())
+        self.phaser_input_list[4][3] = TrainHeadway
+        self.mainDiagram.LRT_INF.LRT_HDWAY = TrainHeadway
+
+    def setMCU(self):
+        MCU = float(self.ui.spin_mcu.text())
+        self.phaser_input_list[4][4] = MCU
+        self.mainDiagram.LRT_INF.LRT_MCU = MCU
+
+    def setLostTime(self):
+        if self.ui.check_lost_time.isChecked():
+            self.phaser_input_list[4][5] = 0
+            self.ui.spin_lost_time.setDisabled(True)
+        else:
+            self.ui.spin_lost_time.setEnabled(True)
+            self.phaser_input_list[4][5] = int(self.ui.spin_lost_time.text())
+
+        self.ui.spin_lost_time.setStyleSheet(self.style_lost_time_spinner)
+
+    def setSpinLostTime(self):
+        self.phaser_input_list[4][5] = int(self.ui.spin_lost_time.text())
+
+    def setCapacity(self):
+        self.phaser_input_list[3][0] = int(self.ui.spin_cap.text())
+
+    def setNLSL(self):
+        self.phaser_input_list[3][1] = 1 if self.ui.check_noso.isChecked() else 0
+
+    def setELWL(self):
+        self.phaser_input_list[3][2] = 1 if self.ui.check_weea.isChecked() else 0
+
+    def set5Image(self):
+        self.phaser_input_list[3][3] = 1 if self.ui.check_fifth.isChecked() else 0
+
+    def set6Image(self):
+        self.phaser_input_list[3][4] = 1 if self.ui.check_sixth.isChecked() else 0
+
+    def setInflation(self):
+        self.phaser_input_list[3][10] = float(self.ui.spin_inf.text())
 
     def setProjectName(self):
         self.phaser_input_list[21][0] = self.ui.txt_pro_name.text()
@@ -208,16 +454,10 @@ class MainWindow(QMainWindow):
         self.phaser_input_list[21][4] = self.ui.txt_info.text()
 
     def printPhaserList(self):
-        print(self.phaser_input_list[21])
+        self.updatePhaserFromUI()
+        print(self.phaser_input_list)
 
     # Global functions
-
-    def changeScreen(self):
-        pass
-
-    def center(self):
-        screen = QDesktopWidget().screenGeometry()
-        size = self.geometry()
 
     def closeAllWindows(self):
         button_value = self.saveMessageBox("close")
@@ -532,8 +772,17 @@ class MainWindow(QMainWindow):
 
     def updateUiFromMainDiagram(self):
         self.arrowsToUi()
+        print("arrowsToUi")
         self.volumesToUi()
+        print("volumesToUi")
         self.streetsToUi()
+        print("streetsToUi")
+        self.getInfoFromJucson()
+        print("getInfoFromJucson")
+        self.getVolFromJucson()
+        print("getVolFromJucson")
+        self.getArrowsFromJucson()
+        print("getArrowsFromJucson")
 
     def updateNamesToMainDiagram(self, direction):
         direction_dict = {"no": "צפון", "so": "דרום", "we": "מערב", "ea": "מזרח"}
@@ -658,7 +907,9 @@ class MainWindow(QMainWindow):
                           "push_street_names"]
         for method in jucson_methods:
             cur_method = getattr(self.jucson, method)
+            print("---", method)
             cur_method()
+
         self.updateUiFromMainDiagram()
 
     def loadVCFile(self):
@@ -1755,3 +2006,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     sys.exit(app.exec_())
+
+"""
+
+"""

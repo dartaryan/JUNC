@@ -1,6 +1,7 @@
 import Main_Table
 import Main_Diagram
 from ID import *
+from Diagram import Diagram
 
 Input_Diagram = Diagram()
 
@@ -14,9 +15,7 @@ def main():
     JUNC_Diagram = Main_Diagram.main(Input_Diagram)
     JUNC_Table = Main_Table.main(JUNC_Diagram)
     set_id_output_directory(JUNC_Diagram.OUTPUT)
-    new_info = JUNC_Table.phsrlst.ID_INFO
-    JUNC_ID = ID(new_info)
-    JUNC_ID.push_id_info(JUNC_Diagram)
+    JUNC_ID = JUNC_Diagram.ID
     create_new_id_templates_file()
     id_prs = Presentation("id_template.pptx")
     JUNC_ID.add_info(id_prs)

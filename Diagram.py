@@ -6,6 +6,7 @@ from pptx.util import Pt
 from Building_Diagram import *
 from Directions import *
 from General_Info import *
+from ID import ID
 from LRT_Info import *
 
 
@@ -27,7 +28,7 @@ class Diagram:
         self.__LRTInfo = LRT_Info()  # A property representing LRT info about the junction.
         self.__InfoFromPhaser = ""  # A class that holds the output from Phaser. That is the data the will be pushed to
         # the different class in Diagram and Table.
-        self.__ExcelProperties = ""  # A list with info about the creator of the volume_calculator excel file. It is
+        self.__IdInfo = ID()  # A list with info about the creator of the volume_calculator excel file. It is
         # used in the ID file
         self.__OutputFolder = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 
@@ -102,14 +103,14 @@ class Diagram:
         self.__InfoFromPhaser = value
 
     @property
-    def xlprop(self):
+    def ID(self):
         """Get the excel properties of the current JUNC"""
-        return self.__ExcelProperties
+        return self.__IdInfo
 
-    @xlprop.setter
-    def xlprop(self, value):
+    @ID.setter
+    def ID(self, value):
         """Set the excel properties of the current JUNC"""
-        self.__ExcelProperties = value
+        self.__IdInfo = value
 
     @property
     def OUTPUT(self):
