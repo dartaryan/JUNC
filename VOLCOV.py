@@ -28,7 +28,7 @@ class VolCov:
         VC_list, xl_prop = self.getVC()
         VC_titles = ["Morning_Volumes", "Regular_Arrows", "General_Information", "LRT_Information",
                      "PublicTransport_Arrows", "Evening_Volumes", "Street_Names"]
-        VC_id_titles = ["Project_Name", "Project_Number","Project_Author", "Project_Count", "Project_Info" ]
+        VC_id_titles = ["Project_Name", "Project_Number", "Project_Author", "Project_Count", "Project_Info"]
         id_info = VC_list.pop(-1)
         print(id_info)
         print(VC_list)
@@ -36,7 +36,7 @@ class VolCov:
         id_json = {}
         for title, data in zip(VC_titles, VC_list):
             self.vc_json[title] = data
-            print(title,":",data)
+            print(title, ":", data)
         print("-----id-info-----")
         for id_title, id_data in zip(VC_id_titles, id_info):
             print(id_title, ":", id_data)
@@ -45,7 +45,7 @@ class VolCov:
             else:
                 id_json[id_title] = id_data
 
-        self.vc_json["ID_Information"]= id_json
+        self.vc_json["ID_Information"] = id_json
 
         print(self.vc_json)
         return self.vc_json

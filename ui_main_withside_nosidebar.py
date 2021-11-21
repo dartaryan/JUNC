@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebarHyhkGl.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebartcmcQj.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1003, 987)
+        MainWindow.resize(1194, 987)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -273,6 +273,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(11, 11, 11, 11)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.f_dirs = QtWidgets.QFrame(self.f_diagram)
+        self.f_dirs.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -312,20 +313,14 @@ class Ui_MainWindow(object):
 "    background-color: rgb(201, 142, 46);\n"
 "}\n"
 "\n"
-"QCheckBox#no_check:indicator:unchecked:hover,\n"
-"#so_check:indicator:unchecked:hover,\n"
-"#we_check:indicator:unchecked:hover,\n"
-"#ea_check:indicator:unchecked:hover {\n"
-"    background-color: rgba(0, 0, 0, 20);\n"
+"QCheckBox#no_check:indicator:disabled,\n"
+"#so_check:indicator:disabled,\n"
+"#we_check:indicator:disabled,\n"
+"#ea_check:indicator:disabled {\n"
+"    background-color: rgba(15, 143, 137, 255);\n"
 "}\n"
 "\n"
-"QCheckBox#no_check:indicator:checked:hover,\n"
-"#so_check:indicator:checked:hover,\n"
-"#we_check:indicator:checked:hover,\n"
-"#ea_check:indicator:checked:hover {\n"
-"    background-color: rgb(19, 191, 183);\n"
-"    background-color: rgb(11, 108, 103);\n"
-"}\n"
+"\n"
 "\n"
 "QPushButton#no_dir,\n"
 "#no_vol,\n"
@@ -370,6 +365,14 @@ class Ui_MainWindow(object):
 "    background-color: rgba(225, 225, 225, 0);\n"
 "    border: none;\n"
 "    border-bottom: 2px solid rgba(59, 59, 59, 220);\n"
+"}\n"
+"\n"
+"QToolTip {\n"
+"    background-color: rgba(43, 49, 63,150);\n"
+"    font: 11pt \"Rubik\";\n"
+"    color: rgb(238, 238, 238);\n"
+"    border-radius: 2px;\n"
+"    border-color: 3px solid rgb(238, 238, 238);\n"
 "}")
         self.f_dirs.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.f_dirs.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -419,6 +422,7 @@ class Ui_MainWindow(object):
         self.no_check.setStyleSheet("")
         self.no_check.setText("")
         self.no_check.setIconSize(QtCore.QSize(70, 20))
+        self.no_check.setCheckable(False)
         self.no_check.setObjectName("no_check")
         self.verticalLayout_22.addWidget(self.no_check, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.verticalLayout_21.addWidget(self.f_no_check, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -528,6 +532,7 @@ class Ui_MainWindow(object):
         self.so_check.setStyleSheet("")
         self.so_check.setText("")
         self.so_check.setIconSize(QtCore.QSize(70, 20))
+        self.so_check.setCheckable(False)
         self.so_check.setObjectName("so_check")
         self.verticalLayout_16.addWidget(self.so_check)
         self.verticalLayout_3.addWidget(self.f_so_check, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -637,6 +642,7 @@ class Ui_MainWindow(object):
         self.ea_check.setStyleSheet("")
         self.ea_check.setText("")
         self.ea_check.setIconSize(QtCore.QSize(70, 20))
+        self.ea_check.setCheckable(False)
         self.ea_check.setObjectName("ea_check")
         self.verticalLayout_24.addWidget(self.ea_check)
         self.verticalLayout_23.addWidget(self.f_ea_check, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -746,6 +752,7 @@ class Ui_MainWindow(object):
         self.we_check.setStyleSheet("")
         self.we_check.setText("")
         self.we_check.setIconSize(QtCore.QSize(70, 20))
+        self.we_check.setCheckable(False)
         self.we_check.setObjectName("we_check")
         self.verticalLayout_20.addWidget(self.we_check)
         self.verticalLayout_17.addWidget(self.f_we_check, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -853,11 +860,108 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
-        self.f_dig_r_t = QtWidgets.QFrame(self.f_diagram_base)
-        self.f_dig_r_t.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_r_t.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_r_t.setObjectName("f_dig_r_t")
-        self.gridLayout.addWidget(self.f_dig_r_t, 0, 2, 1, 1)
+        self.f_dig_so = QtWidgets.QFrame(self.f_diagram_base)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.f_dig_so.sizePolicy().hasHeightForWidth())
+        self.f_dig_so.setSizePolicy(sizePolicy)
+        self.f_dig_so.setStyleSheet("QFrame#f_dig_so{\n"
+"\n"
+"border-bottom-left-radius: 30px;\n"
+"  border-bottom-right-radius: 30px;\n"
+"}\n"
+"")
+        self.f_dig_so.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so.setObjectName("f_dig_so")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.f_dig_so)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.f_dig_so_name = QtWidgets.QFrame(self.f_dig_so)
+        self.f_dig_so_name.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so_name.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so_name.setObjectName("f_dig_so_name")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.f_dig_so_name)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.dig_so_name = QtWidgets.QLabel(self.f_dig_so_name)
+        self.dig_so_name.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_name.setObjectName("dig_so_name")
+        self.verticalLayout_33.addWidget(self.dig_so_name)
+        self.verticalLayout_30.addWidget(self.f_dig_so_name)
+        self.f_dig_so_arrows = QtWidgets.QFrame(self.f_dig_so)
+        self.f_dig_so_arrows.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so_arrows.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so_arrows.setObjectName("f_dig_so_arrows")
+        self.horizontalLayout_40 = QtWidgets.QHBoxLayout(self.f_dig_so_arrows)
+        self.horizontalLayout_40.setObjectName("horizontalLayout_40")
+        self.dig_so_arrows = QtWidgets.QLabel(self.f_dig_so_arrows)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.dig_so_arrows.sizePolicy().hasHeightForWidth())
+        self.dig_so_arrows.setSizePolicy(sizePolicy)
+        self.dig_so_arrows.setText("")
+        self.dig_so_arrows.setScaledContents(True)
+        self.dig_so_arrows.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_arrows.setObjectName("dig_so_arrows")
+        self.horizontalLayout_40.addWidget(self.dig_so_arrows)
+        self.verticalLayout_30.addWidget(self.f_dig_so_arrows)
+        self.f_dig_so_vol = QtWidgets.QFrame(self.f_dig_so)
+        self.f_dig_so_vol.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so_vol.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so_vol.setObjectName("f_dig_so_vol")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.f_dig_so_vol)
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
+        self.f_dig_so_vol_mor = QtWidgets.QFrame(self.f_dig_so_vol)
+        self.f_dig_so_vol_mor.setStyleSheet("QLabel{\n"
+"    font: 10pt \"Rubik\";\n"
+"    color: rgb(232, 166, 66);\n"
+"\n"
+"}")
+        self.f_dig_so_vol_mor.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so_vol_mor.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so_vol_mor.setObjectName("f_dig_so_vol_mor")
+        self.horizontalLayout_34 = QtWidgets.QHBoxLayout(self.f_dig_so_vol_mor)
+        self.horizontalLayout_34.setObjectName("horizontalLayout_34")
+        self.dig_so_vol_mor_r = QtWidgets.QLabel(self.f_dig_so_vol_mor)
+        self.dig_so_vol_mor_r.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_mor_r.setObjectName("dig_so_vol_mor_r")
+        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_r)
+        self.dig_so_vol_mor_t = QtWidgets.QLabel(self.f_dig_so_vol_mor)
+        self.dig_so_vol_mor_t.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_mor_t.setObjectName("dig_so_vol_mor_t")
+        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_t)
+        self.dig_so_vol_mor_l = QtWidgets.QLabel(self.f_dig_so_vol_mor)
+        self.dig_so_vol_mor_l.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_mor_l.setObjectName("dig_so_vol_mor_l")
+        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_l)
+        self.verticalLayout_29.addWidget(self.f_dig_so_vol_mor)
+        self.f_dig_so_vol_eve = QtWidgets.QFrame(self.f_dig_so_vol)
+        self.f_dig_so_vol_eve.setStyleSheet("QLabel{\n"
+"    font: 10pt \"Rubik\";\n"
+"    color: rgb(183, 207, 232);\n"
+"\n"
+"}")
+        self.f_dig_so_vol_eve.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_so_vol_eve.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_so_vol_eve.setObjectName("f_dig_so_vol_eve")
+        self.horizontalLayout_33 = QtWidgets.QHBoxLayout(self.f_dig_so_vol_eve)
+        self.horizontalLayout_33.setObjectName("horizontalLayout_33")
+        self.dig_so_vol_eve_r = QtWidgets.QLabel(self.f_dig_so_vol_eve)
+        self.dig_so_vol_eve_r.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_eve_r.setObjectName("dig_so_vol_eve_r")
+        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_r)
+        self.dig_so_vol_eve_t = QtWidgets.QLabel(self.f_dig_so_vol_eve)
+        self.dig_so_vol_eve_t.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_eve_t.setObjectName("dig_so_vol_eve_t")
+        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_t)
+        self.dig_so_vol_eve_l = QtWidgets.QLabel(self.f_dig_so_vol_eve)
+        self.dig_so_vol_eve_l.setAlignment(QtCore.Qt.AlignCenter)
+        self.dig_so_vol_eve_l.setObjectName("dig_so_vol_eve_l")
+        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_l)
+        self.verticalLayout_29.addWidget(self.f_dig_so_vol_eve)
+        self.verticalLayout_30.addWidget(self.f_dig_so_vol)
+        self.gridLayout.addWidget(self.f_dig_so, 2, 3, 1, 1)
         self.f_dig_no = QtWidgets.QFrame(self.f_diagram_base)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -966,119 +1070,16 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.addWidget(self.f_dig_no_vol_eve)
         self.verticalLayout_28.addWidget(self.f_dig_no_vol)
         self.gridLayout.addWidget(self.f_dig_no, 0, 3, 1, 1)
-        self.f_dig_so = QtWidgets.QFrame(self.f_diagram_base)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.f_dig_so.sizePolicy().hasHeightForWidth())
-        self.f_dig_so.setSizePolicy(sizePolicy)
-        self.f_dig_so.setStyleSheet("QFrame#f_dig_so{\n"
-"\n"
-"border-bottom-left-radius: 30px;\n"
-"  border-bottom-right-radius: 30px;\n"
-"}\n"
-"")
-        self.f_dig_so.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so.setObjectName("f_dig_so")
-        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.f_dig_so)
-        self.verticalLayout_30.setObjectName("verticalLayout_30")
-        self.f_dig_so_name = QtWidgets.QFrame(self.f_dig_so)
-        self.f_dig_so_name.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so_name.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so_name.setObjectName("f_dig_so_name")
-        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.f_dig_so_name)
-        self.verticalLayout_33.setObjectName("verticalLayout_33")
-        self.dig_so_name = QtWidgets.QLabel(self.f_dig_so_name)
-        self.dig_so_name.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_name.setObjectName("dig_so_name")
-        self.verticalLayout_33.addWidget(self.dig_so_name)
-        self.verticalLayout_30.addWidget(self.f_dig_so_name)
-        self.f_dig_so_arrows = QtWidgets.QFrame(self.f_dig_so)
-        self.f_dig_so_arrows.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so_arrows.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so_arrows.setObjectName("f_dig_so_arrows")
-        self.horizontalLayout_40 = QtWidgets.QHBoxLayout(self.f_dig_so_arrows)
-        self.horizontalLayout_40.setObjectName("horizontalLayout_40")
-        self.dig_so_arrows = QtWidgets.QLabel(self.f_dig_so_arrows)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dig_so_arrows.sizePolicy().hasHeightForWidth())
-        self.dig_so_arrows.setSizePolicy(sizePolicy)
-        self.dig_so_arrows.setText("")
-        self.dig_so_arrows.setScaledContents(True)
-        self.dig_so_arrows.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_arrows.setObjectName("dig_so_arrows")
-        self.horizontalLayout_40.addWidget(self.dig_so_arrows)
-        self.verticalLayout_30.addWidget(self.f_dig_so_arrows)
-        self.f_dig_so_vol = QtWidgets.QFrame(self.f_dig_so)
-        self.f_dig_so_vol.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so_vol.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so_vol.setObjectName("f_dig_so_vol")
-        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.f_dig_so_vol)
-        self.verticalLayout_29.setObjectName("verticalLayout_29")
-        self.f_dig_so_vol_mor = QtWidgets.QFrame(self.f_dig_so_vol)
-        self.f_dig_so_vol_mor.setStyleSheet("QLabel{\n"
-"    font: 10pt \"Rubik\";\n"
-"    color: rgb(232, 166, 66);\n"
-"\n"
-"}")
-        self.f_dig_so_vol_mor.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so_vol_mor.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so_vol_mor.setObjectName("f_dig_so_vol_mor")
-        self.horizontalLayout_34 = QtWidgets.QHBoxLayout(self.f_dig_so_vol_mor)
-        self.horizontalLayout_34.setObjectName("horizontalLayout_34")
-        self.dig_so_vol_mor_r = QtWidgets.QLabel(self.f_dig_so_vol_mor)
-        self.dig_so_vol_mor_r.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_mor_r.setObjectName("dig_so_vol_mor_r")
-        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_r)
-        self.dig_so_vol_mor_t = QtWidgets.QLabel(self.f_dig_so_vol_mor)
-        self.dig_so_vol_mor_t.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_mor_t.setObjectName("dig_so_vol_mor_t")
-        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_t)
-        self.dig_so_vol_mor_l = QtWidgets.QLabel(self.f_dig_so_vol_mor)
-        self.dig_so_vol_mor_l.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_mor_l.setObjectName("dig_so_vol_mor_l")
-        self.horizontalLayout_34.addWidget(self.dig_so_vol_mor_l)
-        self.verticalLayout_29.addWidget(self.f_dig_so_vol_mor)
-        self.f_dig_so_vol_eve = QtWidgets.QFrame(self.f_dig_so_vol)
-        self.f_dig_so_vol_eve.setStyleSheet("QLabel{\n"
-"    font: 10pt \"Rubik\";\n"
-"    color: rgb(183, 207, 232);\n"
-"\n"
-"}")
-        self.f_dig_so_vol_eve.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_so_vol_eve.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_so_vol_eve.setObjectName("f_dig_so_vol_eve")
-        self.horizontalLayout_33 = QtWidgets.QHBoxLayout(self.f_dig_so_vol_eve)
-        self.horizontalLayout_33.setObjectName("horizontalLayout_33")
-        self.dig_so_vol_eve_r = QtWidgets.QLabel(self.f_dig_so_vol_eve)
-        self.dig_so_vol_eve_r.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_eve_r.setObjectName("dig_so_vol_eve_r")
-        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_r)
-        self.dig_so_vol_eve_t = QtWidgets.QLabel(self.f_dig_so_vol_eve)
-        self.dig_so_vol_eve_t.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_eve_t.setObjectName("dig_so_vol_eve_t")
-        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_t)
-        self.dig_so_vol_eve_l = QtWidgets.QLabel(self.f_dig_so_vol_eve)
-        self.dig_so_vol_eve_l.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_vol_eve_l.setObjectName("dig_so_vol_eve_l")
-        self.horizontalLayout_33.addWidget(self.dig_so_vol_eve_l)
-        self.verticalLayout_29.addWidget(self.f_dig_so_vol_eve)
-        self.verticalLayout_30.addWidget(self.f_dig_so_vol)
-        self.gridLayout.addWidget(self.f_dig_so, 2, 3, 1, 1)
-        self.f_dig_l_t = QtWidgets.QFrame(self.f_diagram_base)
-        self.f_dig_l_t.setStyleSheet("")
-        self.f_dig_l_t.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.f_dig_l_t.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.f_dig_l_t.setObjectName("f_dig_l_t")
-        self.gridLayout.addWidget(self.f_dig_l_t, 0, 4, 1, 1)
         self.f_dig_r_b = QtWidgets.QFrame(self.f_diagram_base)
         self.f_dig_r_b.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_dig_r_b.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_dig_r_b.setObjectName("f_dig_r_b")
         self.gridLayout.addWidget(self.f_dig_r_b, 2, 2, 1, 1)
+        self.f_dig_r_t = QtWidgets.QFrame(self.f_diagram_base)
+        self.f_dig_r_t.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_r_t.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_r_t.setObjectName("f_dig_r_t")
+        self.gridLayout.addWidget(self.f_dig_r_t, 0, 2, 1, 1)
         self.f_dig_ea = QtWidgets.QFrame(self.f_diagram_base)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1412,6 +1413,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_44.addWidget(self.f_edit_control_buttons, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.horizontalLayout_43.addWidget(self.f_dig_edit_control)
         self.b_run = QtWidgets.QPushButton(self.f_run_panel)
+        self.b_run.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1423,23 +1425,83 @@ class Ui_MainWindow(object):
         font.setFamily("Icons-JUNC-1")
         font.setPointSize(40)
         self.b_run.setFont(font)
-        self.b_run.setStyleSheet("QPushButton{\n"
+        self.b_run.setStyleSheet("QPushButton {\n"
 "    background-color: rgba(0,0,0,0);\n"
 "    color: rgb(0, 136,122);\n"
 "}\n"
 "\n"
-"QPushButton:hover{\n"
-"color: rgba(0, 168, 152, 220);\n"
+"QPushButton:hover {\n"
+"    color: rgba(0, 168, 152, 220);\n"
 "}\n"
 "\n"
-"QPushButton:pressed{\n"
-"\n"
+"QPushButton:pressed {\n"
 "    color: rgb(1, 115, 104);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"color: rgba(66, 66, 66, 130);\n"
 "}")
         self.b_run.setObjectName("b_run")
         self.horizontalLayout_43.addWidget(self.b_run)
         self.verticalLayout_5.addWidget(self.f_run_panel)
         self.gridLayout.addWidget(self.f_dig_l_b, 2, 4, 1, 1, QtCore.Qt.AlignRight|QtCore.Qt.AlignBottom)
+        self.f_dig_l_t = QtWidgets.QFrame(self.f_diagram_base)
+        self.f_dig_l_t.setStyleSheet("")
+        self.f_dig_l_t.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_dig_l_t.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_dig_l_t.setObjectName("f_dig_l_t")
+        self.horizontalLayout_29 = QtWidgets.QHBoxLayout(self.f_dig_l_t)
+        self.horizontalLayout_29.setContentsMargins(0, -1, 20, -1)
+        self.horizontalLayout_29.setObjectName("horizontalLayout_29")
+        self.f_warning = QtWidgets.QFrame(self.f_dig_l_t)
+        self.f_warning.setMinimumSize(QtCore.QSize(0, 0))
+        self.f_warning.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.f_warning.setStyleSheet("QFrame {\n"
+"    border-radius: 12px;\n"
+"    background-color: rgba(9, 198, 85, 180);\n"
+"}\n"
+"\n"
+"QLabel#warning_txt {\n"
+"    background-color: rgba(1, 1, 1,0);\n"
+"    color: rgb(55, 62, 78);\n"
+"    font: 10pt \"Rubik\";\n"
+"}\n"
+"\n"
+"QLabel#warning_icon {\n"
+"    font: 18pt \"Icons-JUNC-1\";\n"
+"    background-color: rgba(1, 1, 1,0);\n"
+"    color: rgb(55, 62, 78);\n"
+"}")
+        self.f_warning.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.f_warning.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.f_warning.setObjectName("f_warning")
+        self.horizontalLayout_46 = QtWidgets.QHBoxLayout(self.f_warning)
+        self.horizontalLayout_46.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_46.setSpacing(3)
+        self.horizontalLayout_46.setObjectName("horizontalLayout_46")
+        self.warning_icon = QtWidgets.QLabel(self.f_warning)
+        self.warning_icon.setMinimumSize(QtCore.QSize(0, 0))
+        self.warning_icon.setMaximumSize(QtCore.QSize(30, 30))
+        font = QtGui.QFont()
+        font.setFamily("Icons-JUNC-1")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.warning_icon.setFont(font)
+        self.warning_icon.setAlignment(QtCore.Qt.AlignCenter)
+        self.warning_icon.setObjectName("warning_icon")
+        self.horizontalLayout_46.addWidget(self.warning_icon, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.warning_txt = QtWidgets.QLabel(self.f_warning)
+        self.warning_txt.setMinimumSize(QtCore.QSize(200, 0))
+        self.warning_txt.setMaximumSize(QtCore.QSize(0, 16777215))
+        self.warning_txt.setStyleSheet("")
+        self.warning_txt.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.warning_txt.setWordWrap(True)
+        self.warning_txt.setObjectName("warning_txt")
+        self.horizontalLayout_46.addWidget(self.warning_txt, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_29.addWidget(self.f_warning, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.gridLayout.addWidget(self.f_dig_l_t, 0, 4, 1, 1)
         self.horizontalLayout_3.addWidget(self.f_diagram_base, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.horizontalLayout_4.addWidget(self.f_diagram)
         self.verticalLayout.addWidget(self.main_body_contents)
@@ -2511,9 +2573,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_41.setObjectName("verticalLayout_41")
         self.f_cyc = QtWidgets.QFrame(self.f_lrt_enable)
         self.f_cyc.setEnabled(True)
-        self.f_cyc.setStyleSheet("\n"
-"\n"
-"")
+        self.f_cyc.setStyleSheet("")
         self.f_cyc.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_cyc.setFrameShadow(QtWidgets.QFrame.Raised)
         self.f_cyc.setObjectName("f_cyc")
@@ -3305,7 +3365,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
-        self.tb_menu.setCurrentIndex(2)
+        self.tb_menu.setCurrentIndex(0)
         self.tb_menu.layout().setSpacing(7)
         self.no_name.textChanged['QString'].connect(self.dig_no_name.setText)
         self.ea_name.textChanged['QString'].connect(self.dig_ea_name.setText)
@@ -3357,33 +3417,30 @@ class Ui_MainWindow(object):
         self.b_destfolder.setToolTip(_translate("MainWindow", "<html><head/><body><p>בחירת תיקיית פלט</p></body></html>"))
         self.b_destfolder.setText(_translate("MainWindow", "G"))
         self.menu_button.setText(_translate("MainWindow", "L"))
+        self.no_name.setToolTip(_translate("MainWindow", "שם רחוב או דרך בזרוע הצפונית"))
         self.no_name.setPlaceholderText(_translate("MainWindow", "צפון"))
-        self.no_dir.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.no_dir.setToolTip(_translate("MainWindow", "חלון ניתוב לצפון"))
         self.no_dir.setText(_translate("MainWindow", "C"))
-        self.no_vol.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.no_vol.setToolTip(_translate("MainWindow", "חלון נפחים לצפון"))
         self.no_vol.setText(_translate("MainWindow", "M"))
+        self.so_name.setToolTip(_translate("MainWindow", "שם רחוב או דרך בזרוע הדרומית"))
         self.so_name.setPlaceholderText(_translate("MainWindow", "דרום"))
-        self.so_dir.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.so_dir.setToolTip(_translate("MainWindow", "חלון ניתוב לדרום"))
         self.so_dir.setText(_translate("MainWindow", "C"))
-        self.so_vol.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.so_vol.setToolTip(_translate("MainWindow", "חלון נפחים לדרום"))
         self.so_vol.setText(_translate("MainWindow", "M"))
+        self.ea_name.setToolTip(_translate("MainWindow", "שם רחוב או דרך בזרוע המזרחית"))
         self.ea_name.setPlaceholderText(_translate("MainWindow", "מזרח"))
-        self.ea_dir.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.ea_dir.setToolTip(_translate("MainWindow", "חלון ניתוב למזרח"))
         self.ea_dir.setText(_translate("MainWindow", "C"))
-        self.ea_vol.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.ea_vol.setToolTip(_translate("MainWindow", "חלון נפחים למזרח"))
         self.ea_vol.setText(_translate("MainWindow", "M"))
+        self.we_name.setToolTip(_translate("MainWindow", "שם רחוב או דרך בזרוע המערבית"))
         self.we_name.setPlaceholderText(_translate("MainWindow", "מערב"))
-        self.we_dir.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.we_dir.setToolTip(_translate("MainWindow", "חלון ניתוב לדרום"))
         self.we_dir.setText(_translate("MainWindow", "C"))
-        self.we_vol.setToolTip(_translate("MainWindow", "Save Current JUNC"))
+        self.we_vol.setToolTip(_translate("MainWindow", "חלון נפחים למערב"))
         self.we_vol.setText(_translate("MainWindow", "M"))
-        self.dig_no_name.setText(_translate("MainWindow", "צפון"))
-        self.dig_no_vol_mor_r.setText(_translate("MainWindow", "-"))
-        self.dig_no_vol_mor_t.setText(_translate("MainWindow", "-"))
-        self.dig_no_vol_mor_l.setText(_translate("MainWindow", "-"))
-        self.dig_no_vol_eve_r.setText(_translate("MainWindow", "-"))
-        self.dig_no_vol_eve_t.setText(_translate("MainWindow", "-"))
-        self.dig_no_vol_eve_l.setText(_translate("MainWindow", "-"))
         self.dig_so_name.setText(_translate("MainWindow", "דרום"))
         self.dig_so_vol_mor_r.setText(_translate("MainWindow", "-"))
         self.dig_so_vol_mor_t.setText(_translate("MainWindow", "-"))
@@ -3391,6 +3448,13 @@ class Ui_MainWindow(object):
         self.dig_so_vol_eve_r.setText(_translate("MainWindow", "-"))
         self.dig_so_vol_eve_t.setText(_translate("MainWindow", "-"))
         self.dig_so_vol_eve_l.setText(_translate("MainWindow", "-"))
+        self.dig_no_name.setText(_translate("MainWindow", "צפון"))
+        self.dig_no_vol_mor_r.setText(_translate("MainWindow", "-"))
+        self.dig_no_vol_mor_t.setText(_translate("MainWindow", "-"))
+        self.dig_no_vol_mor_l.setText(_translate("MainWindow", "-"))
+        self.dig_no_vol_eve_r.setText(_translate("MainWindow", "-"))
+        self.dig_no_vol_eve_t.setText(_translate("MainWindow", "-"))
+        self.dig_no_vol_eve_l.setText(_translate("MainWindow", "-"))
         self.dig_ea_name.setText(_translate("MainWindow", "מזרח"))
         self.dig_ea_vol_mor_r.setText(_translate("MainWindow", "-"))
         self.dig_ea_vol_mor_t.setText(_translate("MainWindow", "-"))
@@ -3412,6 +3476,9 @@ class Ui_MainWindow(object):
         self.b_new.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\">צור חדש</p></body></html>"))
         self.b_new.setText(_translate("MainWindow", "A"))
         self.b_run.setText(_translate("MainWindow", "N"))
+        self.warning_icon.setText(_translate("MainWindow", "J"))
+        self.warning_txt.setText(_translate("MainWindow", "יש להזין נתונים על מנת להתחיל.\n"
+"ניתן להקליד או לטעון קובץ מוכן."))
         self.l_pro_name.setText(_translate("MainWindow", "שם הפרויקט"))
         self.l_author.setText(_translate("MainWindow", "שם המריץ"))
         self.check_get_username.setText(_translate("MainWindow", "עדכן שם מריץ לפי משתמש מחשב"))

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/window_volumesfpcCHH.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/window_volumesclxLUu.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -89,6 +89,7 @@ class Volumes_Ui_Form(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.f_window_name_volumes)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.window_name_volumes = QtWidgets.QLabel(self.f_window_name_volumes)
+        self.window_name_volumes.setStyleSheet("padding:0 5px 0 5px;")
         self.window_name_volumes.setAlignment(QtCore.Qt.AlignCenter)
         self.window_name_volumes.setObjectName("window_name_volumes")
         self.horizontalLayout_2.addWidget(self.window_name_volumes, 0, QtCore.Qt.AlignHCenter)

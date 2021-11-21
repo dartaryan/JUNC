@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1003</width>
+    <width>1194</width>
     <height>987</height>
    </rect>
   </property>
@@ -580,6 +580,9 @@ QPushButton:pressed{
                 </property>
                 <item>
                  <widget class="QFrame" name="f_dirs">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -621,20 +624,14 @@ QCheckBox#no_check:indicator:unchecked,
 	background-color: rgb(201, 142, 46);
 }
 
-QCheckBox#no_check:indicator:unchecked:hover,
-#so_check:indicator:unchecked:hover,
-#we_check:indicator:unchecked:hover,
-#ea_check:indicator:unchecked:hover {
-	background-color: rgba(0, 0, 0, 20);
+QCheckBox#no_check:indicator:disabled,
+#so_check:indicator:disabled,
+#we_check:indicator:disabled,
+#ea_check:indicator:disabled {
+	background-color: rgba(15, 143, 137, 255);
 }
 
-QCheckBox#no_check:indicator:checked:hover,
-#so_check:indicator:checked:hover,
-#we_check:indicator:checked:hover,
-#ea_check:indicator:checked:hover {
-	background-color: rgb(19, 191, 183);
-	background-color: rgb(11, 108, 103);
-}
+
 
 QPushButton#no_dir,
 #no_vol,
@@ -679,6 +676,14 @@ QLineEdit#no_name,
 	background-color: rgba(225, 225, 225, 0);
 	border: none;
 	border-bottom: 2px solid rgba(59, 59, 59, 220);
+}
+
+QToolTip {
+	background-color: rgba(43, 49, 63,150);
+	font: 11pt &quot;Rubik&quot;;
+	color: rgb(238, 238, 238);
+	border-radius: 2px;
+	border-color: 3px solid rgb(238, 238, 238);
 }</string>
                   </property>
                   <property name="frameShape">
@@ -809,6 +814,9 @@ QLineEdit#no_name,
                              <height>20</height>
                             </size>
                            </property>
+                           <property name="checkable">
+                            <bool>false</bool>
+                           </property>
                           </widget>
                          </item>
                         </layout>
@@ -866,6 +874,9 @@ QLineEdit#no_name,
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
+                           </property>
+                           <property name="toolTip">
+                            <string>שם רחוב או דרך בזרוע הצפונית</string>
                            </property>
                            <property name="inputMask">
                             <string/>
@@ -929,7 +940,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון ניתוב לצפון</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -960,7 +971,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון נפחים לצפון</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1082,6 +1093,9 @@ QLineEdit#no_name,
                              <height>20</height>
                             </size>
                            </property>
+                           <property name="checkable">
+                            <bool>false</bool>
+                           </property>
                           </widget>
                          </item>
                         </layout>
@@ -1139,6 +1153,9 @@ QLineEdit#no_name,
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
+                           </property>
+                           <property name="toolTip">
+                            <string>שם רחוב או דרך בזרוע הדרומית</string>
                            </property>
                            <property name="inputMask">
                             <string/>
@@ -1202,7 +1219,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון ניתוב לדרום</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1233,7 +1250,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון נפחים לדרום</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1355,6 +1372,9 @@ QLineEdit#no_name,
                              <height>20</height>
                             </size>
                            </property>
+                           <property name="checkable">
+                            <bool>false</bool>
+                           </property>
                           </widget>
                          </item>
                         </layout>
@@ -1412,6 +1432,9 @@ QLineEdit#no_name,
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
+                           </property>
+                           <property name="toolTip">
+                            <string>שם רחוב או דרך בזרוע המזרחית</string>
                            </property>
                            <property name="inputMask">
                             <string/>
@@ -1475,7 +1498,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון ניתוב למזרח</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1506,7 +1529,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון נפחים למזרח</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1628,6 +1651,9 @@ QLineEdit#no_name,
                              <height>20</height>
                             </size>
                            </property>
+                           <property name="checkable">
+                            <bool>false</bool>
+                           </property>
                           </widget>
                          </item>
                         </layout>
@@ -1685,6 +1711,9 @@ QLineEdit#no_name,
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
+                           </property>
+                           <property name="toolTip">
+                            <string>שם רחוב או דרך בזרוע המערבית</string>
                            </property>
                            <property name="inputMask">
                             <string/>
@@ -1748,7 +1777,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון ניתוב לדרום</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1779,7 +1808,7 @@ QLineEdit#no_name,
                             </font>
                            </property>
                            <property name="toolTip">
-                            <string>Save Current JUNC</string>
+                            <string>חלון נפחים למערב</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true"/>
@@ -1853,14 +1882,193 @@ border-radius: 7px;
                    <property name="spacing">
                     <number>0</number>
                    </property>
-                   <item row="0" column="2">
-                    <widget class="QFrame" name="f_dig_r_t">
+                   <item row="2" column="3">
+                    <widget class="QFrame" name="f_dig_so">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QFrame#f_dig_so{
+
+border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+</string>
+                     </property>
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_30">
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_name">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_33">
+                         <item>
+                          <widget class="QLabel" name="dig_so_name">
+                           <property name="text">
+                            <string>דרום</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_arrows">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_40">
+                         <item>
+                          <widget class="QLabel" name="dig_so_arrows">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="scaledContents">
+                            <bool>true</bool>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_vol">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_29">
+                         <item>
+                          <widget class="QFrame" name="f_dig_so_vol_mor">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(232, 166, 66);
+
+}</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_34">
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_r">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_t">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_l">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QFrame" name="f_dig_so_vol_eve">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(183, 207, 232);
+
+}</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_33">
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_r">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_t">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_l">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
                     </widget>
                    </item>
                    <item row="0" column="3">
@@ -2064,210 +2272,18 @@ border-radius: 7px;
                      </layout>
                     </widget>
                    </item>
-                   <item row="2" column="3">
-                    <widget class="QFrame" name="f_dig_so">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QFrame#f_dig_so{
-
-border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-</string>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_30">
-                      <item>
-                       <widget class="QFrame" name="f_dig_so_name">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_33">
-                         <item>
-                          <widget class="QLabel" name="dig_so_name">
-                           <property name="text">
-                            <string>דרום</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="f_dig_so_arrows">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_40">
-                         <item>
-                          <widget class="QLabel" name="dig_so_arrows">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="f_dig_so_vol">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_29">
-                         <item>
-                          <widget class="QFrame" name="f_dig_so_vol_mor">
-                           <property name="styleSheet">
-                            <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(232, 166, 66);
-
-}</string>
-                           </property>
-                           <property name="frameShape">
-                            <enum>QFrame::StyledPanel</enum>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Raised</enum>
-                           </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_34">
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_r">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_t">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_l">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QFrame" name="f_dig_so_vol_eve">
-                           <property name="styleSheet">
-                            <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(183, 207, 232);
-
-}</string>
-                           </property>
-                           <property name="frameShape">
-                            <enum>QFrame::StyledPanel</enum>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Raised</enum>
-                           </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_33">
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_r">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_t">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_l">
-                              <property name="text">
-                               <string>-</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                   <item row="0" column="4">
-                    <widget class="QFrame" name="f_dig_l_t">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="2" column="2">
                     <widget class="QFrame" name="f_dig_r_b">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QFrame" name="f_dig_r_t">
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
                      </property>
@@ -2919,6 +2935,9 @@ QPushButton:pressed{
                          </item>
                          <item>
                           <widget class="QPushButton" name="b_run">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                              <horstretch>0</horstretch>
@@ -2944,22 +2963,166 @@ QPushButton:pressed{
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">QPushButton{
+                            <string notr="true">QPushButton {
 	background-color: rgba(0,0,0,0);
 	color: rgb(0, 136,122);
 }
 
-QPushButton:hover{
-color: rgba(0, 168, 152, 220);
+QPushButton:hover {
+	color: rgba(0, 168, 152, 220);
 }
 
-QPushButton:pressed{
-
+QPushButton:pressed {
 	color: rgb(1, 115, 104);
+}
+
+QPushButton:disabled {
+color: rgba(66, 66, 66, 130);
 }</string>
                            </property>
                            <property name="text">
                             <string>N</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QFrame" name="f_dig_l_t">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_29">
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>20</number>
+                      </property>
+                      <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+                       <widget class="QFrame" name="f_warning">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QFrame {
+	border-radius: 12px;
+	background-color: rgba(9, 198, 85, 180);
+}</string>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_46">
+                         <property name="spacing">
+                          <number>3</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>5</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>5</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>5</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>5</number>
+                         </property>
+                         <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+                          <widget class="QLabel" name="warning_icon">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>30</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <family>Icons-JUNC-1</family>
+                             <pointsize>18</pointsize>
+                             <weight>50</weight>
+                             <italic>false</italic>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QLabel#warning_icon {
+	font: 18pt &quot;Icons-JUNC-1&quot;;
+	background-color: rgba(1, 1, 1,0);
+	color: rgb(55, 62, 78);
+}</string>
+                           </property>
+                           <property name="text">
+                            <string>J</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item alignment="Qt::AlignLeft">
+                          <widget class="QLabel" name="warning_txt">
+                           <property name="minimumSize">
+                            <size>
+                             <width>200</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>0</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">QLabel#warning_txt {
+	background-color: rgba(1, 1, 1,0);
+	color: rgb(55, 62, 78);
+	font: 10pt &quot;Rubik&quot;;
+}
+</string>
+                           </property>
+                           <property name="text">
+                            <string>יש להזין נתונים על מנת להתחיל.
+ניתן להקליד או לטעון קובץ מוכן.</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="wordWrap">
+                            <bool>true</bool>
+                           </property>
+                           <property name="margin">
+                            <number>7</number>
                            </property>
                           </widget>
                          </item>
@@ -3117,7 +3280,7 @@ QLabel {
                 <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <property name="tabSpacing">
                 <number>7</number>
@@ -4804,9 +4967,7 @@ QCheckBox::indicator:unchecked:pressed {
                              <bool>true</bool>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">
-
-</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>

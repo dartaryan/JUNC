@@ -74,10 +74,19 @@ class MainWindow(QMainWindow):
         self.ui.so_vol.clicked.connect(lambda: self.openNorthVolumes(self.volume_south_form))
         self.ui.we_vol.clicked.connect(lambda: self.openEastVolumes(self.volume_west_form))
 
-        self.ui.no_name.textEdited.connect(lambda: self.updateNamesToMainDiagram("no"))
-        self.ui.so_name.textEdited.connect(lambda: self.updateNamesToMainDiagram("so"))
-        self.ui.ea_name.textEdited.connect(lambda: self.updateNamesToMainDiagram("ea"))
-        self.ui.we_name.textEdited.connect(lambda: self.updateNamesToMainDiagram("we"))
+        self.ui.no_name.textEdited.connect(lambda: self.setStreetNameNO())
+        self.ui.so_name.textEdited.connect(lambda: self.setStreetNameSO())
+        self.ui.ea_name.textEdited.connect(lambda: self.setStreetNameEA())
+        self.ui.we_name.textEdited.connect(lambda: self.setStreetNameWE())
+
+        self.arrow_north_form.ui_form.window_name_arrows.setText("צפון")
+        self.arrow_south_form.ui_form.window_name_arrows.setText("דרום")
+        self.arrow_east_form.ui_form.window_name_arrows.setText("מזרח")
+        self.arrow_west_form.ui_form.window_name_arrows.setText("מערב")
+        self.volume_north_form.ui_form.window_name_volumes.setText("צפון")
+        self.volume_south_form.ui_form.window_name_volumes.setText("דרום")
+        self.volume_east_form.ui_form.window_name_volumes.setText("מזרח")
+        self.volume_west_form.ui_form.window_name_volumes.setText("מערב")
 
         self.ui.b_loadxl.clicked.connect(lambda: self.loadVCFile())
         self.ui.b_loadtxt.clicked.connect(lambda: self.loadJucsonFile())
@@ -94,19 +103,10 @@ class MainWindow(QMainWindow):
         self.original_base_width = self.ui.main_body_contents.width()
         self.ui.slide_menu.setMaximumWidth(1)
         self.current_user_name = get_display_name()
+        self.count_directions = {"NO": 0, "SO": 0, "EA": 0, "WE": 0}
 
         self.ui.b_destfolder.clicked.connect(lambda: self.setOutputDirectory())
         self.ui.b_run.clicked.connect(lambda: self.run_JUNC())
-
-        self.ui.no_check.setChecked(True)
-        self.ui.ea_check.setChecked(True)
-        self.ui.we_check.setChecked(True)
-        self.ui.so_check.setChecked(True)
-
-        self.ui.no_check.clicked.connect(lambda: self.ToggleNO())
-        self.ui.ea_check.clicked.connect(lambda: self.ToggleEA())
-        self.ui.we_check.clicked.connect(lambda: self.ToggleWE())
-        self.ui.so_check.clicked.connect(lambda: self.ToggleSO())
 
         # Direction animations
 
@@ -346,6 +346,7 @@ class MainWindow(QMainWindow):
         self.setMoreInfo()
 
     def run_JUNC(self):
+        self.mainDiagram.phsr_lst = self.phaser_input_list
         Main_ID.set_Diagram(self.mainDiagram)
         final_message = Main_ID.main()
         msgBox = QMessageBox()
@@ -384,74 +385,98 @@ class MainWindow(QMainWindow):
         self.mainDiagram.LRT_INF.CYC_TIME = cycleTime
 
     def setTrainLostTime(self):
-        LrtLostTime = int(self.ui.spin_tr_lost_time.text())
-        self.phaser_input_list[4][2] = LrtLostTime
-        self.mainDiagram.LRT_INF.LRT_LOST_TIME = LrtLostTime
+        lrtLostTime = int(self.ui.spin_tr_lost_time.text())
+        self.phaser_input_list[4][2] = lrtLostTime
+        self.mainDiagram.LRT_INF.LRT_LOST_TIME = lrtLostTime
 
     def setTrainHeadway(self):
-        TrainHeadway = int(self.ui.spin_hd.text())
-        self.phaser_input_list[4][3] = TrainHeadway
-        self.mainDiagram.LRT_INF.LRT_HDWAY = TrainHeadway
+        trainHeadway = int(self.ui.spin_hd.text())
+        self.phaser_input_list[4][3] = trainHeadway
+        self.mainDiagram.LRT_INF.LRT_HDWAY = trainHeadway
 
     def setMCU(self):
-        MCU = float(self.ui.spin_mcu.text())
-        self.phaser_input_list[4][4] = MCU
-        self.mainDiagram.LRT_INF.LRT_MCU = MCU
+        mcu = float(self.ui.spin_mcu.text())
+        self.phaser_input_list[4][4] = mcu
+        self.mainDiagram.LRT_INF.LRT_MCU = mcu
 
     def setLostTime(self):
         if self.ui.check_lost_time.isChecked():
-            self.phaser_input_list[4][5] = 0
+            regularLostTime = 0
             self.ui.spin_lost_time.setDisabled(True)
         else:
             self.ui.spin_lost_time.setEnabled(True)
-            self.phaser_input_list[4][5] = int(self.ui.spin_lost_time.text())
+            regularLostTime = int(self.ui.spin_lost_time.text())
 
+        self.phaser_input_list[4][5] = regularLostTime
+        self.mainDiagram.LRT_INF.GEN_LOST_TIME = regularLostTime
         self.ui.spin_lost_time.setStyleSheet(self.style_lost_time_spinner)
 
     def setSpinLostTime(self):
-        self.phaser_input_list[4][5] = int(self.ui.spin_lost_time.text())
+        regularLostTime = int(self.ui.spin_lost_time.text())
+        self.phaser_input_list[4][5] = regularLostTime
+        self.mainDiagram.LRT_INF.GEN_LOST_TIME = regularLostTime
 
     def setCapacity(self):
-        self.phaser_input_list[3][0] = int(self.ui.spin_cap.text())
+        capacity = int(self.ui.spin_cap.text())
+        self.phaser_input_list[3][0] = capacity
+        self.mainDiagram.G_INF.CAP = capacity
 
     def setNLSL(self):
         self.phaser_input_list[3][1] = 1 if self.ui.check_noso.isChecked() else 0
+        self.mainDiagram.G_INF.NLSL = self.ui.check_noso.isChecked()
 
     def setELWL(self):
         self.phaser_input_list[3][2] = 1 if self.ui.check_weea.isChecked() else 0
+        self.mainDiagram.G_INF.ELWL = self.ui.check_weea.isChecked()
 
     def set5Image(self):
         self.phaser_input_list[3][3] = 1 if self.ui.check_fifth.isChecked() else 0
+        self.mainDiagram.G_INF.IMG5 = self.ui.check_fifth.isChecked()
 
     def set6Image(self):
         self.phaser_input_list[3][4] = 1 if self.ui.check_sixth.isChecked() else 0
+        self.mainDiagram.G_INF.IMG6 = self.ui.check_sixth.isChecked()
 
     def setInflation(self):
-        self.phaser_input_list[3][10] = float(self.ui.spin_inf.text())
+        inflation = float(self.ui.spin_inf.text())
+        self.phaser_input_list[3][10] = inflation
+        self.mainDiagram.G_INF.INF = inflation
 
     def setProjectName(self):
-        self.phaser_input_list[21][0] = self.ui.txt_pro_name.text()
+        projectName = self.ui.txt_pro_name.text()
+        self.phaser_input_list[21][0] = projectName
+        self.mainDiagram.ID.PROJ_NAME = projectName
 
     def setProjectNumber(self):
-        self.phaser_input_list[21][1] = self.ui.txt_pro_num.text()
+        projectNumber = self.ui.txt_pro_num.text()
+        self.phaser_input_list[21][1] = projectNumber
+        self.mainDiagram.ID.PROJ_NUM = projectNumber
 
     def checkBoxAuthor(self):
         if self.ui.check_get_username.isChecked():
-            self.ui.txt_author.setText(self.current_user_name)
+            author = self.current_user_name
         else:
-            self.ui.txt_author.setText(self.tempAuthor)
+            author = self.tempAuthor
+
+        self.ui.txt_author.setText(author)
         self.setAuthorName()
 
     def setAuthorName(self):
         if not self.ui.check_get_username.isChecked():
             self.tempAuthor = self.ui.txt_author.text()
-        self.phaser_input_list[21][2] = self.ui.txt_author.text()
+        author = self.ui.txt_author.text()
+        self.phaser_input_list[21][2] = author
+        self.mainDiagram.ID.AUTHOR = author
 
     def setCount(self):
-        self.phaser_input_list[21][3] = self.ui.txt_ver.text()
+        count = self.ui.txt_ver.text()
+        self.phaser_input_list[21][3] = count
+        self.mainDiagram.ID.COUNT = count
 
     def setMoreInfo(self):
-        self.phaser_input_list[21][4] = self.ui.txt_info.text()
+        moreInfo = self.ui.txt_info.text()
+        self.phaser_input_list[21][4] = moreInfo
+        self.mainDiagram.ID.INFO = moreInfo
 
     def printPhaserList(self):
         self.updatePhaserFromUI()
@@ -494,78 +519,123 @@ class MainWindow(QMainWindow):
         self.animation_regular.start()
 
     def ToggleNO(self):
-        if self.ui.no_check.isChecked():
-            old_size = 0
-            new_size = self.ui.f_dig_m.height()
-        else:
-            old_size = self.ui.f_dig_m.height()
-            new_size = 0
+        if self.mainDiagram.NO.empty_direction() == 1:
+            self.ui.no_check.setDisabled(True)
+            self.count_directions["N0"] = 1
 
-        self.anim_no_h.setDuration(450)
-        self.anim_no_h.setStartValue(old_size)
-        self.anim_no_h.setEndValue(new_size)
-        self.anim_no_h.setEasingCurve(QEasingCurve.InOutExpo)
-        self.anim_no_h.start()
+        else:
+            self.ui.no_check.setEnabled(True)
+            self.count_directions["N0"] = 0
+        return
 
     def ToggleSO(self):
-        if self.ui.so_check.isChecked():
-            old_size = 0
-            new_size = self.ui.f_dig_m.height()
-        else:
-            old_size = self.ui.f_dig_m.height()
-            new_size = 0
 
-        self.anim_so_h.setDuration(450)
-        self.anim_so_h.setStartValue(old_size)
-        self.anim_so_h.setEndValue(new_size)
-        self.anim_so_h.setEasingCurve(QEasingCurve.InOutExpo)
-        self.anim_so_h.start()
+        if self.mainDiagram.SO.empty_direction() == 1:
+            self.ui.so_check.setDisabled(True)
+            self.count_directions["S0"] = 1
+
+        else:
+            self.ui.so_check.setEnabled(True)
+            self.count_directions["S0"] = 0
+
+        return
 
     def ToggleEA(self):
-        if self.ui.ea_check.isChecked():
-            old_size = 0
-            new_size = self.ui.f_dig_m.height()
-        else:
-            old_size = self.ui.f_dig_m.height()
-            new_size = 0
+        if self.mainDiagram.EA.empty_direction() == 1:
+            self.ui.ea_check.setDisabled(True)
+            self.count_directions["EA"] = 1
 
-        self.anim_ea_w.setDuration(450)
-        self.anim_ea_w.setStartValue(old_size)
-        self.anim_ea_w.setEndValue(new_size)
-        self.anim_ea_w.setEasingCurve(QEasingCurve.InOutExpo)
-        self.anim_ea_w.start()
+        else:
+            self.ui.ea_check.setEnabled(True)
+            self.count_directions["EA"] = 0
+
+        return
 
     def ToggleWE(self):
-        if self.ui.we_check.isChecked():
-            old_size = 0
-            new_size = self.ui.f_dig_m.height()
-        else:
-            old_size = self.ui.f_dig_m.height()
-            new_size = 0
 
-        self.anim_we_w.setDuration(450)
-        self.anim_we_w.setStartValue(old_size)
-        self.anim_we_w.setEndValue(new_size)
-        self.anim_we_w.setEasingCurve(QEasingCurve.InOutExpo)
-        self.anim_we_w.start()
+        if self.mainDiagram.WE.empty_direction() == 1:
+            self.ui.we_check.setDisabled(True)
+            self.count_directions["WE"] = 1
 
-    def ShowHideEa(self):
-        if self.ui.ea_check.isChecked():
-            self.ui.f_dig_ea.show()
         else:
-            self.ui.f_dig_ea.hide()
+            self.ui.we_check.setEnabled(True)
+            self.count_directions["WE"] = 0
 
-    def ShowHideWe(self):
-        if self.ui.we_check.isChecked():
-            self.ui.f_dig_we.show()
-        else:
-            self.ui.f_dig_we.hide()
+        return
 
-    def ShowHideSo(self):
-        if self.ui.so_check.isChecked():
-            self.ui.f_dig_so.show()
+    def ToggleDirections(self):
+        self.ToggleNO()
+        self.ToggleSO()
+        self.ToggleEA()
+        self.ToggleWE()
+        self.runButtonWarnings()
+
+        toggles = ["no_check", "so_check", "we_check", "ea_check"]
+        for toggle in toggles:
+            update_diagram = getattr(self.ui, toggle)
+            update_diagram.update()
+            update_diagram.repaint()
+        return
+
+    def runButtonWarnings(self):
+        current_size = [self.ui.f_warning.width(), self.ui.f_warning.height()]
+        current_size_txt = [self.ui.warning_txt.width(), self.ui.warning_txt.height()]
+        icon_style = "QLabel#warning_icon {font: 18pt 'Icons-JUNC-1';background-color: rgba(1, 1, 1,0);color: rgb(55, " \
+                     "62, 78);} "
+        text_style = "QLabel#warning_txt {background-color: rgba(1, 1, 1,0);color: rgb(55, 62, 78);font: 10pt 'Rubik';}"
+
+        if sum(self.count_directions.values()) < 3:
+            self.ui.b_run.setDisabled(True)
+            if not self.changes_made or sum(self.count_directions.values()) == 0:
+                message = "יש להזין נתונים על מנת להתחיל. ניתן להקליד או לטעון קובץ מוכן."
+                design = "QFrame {border-radius: 12px;background-color: rgba(9, 198, 85, 180);}"
+                new_size = [243, 94]
+                new_size_txt = [200, 84]
+            else:
+                message = "יש להזין נתונים בזרועות נוספות על מנת להריץ."
+                design = "QFrame {border-radius: 12px;background-color: rgba(248, 228, 2, 120);}"
+                new_size = [173, 73]
+                new_size_txt = [130, 63]
         else:
-            self.ui.f_dig_so.hide()
+            self.ui.b_run.setEnabled(True)
+            new_size = [0, 0]
+            new_size_txt = [0, 0]
+            message = ""
+            design = self.ui.f_warning.styleSheet()
+
+        self.anim_warnings_h = QPropertyAnimation(self.ui.f_warning, b"maximumHeight")
+        self.anim_warnings_w = QPropertyAnimation(self.ui.f_warning, b"minimumWidth")
+        self.anim_warnings_txt_h = QPropertyAnimation(self.ui.warning_txt, b"maximumHeight")
+        self.anim_warnings_txt_w = QPropertyAnimation(self.ui.warning_txt, b"minimumWidth")
+
+        f_warnings = [[self.anim_warnings_h, current_size[1], new_size[1]],
+                      [self.anim_warnings_w, current_size[0], new_size[0]],
+                      [self.anim_warnings_txt_h, current_size_txt[1], new_size_txt[1]],
+                      [self.anim_warnings_txt_w, current_size_txt[0], new_size_txt[0]]]
+
+        # [animation_object,current_size,new_size]
+
+        self.group2 = QtCore.QParallelAnimationGroup()
+        for animation in f_warnings:
+            animation[0].setDuration(50)
+            animation[0].setStartValue(animation[1])
+            animation[0].setEndValue(animation[2])
+            animation[0].setEasingCurve(QEasingCurve.InOutSine)
+            self.group2.addAnimation(animation[0])
+        self.group2.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
+
+        self.ui.warning_icon.setStyleSheet(icon_style)
+        self.ui.warning_txt.setStyleSheet(text_style)
+        self.ui.f_warning.setStyleSheet(design)
+        self.ui.warning_txt.setText(message)
+        self.ui.f_warning.update()
+        self.ui.f_warning.repaint()
+        self.ui.warning_txt.update()
+        self.ui.warning_txt.repaint()
+        self.ui.warning_icon.update()
+        self.ui.warning_icon.repaint()
+        self.ui.warning_txt.update()
+        self.ui.warning_txt.repaint()
 
     def getBaseSize(self):
         if self.firstSize:
@@ -582,10 +652,10 @@ class MainWindow(QMainWindow):
         old_size = self.ui.f_dig_m.width()
         new_size = self.getBaseSize()
         all_animations = []
-        f_digs = [[self.ui.no_check.isChecked(), self.anim_no_h, self.anim_no_w],
-                  [self.ui.so_check.isChecked(), self.anim_so_h, self.anim_so_w],
-                  [self.ui.ea_check.isChecked(), self.anim_ea_h, self.anim_ea_w],
-                  [self.ui.we_check.isChecked(), self.anim_we_h, self.anim_we_w]]
+        f_digs = [[True, self.anim_no_h, self.anim_no_w],
+                  [True, self.anim_so_h, self.anim_so_w],
+                  [True, self.anim_ea_h, self.anim_ea_w],
+                  [True, self.anim_we_h, self.anim_we_w]]
         self.anim_no_h = QPropertyAnimation(self.ui.f_dig_no, b"maximumHeight")
         self.anim_so_h = QPropertyAnimation(self.ui.f_dig_so, b"maximumHeight")
         self.anim_ea_h = QPropertyAnimation(self.ui.f_dig_ea, b"maximumHeight")
@@ -617,7 +687,6 @@ class MainWindow(QMainWindow):
             screen_app_ratio = 0.9
             app_width_height_ratio = 1.28
             self.app_height = int(round(screen_size[0] * screen_app_ratio, 0))
-            print("app_height: ", self.app_height)
             app_width = int(round(self.app_height * app_width_height_ratio, 0))
             self.setFixedHeight(self.app_height)
             self.setFixedWidth(app_width)
@@ -626,7 +695,6 @@ class MainWindow(QMainWindow):
     def setMonitorSize(self):
         for m in get_monitors():
             self.allMonitors[int(not m.is_primary)] = [m.height, m.width]
-        print(self.allMonitors)
 
     def slideRightMenu(self):
         width = self.ui.slide_menu_container.width()
@@ -667,6 +735,46 @@ class MainWindow(QMainWindow):
         self.group.addAnimation(self.animation)
         self.group.addAnimation(self.animation_window)
         self.group.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
+
+    def setStreetNameNO(self):
+        self.updateNamesToMainDiagram("no")
+        self.arrow_north_form.ui_form.window_name_arrows.setText(self.ui.no_name.text())
+        self.arrow_north_form.ui_form.window_name_arrows.update()
+        self.arrow_north_form.ui_form.window_name_arrows.repaint()
+
+        self.volume_north_form.ui_form.window_name_volumes.setText(self.ui.no_name.text())
+        self.volume_north_form.ui_form.window_name_volumes.update()
+        self.volume_north_form.ui_form.window_name_volumes.repaint()
+
+    def setStreetNameSO(self):
+        self.updateNamesToMainDiagram("so")
+        self.arrow_south_form.ui_form.window_name_arrows.setText(self.ui.so_name.text())
+        self.arrow_south_form.ui_form.window_name_arrows.update()
+        self.arrow_south_form.ui_form.window_name_arrows.repaint()
+
+        self.volume_south_form.ui_form.window_name_volumes.setText(self.ui.so_name.text())
+        self.volume_south_form.ui_form.window_name_volumes.update()
+        self.volume_south_form.ui_form.window_name_volumes.repaint()
+
+    def setStreetNameEA(self):
+        self.updateNamesToMainDiagram("ea")
+        self.arrow_east_form.ui_form.window_name_arrows.setText(self.ui.ea_name.text())
+        self.arrow_east_form.ui_form.window_name_arrows.update()
+        self.arrow_east_form.ui_form.window_name_arrows.repaint()
+
+        self.volume_east_form.ui_form.window_name_volumes.setText(self.ui.ea_name.text())
+        self.volume_east_form.ui_form.window_name_volumes.update()
+        self.volume_east_form.ui_form.window_name_volumes.repaint()
+
+    def setStreetNameWE(self):
+        self.updateNamesToMainDiagram("we")
+        self.arrow_west_form.ui_form.window_name_arrows.setText(self.ui.we_name.text())
+        self.arrow_west_form.ui_form.window_name_arrows.update()
+        self.arrow_west_form.ui_form.window_name_arrows.repaint()
+        self.volume_west_form.ui_form.window_name_volumes.setText(self.ui.we_name.text())
+        self.volume_west_form.ui_form.window_name_volumes.update()
+        self.volume_west_form.ui_form.window_name_volumes.repaint()
+
 
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()
@@ -772,17 +880,18 @@ class MainWindow(QMainWindow):
 
     def updateUiFromMainDiagram(self):
         self.arrowsToUi()
-        print("arrowsToUi")
         self.volumesToUi()
-        print("volumesToUi")
         self.streetsToUi()
-        print("streetsToUi")
         self.getInfoFromJucson()
-        print("getInfoFromJucson")
         self.getVolFromJucson()
-        print("getVolFromJucson")
         self.getArrowsFromJucson()
-        print("getArrowsFromJucson")
+
+        arrows = [self.arrow_north_form, self.arrow_east_form, self.arrow_south_form, self.arrow_west_form]
+        for cur_form in arrows:
+            cur_form.ui_form.edit_arrows.update()
+            cur_form.ui_form.edit_arrows.repaint()
+
+        self.ToggleDirections()
 
     def updateNamesToMainDiagram(self, direction):
         direction_dict = {"no": "צפון", "so": "דרום", "we": "מערב", "ea": "מזרח"}
@@ -842,21 +951,26 @@ class MainWindow(QMainWindow):
             directory = os.getcwd() + r"\clear_dont_delete.json"
             self.jucson.loadJucson(directory)
             self.updateMainDiagramFromJucson()
+            self.openCloseEditDiagram()
             return ""
         elif reply == QMessageBox.No:
+            self.openCloseEditDiagram()
             return ""
 
         elif reply == QMessageBox.Cancel:
+            self.openCloseEditDiagram()
             return "cancel"
 
     def createNewMessageBox(self):
         button_value = self.saveMessageBox("new")
         if button_value == "cancel":
+            self.openCloseEditDiagram()
             return
         else:
             directory = os.getcwd() + r"\clear_dont_delete.json"
             self.jucson.loadJucson(directory)
             self.updateMainDiagramFromJucson()
+            self.openCloseEditDiagram()
 
     def saveJucsonFile(self, OnExit=False):
         location = str(QFileDialog.getExistingDirectory(self, "בחירת מיקום לשמירת הקובץ"))
@@ -890,7 +1004,6 @@ class MainWindow(QMainWindow):
             return file
 
     def setOutputDirectory(self):
-        print(self.mainDiagram.OUTPUT)
         location = str(QFileDialog.getExistingDirectory(self, "בחירת מיקום לייצוא הקובץ הסופי"))
         if location == "":
             msgBox = QMessageBox()
@@ -900,14 +1013,12 @@ class MainWindow(QMainWindow):
         else:
 
             self.mainDiagram.OUTPUT = location.replace("/", "\\")
-            print(self.mainDiagram.OUTPUT)
 
     def updateMainDiagramFromJucson(self):
         jucson_methods = ["push_id_info", "push_arr", "push_vol", "push_general_info", "push_lrt_info",
                           "push_street_names"]
         for method in jucson_methods:
             cur_method = getattr(self.jucson, method)
-            print("---", method)
             cur_method()
 
         self.updateUiFromMainDiagram()
@@ -941,69 +1052,50 @@ class MainWindow(QMainWindow):
                 self.updateMainDiagramFromJucson()
 
     def openNorthArrows(self, form):
-
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_arrows.setText(self.ui.no_name.text())
-            form.ui_form.window_name_arrows.update()
-            form.ui_form.window_name_arrows.repaint()
             form.checkingOptionUpdate()
-            form.show()
             form.updateToWindow("NO")
             self.ui.dig_no_arrows.update()
             self.ui.dig_no_arrows.repaint()
+            form.show()
 
     def openEastArrows(self, form):
-
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_arrows.setText(self.ui.ea_name.text())
-            form.ui_form.window_name_arrows.update()
-            form.ui_form.window_name_arrows.repaint()
             form.checkingOptionUpdate()
-            form.show()
             form.updateToWindow("EA")
             self.ui.dig_ea_arrows.update()
             self.ui.dig_ea_arrows.repaint()
+            form.show()
 
     def openSouthArrows(self, form):
-
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_arrows.setText("REDE")
-            form.ui_form.window_name_arrows.update()
-            form.ui_form.window_name_arrows.repaint()
             form.checkingOptionUpdate()
-            form.show()
             form.updateToWindow("SO")
             self.ui.dig_so_arrows.update()
             self.ui.dig_so_arrows.repaint()
+            form.show()
 
     def openWestArrows(self, form):
-
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_arrows.setText(self.ui.we_name.text())
-            form.ui_form.window_name_arrows.update()
-            form.ui_form.window_name_arrows.repaint()
             form.checkingOptionUpdate()
-            form.show()
             form.updateToWindow("WE")
             self.ui.dig_we_arrows.update()
             self.ui.dig_we_arrows.repaint()
+            form.show()
 
     def openNorthVolumes(self, form):
 
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_volumes.setText(self.ui.no_name.text())
-            form.ui_form.window_name_volumes.update()
-            form.ui_form.window_name_volumes.repaint()
             form.TableUpdateToWindow()
             form.show()
 
@@ -1011,10 +1103,8 @@ class MainWindow(QMainWindow):
 
         if form.isVisible():
             form.activateWindow()
+
         else:
-            form.ui_form.window_name_volumes.setText(self.ui.ea_name.text())
-            form.ui_form.window_name_volumes.update()
-            form.ui_form.window_name_volumes.repaint()
             form.TableUpdateToWindow()
             form.show()
 
@@ -1023,9 +1113,6 @@ class MainWindow(QMainWindow):
         if form.isVisible():
             form.activateWindow()
         else:
-            form.ui_form.window_name_volumes.setText(self.ui.so_name.text())
-            form.ui_form.window_name_volumes.update()
-            form.ui_form.window_name_volumes.repaint()
             form.TableUpdateToWindow()
             form.show()
 
@@ -1034,10 +1121,6 @@ class MainWindow(QMainWindow):
         if form.isVisible():
             form.activateWindow()
         else:
-
-            form.ui_form.window_name_volumes.setText(self.ui.we_name.text())
-            form.ui_form.window_name_volumes.update()
-            form.ui_form.window_name_volumes.repaint()
             form.TableUpdateToWindow()
             form.show()
 
@@ -1573,6 +1656,7 @@ class ArrowForm(QtWidgets.QWidget):
         update_diagram.setText(self.ui_form.edit_arrows.text())
         update_diagram.update()
         update_diagram.repaint()
+        window.ToggleDirections()
         self.close()
 
     def updateToWindow(self, orig_dir):
@@ -1889,7 +1973,7 @@ class VolumesForm(QtWidgets.QWidget):
         self.ui_form.f_table_toolbar.mouseMoveEvent = self.moveForm
         self.ui_form.b_close_table.clicked.connect(lambda: self.closeWindow())
         self.ui_form.b_clear_all.clicked.connect(lambda: self.clearAll())
-        self.ui_form.b_accept_table.clicked.connect(lambda: self.updateToDiagram())
+        self.ui_form.b_accept_table.clicked.connect(lambda: self.updateTableToDiagram())
         self.setVolOnlyNums()
         self.ui_form.mor_l.textEdited.connect(lambda: self.regularUpdateLabel(self.or_dir, self.ui_form.mor_l))
         self.ui_form.mor_t.textChanged.connect(lambda: self.regularUpdateLabel(self.or_dir, self.ui_form.mor_t))
@@ -1912,22 +1996,21 @@ class VolumesForm(QtWidgets.QWidget):
         self.TableUpdateToWindow()
         self.close()
 
-    def updateToDiagram(self):
+    def updateTableToDiagram(self):
         window.changes_made = True
         orig_dir = self.or_dir
         all_times = ["MOR", "EVE"]
         all_sides = ["L", "T", "R"]
-        temp_options = ["", "0", 0]
+        temp_options = ["", "0", 0, "-"]
         for time in all_times:
             for side in all_sides:
-
                 temp_diag_dir = getattr(self.tempDiagram, orig_dir)
                 temp_diag_time = getattr(temp_diag_dir, time)
                 temp_diag_side = getattr(temp_diag_time, side)
 
                 main_diag_dir = getattr(self.mainDiagram, orig_dir)
                 main_diag_time = getattr(main_diag_dir, time)
-                setattr(main_diag_time, side, temp_diag_side)
+                setattr(main_diag_time, side, int(temp_diag_side))
 
                 create_dir = "dig_" + orig_dir.lower() + "_vol_" + time.lower() + "_" + side.lower()
                 update_ui = getattr(window, "ui")
@@ -1935,12 +2018,14 @@ class VolumesForm(QtWidgets.QWidget):
                 update_diagram = getattr(update_ui, create_dir)
                 if temp_diag_side in temp_options:
                     temp_diag_side = "-"
+                else:
+                    temp_diag_side = int(temp_diag_side)
 
                 update_diagram.setText(str(temp_diag_side))
 
                 update_diagram.update()
                 update_diagram.repaint()
-
+        window.ToggleDirections()
         self.close()
 
     def TableUpdateToWindow(self):
@@ -1949,7 +2034,6 @@ class VolumesForm(QtWidgets.QWidget):
         all_sides = ["L", "T", "R"]
         for time in all_times:
             for side in all_sides:
-
                 main_diag_dir = getattr(self.mainDiagram, orig_dir)
                 main_diag_time = getattr(main_diag_dir, time)
                 main_diag_side = getattr(main_diag_time, side)
@@ -1978,11 +2062,10 @@ class VolumesForm(QtWidgets.QWidget):
             for side in all_sides:
                 temp_diag_dir = getattr(self.tempDiagram, orig_dir)
                 temp_diag_time = getattr(temp_diag_dir, time)
-                setattr(temp_diag_time, side, "0")
+                setattr(temp_diag_time, side, 0)
                 time_side = time.lower() + "_" + side.lower()
-
                 update_diagram = getattr(self.ui_form, time_side)
-                update_diagram.setText("")
+                update_diagram.setText("0")
                 update_diagram.update()
                 update_diagram.repaint()
 

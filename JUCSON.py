@@ -97,12 +97,12 @@ class Jucson:
         self.OUTJUNC.ID.STREETS = self.JUCSON["Street_Names"]
 
     def pull_id_info(self):
-        self.OUTJUCSON["ID_Information"]["Project_Name"] = self.OUTJUNC.ID.PROJ_NAME
-        self.OUTJUCSON["ID_Information"]["Project_Number"] = self.OUTJUNC.ID.PROJ_NUM
-        self.OUTJUCSON["ID_Information"]["Project_Count"] = self.OUTJUNC.ID.COUNT
-        self.OUTJUCSON["ID_Information"]["Project_Info"] = self.OUTJUNC.ID.INFO
-        self.OUTJUCSON["ID_Information"]["Project_Author"] = self.OUTJUNC.ID.AUTHOR
+        id_json = {"Project_Name": self.OUTJUNC.ID.PROJ_NAME, "Project_Number": self.OUTJUNC.ID.PROJ_NUM,
+                   "Project_Count": self.OUTJUNC.ID.COUNT, "Project_Info": self.OUTJUNC.ID.INFO,
+                   "Project_Author": self.OUTJUNC.ID.AUTHOR}
+
         self.OUTJUCSON["Street_Names"] = self.OUTJUNC.ID.STREETS
+        self.OUTJUCSON["ID_Information"] = id_json
 
     def push_arr(self):
         """the method uses the output arrows of Phaser to push them into the right subclass of each direction,

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/window_arrows_with_complexowJrUU.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/window_arrows_with_complexcZLDbS.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -258,6 +258,7 @@ class Arrow_Ui_Form(object):
         sizePolicy.setHeightForWidth(self.window_name_arrows.sizePolicy().hasHeightForWidth())
         self.window_name_arrows.setSizePolicy(sizePolicy)
         self.window_name_arrows.setMaximumSize(QtCore.QSize(300, 16777215))
+        self.window_name_arrows.setStyleSheet("padding: 5px;")
         self.window_name_arrows.setAlignment(QtCore.Qt.AlignCenter)
         self.window_name_arrows.setObjectName("window_name_arrows")
         self.horizontalLayout_7.addWidget(self.window_name_arrows)
