@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1291</width>
+    <width>1194</width>
     <height>987</height>
    </rect>
   </property>
@@ -1857,6 +1857,7 @@ background-color: rgba(43, 49, 63,150);
 font: 30pt &quot;Traffic Arrows 2 Medium normal&quot;;
 	color: rgb(238, 238, 238);
 border-radius: 7px;
+נםר
 }</string>
                   </property>
                   <property name="frameShape">
@@ -1881,24 +1882,193 @@ border-radius: 7px;
                    <property name="spacing">
                     <number>0</number>
                    </property>
-                   <item row="2" column="2">
-                    <widget class="QFrame" name="f_dig_r_b">
+                   <item row="2" column="3">
+                    <widget class="QFrame" name="f_dig_so">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QFrame#f_dig_so{
+
+border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+</string>
+                     </property>
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QFrame" name="f_dig_r_t">
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_30">
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_name">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_33">
+                         <item>
+                          <widget class="QLabel" name="dig_so_name">
+                           <property name="text">
+                            <string>דרום</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_arrows">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_40">
+                         <item>
+                          <widget class="QLabel" name="dig_so_arrows">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="scaledContents">
+                            <bool>true</bool>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="f_dig_so_vol">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_29">
+                         <item>
+                          <widget class="QFrame" name="f_dig_so_vol_mor">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(232, 166, 66);
+
+}</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_34">
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_r">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_t">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_mor_l">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QFrame" name="f_dig_so_vol_eve">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(183, 207, 232);
+
+}</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_33">
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_r">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_t">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_so_vol_eve_l">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
                     </widget>
                    </item>
                    <item row="0" column="3">
@@ -2102,21 +2272,39 @@ border-radius: 7px;
                      </layout>
                     </widget>
                    </item>
-                   <item row="2" column="3">
-                    <widget class="QFrame" name="f_dig_so">
+                   <item row="2" column="2">
+                    <widget class="QFrame" name="f_dig_r_b">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QFrame" name="f_dig_r_t">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QFrame" name="f_dig_ea">
                      <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">QFrame#f_dig_so{
-
-border-bottom-left-radius: 30px;
+                      <string notr="true">QFrame#f_dig_ea{
+  border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-}
-</string>
+}</string>
                      </property>
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
@@ -2124,20 +2312,26 @@ border-bottom-left-radius: 30px;
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_30">
+                     <layout class="QVBoxLayout" name="verticalLayout_6">
                       <item>
-                       <widget class="QFrame" name="f_dig_so_name">
+                       <widget class="QFrame" name="f_dig_ea_name">
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
                         </property>
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_33">
+                        <layout class="QVBoxLayout" name="verticalLayout_31">
                          <item>
-                          <widget class="QLabel" name="dig_so_name">
+                          <widget class="QLabel" name="dig_ea_name">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
                            <property name="text">
-                            <string>דרום</string>
+                            <string>מזרח</string>
                            </property>
                            <property name="alignment">
                             <set>Qt::AlignCenter</set>
@@ -2148,16 +2342,16 @@ border-bottom-left-radius: 30px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QFrame" name="f_dig_so_arrows">
+                       <widget class="QFrame" name="f_dig_ea_arrows">
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
                         </property>
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_40">
+                        <layout class="QHBoxLayout" name="horizontalLayout_41">
                          <item>
-                          <widget class="QLabel" name="dig_so_arrows">
+                          <widget class="QLabel" name="dig_ea_arrows">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                              <horstretch>0</horstretch>
@@ -2179,16 +2373,16 @@ border-bottom-left-radius: 30px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QFrame" name="f_dig_so_vol">
+                       <widget class="QFrame" name="f_dig_ea_vol">
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
                         </property>
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_29">
+                        <layout class="QVBoxLayout" name="verticalLayout_8">
                          <item>
-                          <widget class="QFrame" name="f_dig_so_vol_mor">
+                          <widget class="QFrame" name="f_dig_ea_vol_mor">
                            <property name="styleSheet">
                             <string notr="true">QLabel{
 	font: 10pt &quot;Rubik&quot;;
@@ -2202,9 +2396,9 @@ border-bottom-left-radius: 30px;
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_34">
+                           <layout class="QHBoxLayout" name="horizontalLayout_37">
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_r">
+                             <widget class="QLabel" name="dig_ea_vol_mor_r">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2214,7 +2408,7 @@ border-bottom-left-radius: 30px;
                              </widget>
                             </item>
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_t">
+                             <widget class="QLabel" name="dig_ea_vol_mor_t">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2224,7 +2418,7 @@ border-bottom-left-radius: 30px;
                              </widget>
                             </item>
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_mor_l">
+                             <widget class="QLabel" name="dig_ea_vol_mor_l">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2237,7 +2431,7 @@ border-bottom-left-radius: 30px;
                           </widget>
                          </item>
                          <item>
-                          <widget class="QFrame" name="f_dig_so_vol_eve">
+                          <widget class="QFrame" name="f_dig_ea_vol_eve">
                            <property name="styleSheet">
                             <string notr="true">QLabel{
 	font: 10pt &quot;Rubik&quot;;
@@ -2251,9 +2445,9 @@ border-bottom-left-radius: 30px;
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_33">
+                           <layout class="QHBoxLayout" name="horizontalLayout_38">
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_r">
+                             <widget class="QLabel" name="dig_ea_vol_eve_r">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2263,7 +2457,7 @@ border-bottom-left-radius: 30px;
                              </widget>
                             </item>
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_t">
+                             <widget class="QLabel" name="dig_ea_vol_eve_t">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2273,7 +2467,7 @@ border-bottom-left-radius: 30px;
                              </widget>
                             </item>
                             <item>
-                             <widget class="QLabel" name="dig_so_vol_eve_l">
+                             <widget class="QLabel" name="dig_ea_vol_eve_l">
                               <property name="text">
                                <string>-</string>
                               </property>
@@ -2335,36 +2529,85 @@ border-bottom-left-radius: 30px;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QFrame" name="f_side_we">
+                       <widget class="QFrame" name="f_dig_we_arrows">
                         <property name="frameShape">
                          <enum>QFrame::StyledPanel</enum>
                         </property>
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_49">
+                        <layout class="QHBoxLayout" name="horizontalLayout_39">
                          <item>
-                          <widget class="QFrame" name="f_dig_we_arrows">
+                          <widget class="QLabel" name="dig_we_arrows">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="scaledContents">
+                            <bool>true</bool>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="f_dig_we_vol">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_9">
+                         <item>
+                          <widget class="QFrame" name="f_dig_we_vol_mor">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(232, 166, 66);
+
+}</string>
+                           </property>
                            <property name="frameShape">
                             <enum>QFrame::StyledPanel</enum>
                            </property>
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_39">
+                           <layout class="QHBoxLayout" name="horizontalLayout_6">
                             <item>
-                             <widget class="QLabel" name="dig_we_arrows">
-                              <property name="sizePolicy">
-                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                               </sizepolicy>
-                              </property>
+                             <widget class="QLabel" name="dig_we_vol_mor_r">
                               <property name="text">
-                               <string/>
+                               <string>-</string>
                               </property>
-                              <property name="scaledContents">
-                               <bool>true</bool>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_we_vol_mor_t">
+                              <property name="text">
+                               <string>-</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_we_vol_mor_l">
+                              <property name="text">
+                               <string>-</string>
                               </property>
                               <property name="alignment">
                                <set>Qt::AlignCenter</set>
@@ -2375,110 +2618,49 @@ border-bottom-left-radius: 30px;
                           </widget>
                          </item>
                          <item>
-                          <widget class="QFrame" name="f_dig_we_vol">
+                          <widget class="QFrame" name="f_dig_we_vol_eve">
+                           <property name="styleSheet">
+                            <string notr="true">QLabel{
+	font: 10pt &quot;Rubik&quot;;
+	color: rgb(183, 207, 232);
+
+}</string>
+                           </property>
                            <property name="frameShape">
                             <enum>QFrame::StyledPanel</enum>
                            </property>
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <layout class="QVBoxLayout" name="verticalLayout_9">
+                           <layout class="QHBoxLayout" name="horizontalLayout_32">
                             <item>
-                             <widget class="QFrame" name="f_dig_we_vol_mor">
-                              <property name="styleSheet">
-                               <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(232, 166, 66);
-
-}</string>
+                             <widget class="QLabel" name="dig_we_vol_eve_r">
+                              <property name="text">
+                               <string>-</string>
                               </property>
-                              <property name="frameShape">
-                               <enum>QFrame::StyledPanel</enum>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
                               </property>
-                              <property name="frameShadow">
-                               <enum>QFrame::Raised</enum>
-                              </property>
-                              <layout class="QHBoxLayout" name="horizontalLayout_6">
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_mor_r">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_mor_t">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_mor_l">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
                              </widget>
                             </item>
                             <item>
-                             <widget class="QFrame" name="f_dig_we_vol_eve">
-                              <property name="styleSheet">
-                               <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(183, 207, 232);
-
-}</string>
+                             <widget class="QLabel" name="dig_we_vol_eve_t">
+                              <property name="text">
+                               <string>-</string>
                               </property>
-                              <property name="frameShape">
-                               <enum>QFrame::StyledPanel</enum>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
                               </property>
-                              <property name="frameShadow">
-                               <enum>QFrame::Raised</enum>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="dig_we_vol_eve_l">
+                              <property name="text">
+                               <string>-</string>
                               </property>
-                              <layout class="QHBoxLayout" name="horizontalLayout_32">
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_eve_r">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_eve_t">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_we_vol_eve_l">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
                              </widget>
                             </item>
                            </layout>
@@ -2950,211 +3132,6 @@ color: rgba(66, 66, 66, 130);
                      </layout>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QFrame" name="f_dig_ea">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QFrame#f_dig_ea{
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}</string>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_6">
-                      <item>
-                       <widget class="QFrame" name="f_dig_ea_name">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_31">
-                         <item>
-                          <widget class="QLabel" name="dig_ea_name">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="text">
-                            <string>מזרח</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="frame">
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_47">
-                         <item>
-                          <widget class="QFrame" name="f_dig_ea_vol">
-                           <property name="frameShape">
-                            <enum>QFrame::StyledPanel</enum>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Raised</enum>
-                           </property>
-                           <layout class="QVBoxLayout" name="verticalLayout_8">
-                            <item>
-                             <widget class="QFrame" name="f_dig_ea_vol_mor">
-                              <property name="styleSheet">
-                               <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(232, 166, 66);
-
-}</string>
-                              </property>
-                              <property name="frameShape">
-                               <enum>QFrame::StyledPanel</enum>
-                              </property>
-                              <property name="frameShadow">
-                               <enum>QFrame::Raised</enum>
-                              </property>
-                              <layout class="QHBoxLayout" name="horizontalLayout_37">
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_mor_r">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_mor_t">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_mor_l">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QFrame" name="f_dig_ea_vol_eve">
-                              <property name="styleSheet">
-                               <string notr="true">QLabel{
-	font: 10pt &quot;Rubik&quot;;
-	color: rgb(183, 207, 232);
-
-}</string>
-                              </property>
-                              <property name="frameShape">
-                               <enum>QFrame::StyledPanel</enum>
-                              </property>
-                              <property name="frameShadow">
-                               <enum>QFrame::Raised</enum>
-                              </property>
-                              <layout class="QHBoxLayout" name="horizontalLayout_38">
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_eve_r">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_eve_t">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item>
-                                <widget class="QLabel" name="dig_ea_vol_eve_l">
-                                 <property name="text">
-                                  <string>-</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QFrame" name="f_dig_ea_arrows">
-                           <property name="frameShape">
-                            <enum>QFrame::StyledPanel</enum>
-                           </property>
-                           <property name="frameShadow">
-                            <enum>QFrame::Raised</enum>
-                           </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_41">
-                            <item>
-                             <widget class="QLabel" name="dig_ea_arrows">
-                              <property name="sizePolicy">
-                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                               </sizepolicy>
-                              </property>
-                              <property name="text">
-                               <string/>
-                              </property>
-                              <property name="scaledContents">
-                               <bool>true</bool>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -3314,7 +3291,7 @@ QLabel {
                   <x>0</x>
                   <y>0</y>
                   <width>331</width>
-                  <height>772</height>
+                  <height>752</height>
                  </rect>
                 </property>
                 <property name="styleSheet">
@@ -3831,16 +3808,6 @@ QLineEdit{
                          </layout>
                         </widget>
                        </item>
-                       <item>
-                        <widget class="QFrame" name="frame_2">
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                        </widget>
-                       </item>
                       </layout>
                      </widget>
                     </item>
@@ -3865,7 +3832,7 @@ QLineEdit{
                   <x>0</x>
                   <y>0</y>
                   <width>331</width>
-                  <height>772</height>
+                  <height>752</height>
                  </rect>
                 </property>
                 <property name="styleSheet">
@@ -4709,7 +4676,7 @@ QDoubleSpinBox#spin_inf::down-arrow:disabled{
                   <x>0</x>
                   <y>0</y>
                   <width>331</width>
-                  <height>772</height>
+                  <height>752</height>
                  </rect>
                 </property>
                 <property name="styleSheet">

@@ -23,8 +23,8 @@ class PhsrOutput:
         self.__Evening_Determining_Volume = self.__Phaser_List[18]
         self.__Evening_Arrows_Table = list(self.__Phaser_List[18].keys())[:-6]
         self.__Evening_LRT = self.__Phaser_List[19]
-        self.__Street_Names = self.__Phaser_List[20]
-        self.__ID_Information = self.__Phaser_List[21]
+        # self.__Street_Names = self.__Phaser_List[20]
+        # self.__ID_Information = self.__Phaser_List[21]
 
     @property
     def PHSR_LIST(self):

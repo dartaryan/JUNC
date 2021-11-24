@@ -18,137 +18,7 @@ from rakal_capacity import rakal_capacity
 
 # לשאלות ותמיכה טכנית ניתן לפנות לעמרי מטר omrimatar@gmail.com
 
-def write_to_excel(v_over_c, sum_of_images, pulp_vars, run, real_capacity):
-    wb2 = xl.load_workbook('OUTPUT.xlsx')
-    ws2 = wb2.active
-    write_names = [''] * 150
-    write_values = [''] * 150
-    if run == 0:
-        namesA = 'A'
-        valuesB = 'B'
-    else:
-        namesA = 'E'
-        valuesB = 'F'
-
-    for m in range(len(pulp_vars)):
-        write_names[m] = list(pulp_vars.keys())[len(pulp_vars) - m - 1]
-        write_values[m] = list(pulp_vars.values())[len(pulp_vars) - m - 1]
-
-    ws2['A1'] = 'morning'
-    ws2['E1'] = 'night'
-    ws2[namesA + '2'] = 'capacity'
-    ws2[valuesB + '2'] = real_capacity
-    ws2[namesA + '3'] = 'v/C'
-    ws2[valuesB + '3'] = v_over_c
-    ws2[namesA + '4'] = 'sum of images'
-    ws2[valuesB + '4'] = sum_of_images
-    ws2[namesA + '5'] = 'names'
-    ws2[valuesB + '5'] = 'values'
-
-    for i in range(150):
-        row = str(i + 6)
-        ws2[namesA + row] = write_names[i]
-        ws2[valuesB + row] = write_values[i]
-    try:
-        wb2.save('OUTPUT.xlsx')
-    except PermissionError:
-        MessageBox = ctypes.windll.user32.MessageBoxW
-        MessageBox(None, 'ERROR: close excel output file', 'Phaser massage', 0)
-
-        exit()
-
-    wb2.close()
-
-
-def print_dict(d):
-    for item in d.items():
-        print(item[0], '=', item[1])
-
-
-def suppress_null(val):
-    if not val:
-        return 0
-    else:
-        return val
-
-
-def read_from_excel(run):
-    wb = xl.load_workbook('volume_calculator.xlsx', data_only=True)
-    ws = wb.active
-    volume = []
-    lanes = []
-    nataz = []
-    junc_nataz = []
-    streets = []
-
-    junc_instructions = [suppress_null(ws.cell(row=36 + i, column=19).value) for i in range(5)]
-
-    for i in range(4):
-        l = [suppress_null(ws.cell(row=4 + run, column=4 + 4 * i + j).value) for j in range(3)]
-        volume += l
-        l = [suppress_null(ws.cell(row=8, column=3 + 8 * i + j).value) for j in range(7)]
-        lanes += l
-        l = [suppress_null(ws.cell(row=9, column=3 + 8 * i + j).value) for j in range(7)]
-        nataz += l
-        l = [suppress_null(ws.cell(row=9, column=3 + 8 * i + j).value) for j in range(7)]
-        junc_nataz += l
-
-    instructions = [suppress_null(ws.cell(row=36 + i, column=22).value) for i in range(11)]
-    for i in range(12):
-        try:
-            volume[i] = round(volume[i] * instructions[10], 0)
-        except:
-            error = "volume must be put as numbers"
-            MessageBox = ctypes.windll.user32.MessageBoxW
-            MessageBox(None, error, 'Phaser error', 0)
-            exit()
-    rakal_instructions = [suppress_null(ws.cell(row=36 + i, column=26).value) for i in range(6)]
-    for i in range(6):
-        if i == 4 and rakal_instructions[i] == 1.125: i = i + 1
-        if isinstance(rakal_instructions[i], int) == False:
-            # if isinstance(rakal_instructions[i],int)== False and rakal_instructions[i] != 1.125:
-
-            error = "rakal instructions table must be integers"
-            MessageBox = ctypes.windll.user32.MessageBoxW
-            MessageBox(None, error, 'Phaser error', 0)
-            exit()
-    for i in range(11):
-        # אם בעתיד מגדילים את הריינג' לשנות את פקדות הברייק שמתחת
-        if i == 10 and isinstance(instructions[i], float) == True: break
-        if isinstance(instructions[i], int) == False:
-            error = "instructions table must be integers"
-            MessageBox = ctypes.windll.user32.MessageBoxW
-            MessageBox(None, error, 'Phaser error', 0)
-            exit()
-
-    # instructionscheck = [s for s in rakal_instructions if s.isdigit()]
-
-    #        x=instructions[i]+1
-    #        y=rakal_instructionsinstructions[i]+1
-    # sum [instructions,0]
-    # sum [rakal_instructions,0]
-    # except:
-
-    for r in range(12):
-        if (r + 2) % 3 != 0:
-            volume[r] = round(volume[r] * rakal_instructions[4], 0)
-    if instructions[7] == 1:
-        for m in range(28):
-            nataz[m] = 0
-    for s in range(4):
-        l = [suppress_null(ws.cell(row=4, column=22 + s).value)]
-        if l == 0: l = ""
-        streets += l
-    # print("streets=", streets)
-
-    wb.properties
-    return volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, wb.properties, junc_nataz
-
-
-def main(list_from_JNUCUI):
-    info_list = list_from_JNUCUI
-
-    print(info_list)
+def main():
     cwd = 'os.getcwd()'  # solverdir = r'cbc-windeps-win64-msvc16-mtd\bin\cbc.exe'  # extracted and renamed CBC solver binary
     # solverdir = os.path.join(cwd, solverdir)
     # solver = pl.COIN_CMD(solverdir)
@@ -168,6 +38,130 @@ def main(list_from_JNUCUI):
         else:
             print("             night:")
 
+        def write_to_excel(v_over_c, sum_of_images, pulp_vars, run, real_capacity):
+
+            wb2 = xl.load_workbook('OUTPUT.xlsx')
+            ws2 = wb2.active
+            write_names = [''] * 150
+            write_values = [''] * 150
+            if run == 0:
+                namesA = 'A'
+                valuesB = 'B'
+            else:
+                namesA = 'E'
+                valuesB = 'F'
+
+            for m in range(len(pulp_vars)):
+                write_names[m] = list(pulp_vars.keys())[len(pulp_vars) - m - 1]
+                write_values[m] = list(pulp_vars.values())[len(pulp_vars) - m - 1]
+
+            ws2['A1'] = 'morning'
+            ws2['E1'] = 'night'
+            ws2[namesA + '2'] = 'capacity'
+            ws2[valuesB + '2'] = real_capacity
+            ws2[namesA + '3'] = 'v/C'
+            ws2[valuesB + '3'] = v_over_c
+            ws2[namesA + '4'] = 'sum of images'
+            ws2[valuesB + '4'] = sum_of_images
+            ws2[namesA + '5'] = 'names'
+            ws2[valuesB + '5'] = 'values'
+
+            for i in range(150):
+                row = str(i + 6)
+                ws2[namesA + row] = write_names[i]
+                ws2[valuesB + row] = write_values[i]
+            try:
+                wb2.save('OUTPUT.xlsx')
+            except PermissionError:
+                MessageBox = ctypes.windll.user32.MessageBoxW
+                MessageBox(None, 'ERROR: close excel output file', 'Phaser massage', 0)
+
+                exit()
+
+            wb2.close()
+
+        def print_dict(d):
+            for item in d.items():
+                print(item[0], '=', item[1])
+
+        def suppress_null(val):
+            if not val:
+                return 0
+            else:
+                return val
+
+        def read_from_excel(run):
+            wb = xl.load_workbook('volume_calculator.xlsx', data_only=True)
+            ws = wb.active
+            volume = []
+            lanes = []
+            nataz = []
+            junc_nataz = []
+            streets = []
+
+            junc_instructions = [suppress_null(ws.cell(row=36 + i, column=19).value) for i in range(5)]
+
+            for i in range(4):
+                l = [suppress_null(ws.cell(row=4 + run, column=4 + 4 * i + j).value) for j in range(3)]
+                volume += l
+                l = [suppress_null(ws.cell(row=8, column=3 + 8 * i + j).value) for j in range(7)]
+                lanes += l
+                l = [suppress_null(ws.cell(row=9, column=3 + 8 * i + j).value) for j in range(7)]
+                nataz += l
+                l = [suppress_null(ws.cell(row=9, column=3 + 8 * i + j).value) for j in range(7)]
+                junc_nataz += l
+
+            instructions = [suppress_null(ws.cell(row=36 + i, column=22).value) for i in range(11)]
+            for i in range(12):
+                try:
+                    volume[i] = round(volume[i] * instructions[10], 0)
+                except:
+                    error = "volume must be put as numbers"
+                    MessageBox = ctypes.windll.user32.MessageBoxW
+                    MessageBox(None, error, 'Phaser error', 0)
+                    exit()
+            rakal_instructions = [suppress_null(ws.cell(row=36 + i, column=26).value) for i in range(6)]
+            for i in range(6):
+                if i == 4 and rakal_instructions[i] == 1.125: i = i + 1
+                if isinstance(rakal_instructions[i], int) == False:
+                    # if isinstance(rakal_instructions[i],int)== False and rakal_instructions[i] != 1.125:
+
+                    error = "rakal instructions table must be integers"
+                    MessageBox = ctypes.windll.user32.MessageBoxW
+                    MessageBox(None, error, 'Phaser error', 0)
+                    exit()
+            for i in range(11):
+                # אם בעתיד מגדילים את הריינג' לשנות את פקדות הברייק שמתחת
+                if i == 10 and isinstance(instructions[i], float) == True: break
+                if isinstance(instructions[i], int) == False:
+                    error = "instructions table must be integers"
+                    MessageBox = ctypes.windll.user32.MessageBoxW
+                    MessageBox(None, error, 'Phaser error', 0)
+                    exit()
+
+            # instructionscheck = [s for s in rakal_instructions if s.isdigit()]
+
+            #        x=instructions[i]+1
+            #        y=rakal_instructionsinstructions[i]+1
+            # sum [instructions,0]
+            # sum [rakal_instructions,0]
+            # except:
+
+            for r in range(12):
+                if (r + 2) % 3 != 0:
+                    volume[r] = round(volume[r] * rakal_instructions[4], 0)
+            if instructions[7] == 1:
+                for m in range(28):
+                    nataz[m] = 0
+            for s in range(4):
+                l = [suppress_null(ws.cell(row=4, column=22 + s).value)]
+                if l == 0: l = ""
+                streets += l
+            # print("streets=", streets)
+
+            wb.properties
+            return volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, wb.properties, junc_nataz
+
         def update_excel(optimal_lanes, min_v_c):
             for i in range(4):
                 for j in range(7):
@@ -180,15 +174,8 @@ def main(list_from_JNUCUI):
         wb = xl.load_workbook('volume_calculator.xlsx')
         ws = wb.active
         print("after morning")
-
-        # volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, excel_properties, junc_nataz = read_from_excel(
-        #   run)
-        volume = info_list[10 * run + 1]
-        lanes = info_list[2]
-        instructions = info_list[3]
-        rakal_instructions = info_list[4]
-        nataz = info_list[5]
-        junc_nataz = info_list[5]
+        volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, excel_properties, junc_nataz = read_from_excel(
+            run)
 
         # שליחת נתונים לגאנק
         junc_list.append(volume)
@@ -371,7 +358,7 @@ def main(list_from_JNUCUI):
             queue_list = queue_length(car_sum, current_pulp_vars)
             if rakal_instructions[0] == 1:
                 v_c, real_capacity = rakal_capacity(instructions, rakal_instructions, images_values)
-            # write_to_excel(v_c, sum_of_images, current_pulp_vars, run, real_capacity)
+            write_to_excel(v_c, sum_of_images, current_pulp_vars, run, real_capacity)
             for keys, values in current_pulp_vars.items():
                 if values > 0:
                     print(keys, '=', values)
@@ -409,10 +396,10 @@ def main(list_from_JNUCUI):
             junc_list.append(sum_of_images)
             junc_list.append(current_pulp_vars)
             junc_list.append(real_capacity)
-            # if run == 1:
-            #     junc_list.append(streets)
-            # junc_list.append(junc_instructions)
-            # excel_properties_list.append(excel_properties)
+            if run == 1:
+                junc_list.append(streets)
+                junc_list.append(junc_instructions)
+                excel_properties_list.append(excel_properties)
 
         run = run + 1
         print("junc_list")
@@ -441,7 +428,7 @@ def main(list_from_JNUCUI):
     # for i in range(2):
     #    print ('i = ', i)
 
-    return (junc_list)
+    return (junc_list, excel_properties_list)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 import ctypes
 import os
 import sys
+import time
+
 from screeninfo import get_monitors
 from PyQt5.QtCore import QPropertyAnimation, QRegExp, Qt, QRect, QEasingCurve
 from PyQt5.QtGui import QColor, QPainter, QRegExpValidator, QFont, QBrush, QPalette, QGuiApplication, QScreen
@@ -250,8 +252,8 @@ class MainWindow(QMainWindow):
         self.ui.spin_inf.valueChanged.connect(lambda: self.setInflation())
 
         # Third Page
-        self.ui.check_lrt_noso.clicked.connect(lambda: self.setLrtNS())
-        self.ui.check_lrt_weea.clicked.connect(lambda: self.setLrtEW())
+        self.ui.check_lrt_noso.stateChanged.connect(lambda: self.setLrtNS())
+        self.ui.check_lrt_weea.stateChanged.connect(lambda: self.setLrtEW())
         self.ui.spin_cyc.valueChanged.connect(lambda: self.setCycleTime())
         self.ui.spin_tr_lost_time.valueChanged.connect(lambda: self.setTrainLostTime())
         self.ui.spin_hd.valueChanged.connect(lambda: self.setTrainHeadway())
@@ -265,7 +267,7 @@ class MainWindow(QMainWindow):
     def getVolFromJucson(self):
         self.jucson.pull_vol()
         self.phaser_input_list[1] = (self.jucson.OUTJUCSON["Morning_Volumes"])
-        self.phaser_input_list[16] = (self.jucson.OUTJUCSON["Evening_Volumes"])
+        self.phaser_input_list[11] = (self.jucson.OUTJUCSON["Evening_Volumes"])
 
     def getArrowsFromJucson(self):
         self.jucson.pull_arr()
@@ -273,22 +275,30 @@ class MainWindow(QMainWindow):
         self.phaser_input_list[5] = (self.jucson.OUTJUCSON["PublicTransport_Arrows"])
 
     def getInfoFromJucson(self):
-        lrt_NS = self.mainDiagram.LRT_INF.LRT_Orig[0]
-        lrt_EW = self.mainDiagram.LRT_INF.LRT_Orig[1]
+        project_name = "" if str(self.mainDiagram.ID.PROJ_NAME) == "0" else str(self.mainDiagram.ID.PROJ_NAME)
+        author = "" if str(self.mainDiagram.ID.AUTHOR) == "0" else str(self.mainDiagram.ID.AUTHOR)
+        project_number = "" if str(self.mainDiagram.ID.PROJ_NUM) == "0" else str(self.mainDiagram.ID.PROJ_NUM)
+        count = "" if str(self.mainDiagram.ID.COUNT) == "0" else str(self.mainDiagram.ID.COUNT)
+        info = "" if str(self.mainDiagram.ID.INFO) == "0" else str(self.mainDiagram.ID.INFO)
+
         general_lost_time = self.mainDiagram.LRT_INF.GEN_LOST_TIME
-        self.ui.txt_pro_name.setText(self.mainDiagram.ID.PROJ_NAME)
-        self.ui.txt_author.setText(self.mainDiagram.ID.AUTHOR)
-        self.ui.txt_pro_num.setText(self.mainDiagram.ID.PROJ_NUM)
-        self.ui.txt_ver.setText(self.mainDiagram.ID.COUNT)
-        self.ui.txt_info.setText(self.mainDiagram.ID.INFO)
+        self.ui.txt_pro_name.setText(project_name)
+        self.ui.txt_author.setText(author)
+        self.ui.txt_pro_num.setText(project_number)
+        self.ui.txt_ver.setText(count)
+        self.ui.txt_info.setText(info)
         self.ui.spin_cap.setValue(self.mainDiagram.G_INF.CAP)
         self.ui.check_weea.setChecked(self.mainDiagram.G_INF.ELWL)
         self.ui.check_noso.setChecked(self.mainDiagram.G_INF.NLSL)
         self.ui.spin_inf.setValue(self.mainDiagram.G_INF.INF)
+
         self.ui.check_fifth.setChecked(True if self.mainDiagram.G_INF.IMG5 == 1 else False)
         self.ui.check_sixth.setChecked(True if self.mainDiagram.G_INF.IMG6 == 1 else False)
-        self.ui.check_lrt_noso.setChecked(True if lrt_NS == 1 else False)
-        self.ui.check_lrt_weea.setChecked(True if lrt_EW == 1 else False)
+        self.ui.check_lrt_noso.setChecked(True if int(self.mainDiagram.LRT_INF.LRT_Orig[0]) == 1 else False)
+        self.ui.check_lrt_weea.setChecked(True if int(self.mainDiagram.LRT_INF.LRT_Orig[1]) == 1 else False)
+
+        print("self.ui.check_lrt_noso.isChecked: ", self.ui.check_lrt_noso.isChecked())
+
         self.enabledLRT()
         if self.ui.check_lrt_noso.isChecked() or self.ui.check_lrt_weea.isChecked():
             self.ui.spin_cyc.setValue(self.mainDiagram.LRT_INF.CYC_TIME)
@@ -297,6 +307,7 @@ class MainWindow(QMainWindow):
             self.ui.spin_mcu.setValue(self.mainDiagram.LRT_INF.LRT_MCU)
             if general_lost_time == 0:
                 self.ui.check_lost_time.setChecked(True)
+
             else:
                 self.ui.check_lost_time.setChecked(False)
                 self.ui.spin_lost_time.setValue(general_lost_time)
@@ -349,6 +360,7 @@ class MainWindow(QMainWindow):
         self.mainDiagram.phsr_lst = self.phaser_input_list
         Main_ID.set_Diagram(self.mainDiagram)
         final_message = Main_ID.main()
+        self.jucson.saveJucsonFromDiagram(self.mainDiagram.OUTPUT + "\\×JUNC×")
         msgBox = QMessageBox()
         msgBox.setText(final_message)
         msgBox.exec()
@@ -362,7 +374,7 @@ class MainWindow(QMainWindow):
     def setLrtEW(self):
         lrt_EW = 1 if self.ui.check_lrt_weea.isChecked() else 0
         self.phaser_input_list[3][9] = lrt_EW
-        self.mainDiagram.LRT_INF.LRT_Orig[0] = lrt_EW
+        self.mainDiagram.LRT_INF.LRT_Orig[1] = lrt_EW
         self.enabledLRT()
 
     def enabledLRT(self):
@@ -775,7 +787,6 @@ class MainWindow(QMainWindow):
         self.volume_west_form.ui_form.window_name_volumes.update()
         self.volume_west_form.ui_form.window_name_volumes.repaint()
 
-
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()
 
@@ -1015,9 +1026,11 @@ class MainWindow(QMainWindow):
             self.mainDiagram.OUTPUT = location.replace("/", "\\")
 
     def updateMainDiagramFromJucson(self):
+        print("updateMainDiagramFromJucson")
         jucson_methods = ["push_id_info", "push_arr", "push_vol", "push_general_info", "push_lrt_info",
                           "push_street_names"]
         for method in jucson_methods:
+            print(method)
             cur_method = getattr(self.jucson, method)
             cur_method()
 
@@ -1036,6 +1049,7 @@ class MainWindow(QMainWindow):
                 self.volcov.VC = directory
                 juc = self.volcov.toJSON()
                 self.jucson.JUCSON = juc
+                print("loadvc1")
                 self.updateMainDiagramFromJucson()
 
     def loadJucsonFile(self):

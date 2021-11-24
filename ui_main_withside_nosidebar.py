@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebartcmcQj.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/orig_main_withside_nosidebarxBpoZq.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -1459,18 +1459,6 @@ class Ui_MainWindow(object):
         self.f_warning.setStyleSheet("QFrame {\n"
 "    border-radius: 12px;\n"
 "    background-color: rgba(9, 198, 85, 180);\n"
-"}\n"
-"\n"
-"QLabel#warning_txt {\n"
-"    background-color: rgba(1, 1, 1,0);\n"
-"    color: rgb(55, 62, 78);\n"
-"    font: 10pt \"Rubik\";\n"
-"}\n"
-"\n"
-"QLabel#warning_icon {\n"
-"    font: 18pt \"Icons-JUNC-1\";\n"
-"    background-color: rgba(1, 1, 1,0);\n"
-"    color: rgb(55, 62, 78);\n"
 "}")
         self.f_warning.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.f_warning.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1489,13 +1477,23 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.warning_icon.setFont(font)
+        self.warning_icon.setStyleSheet("QLabel#warning_icon {\n"
+"    font: 18pt \"Icons-JUNC-1\";\n"
+"    background-color: rgba(1, 1, 1,0);\n"
+"    color: rgb(55, 62, 78);\n"
+"}")
         self.warning_icon.setAlignment(QtCore.Qt.AlignCenter)
         self.warning_icon.setObjectName("warning_icon")
         self.horizontalLayout_46.addWidget(self.warning_icon, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.warning_txt = QtWidgets.QLabel(self.f_warning)
         self.warning_txt.setMinimumSize(QtCore.QSize(200, 0))
         self.warning_txt.setMaximumSize(QtCore.QSize(0, 16777215))
-        self.warning_txt.setStyleSheet("")
+        self.warning_txt.setStyleSheet("QLabel#warning_txt {\n"
+"    background-color: rgba(1, 1, 1,0);\n"
+"    color: rgb(55, 62, 78);\n"
+"    font: 10pt \"Rubik\";\n"
+"}\n"
+"")
         self.warning_txt.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.warning_txt.setWordWrap(True)
         self.warning_txt.setObjectName("warning_txt")
@@ -1740,12 +1738,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setContentsMargins(11, 11, 11, 11)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.l_pro_num = QtWidgets.QLabel(self.f_pro_num)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.l_pro_num.sizePolicy().hasHeightForWidth())
         self.l_pro_num.setSizePolicy(sizePolicy)
-        self.l_pro_num.setMinimumSize(QtCore.QSize(100, 0))
+        self.l_pro_num.setMinimumSize(QtCore.QSize(110, 0))
         font = QtGui.QFont()
         font.setFamily("Rubik")
         font.setPointSize(13)
@@ -1757,7 +1755,7 @@ class Ui_MainWindow(object):
         self.l_pro_num.setObjectName("l_pro_num")
         self.horizontalLayout_10.addWidget(self.l_pro_num)
         self.txt_pro_num = QtWidgets.QLineEdit(self.f_pro_num)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_pro_num.sizePolicy().hasHeightForWidth())
@@ -1882,7 +1880,7 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap(":/icons/icons-svg/info_black_24dp (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tb_menu.addItem(self.p_general, icon, "")
         self.p_junction = QtWidgets.QWidget()
-        self.p_junction.setGeometry(QtCore.QRect(0, 0, 340, 731))
+        self.p_junction.setGeometry(QtCore.QRect(0, 0, 340, 390))
         self.p_junction.setStyleSheet("QFrame#p_f_junction{\n"
 "    border-radius: 12px;\n"
 "    background-color: rgba(237, 237, 237,240);\n"
@@ -2406,7 +2404,7 @@ class Ui_MainWindow(object):
         icon1.addPixmap(QtGui.QPixmap(":/icons/icons-svg/assessment_black_24dp (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tb_menu.addItem(self.p_junction, icon1, "")
         self.p_lrt = QtWidgets.QWidget()
-        self.p_lrt.setGeometry(QtCore.QRect(0, 0, 338, 731))
+        self.p_lrt.setGeometry(QtCore.QRect(0, 0, 338, 544))
         self.p_lrt.setStyleSheet("QFrame#p_f_lrt{\n"
 "    border-radius: 12px;\n"
 "    background-color: rgba(237, 237, 237,240);\n"
