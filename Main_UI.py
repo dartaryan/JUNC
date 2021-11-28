@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QGraphicsDropShadowEffect
     QDesktopWidget, QCheckBox, QGraphicsBlurEffect
 # from pydeck import settings
 # from win32api import GetSystemMetrics
-
+from AngledObjects import AngledLabel
 from Diagram import Diagram
 from JUCSON import Jucson
 from VOLCOV import VolCov
@@ -122,6 +122,65 @@ class MainWindow(QMainWindow):
         self.anim_we_w = QPropertyAnimation(self.ui.f_dig_we, b"minimumWidth")
 
         # fix screen sizing #
+
+        # fix labels:
+        self.ui.dig_ea_arrows = AngledLabel("tttttttt", 90)
+        self.ui.dig_ea_arrows.setParent(self.ui.f_dig_ea_arrows)
+        self.ui.dig_ea_arrows.label.setParent(self.ui.f_dig_ea_arrows)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy2 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setWidthForHeight(self.ui.dig_ea_arrows.sizePolicy().hasWidthForHeight())
+        sizePolicy2.setWidthForHeight(self.ui.dig_ea_arrows.label.sizePolicy().hasWidthForHeight())
+        self.ui.dig_ea_arrows.setSizePolicy(sizePolicy)
+        self.ui.dig_ea_arrows.label.setSizePolicy(sizePolicy2)
+        self.ui.dig_ea_arrows.setText("")
+        self.ui.dig_ea_arrows.label.setScaledContents(True)
+        self.ui.dig_ea_arrows.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_ea_arrows.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_ea_arrows.setObjectName("dig_ea_arrows")
+        self.ui.horizontalLayout_32.addWidget(self.ui.dig_ea_arrows)
+
+        self.ui.dig_we_arrows = AngledLabel("tttttttt", 270)
+        self.ui.dig_we_arrows.setParent(self.ui.f_dig_we_arrows)
+        self.ui.dig_we_arrows.label.setParent(self.ui.f_dig_we_arrows)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy2 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setWidthForHeight(self.ui.dig_ea_arrows.sizePolicy().hasWidthForHeight())
+        sizePolicy2.setWidthForHeight(self.ui.dig_ea_arrows.label.sizePolicy().hasWidthForHeight())
+        self.ui.dig_we_arrows.setSizePolicy(sizePolicy)
+        self.ui.dig_we_arrows.label.setSizePolicy(sizePolicy2)
+        self.ui.dig_we_arrows.setText("")
+        self.ui.dig_we_arrows.label.setScaledContents(True)
+        self.ui.dig_we_arrows.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_we_arrows.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_we_arrows.setObjectName("dig_we_arrows")
+        self.ui.horizontalLayout_6.addWidget(self.ui.dig_we_arrows)
+
+        self.ui.dig_no_arrows = AngledLabel("tttttttt", 180)
+        self.ui.dig_no_arrows.setParent(self.ui.f_dig_no_arrows)
+        self.ui.dig_no_arrows.label.setParent(self.ui.f_dig_no_arrows)
+
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy2 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.ui.dig_no_arrows.setSizePolicy(sizePolicy)
+        self.ui.dig_no_arrows.label.setSizePolicy(sizePolicy2)
+        self.ui.dig_no_arrows.setMinimumWidth(0)
+        self.ui.dig_no_arrows.setText("")
+        self.ui.dig_no_arrows.label.setScaledContents(True)
+        self.ui.dig_no_arrows.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_no_arrows.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_no_arrows.setObjectName("dig_no_arrows")
+        self.ui.horizontalLayout_37.addWidget(self.ui.dig_no_arrows)
+
+
+
 
         self.ui.slide_menu_container.setFixedWidth(0)
         self.tempAuthor = ""
@@ -668,10 +727,10 @@ class MainWindow(QMainWindow):
                   [True, self.anim_so_h, self.anim_so_w],
                   [True, self.anim_ea_h, self.anim_ea_w],
                   [True, self.anim_we_h, self.anim_we_w]]
-        self.anim_no_h = QPropertyAnimation(self.ui.f_dig_no, b"maximumHeight")
-        self.anim_so_h = QPropertyAnimation(self.ui.f_dig_so, b"maximumHeight")
-        self.anim_ea_h = QPropertyAnimation(self.ui.f_dig_ea, b"maximumHeight")
-        self.anim_we_h = QPropertyAnimation(self.ui.f_dig_we, b"maximumHeight")
+        self.anim_no_h = QPropertyAnimation(self.ui.f_dig_no, b"minimumHeight")
+        self.anim_so_h = QPropertyAnimation(self.ui.f_dig_so, b"minimumHeight")
+        self.anim_ea_h = QPropertyAnimation(self.ui.f_dig_ea, b"minimumHeight")
+        self.anim_we_h = QPropertyAnimation(self.ui.f_dig_we, b"minimumHeight")
         self.anim_no_w = QPropertyAnimation(self.ui.f_dig_no, b"minimumWidth")
         self.anim_so_w = QPropertyAnimation(self.ui.f_dig_so, b"minimumWidth")
         self.anim_ea_w = QPropertyAnimation(self.ui.f_dig_ea, b"minimumWidth")

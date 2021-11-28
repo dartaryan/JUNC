@@ -2191,10 +2191,26 @@ color: rgb(159, 159, 159);
                            <property name="frameShadow">
                             <enum>QFrame::Raised</enum>
                            </property>
-                           <layout class="QHBoxLayout" name="horizontalLayout_37">
-                            <property name="leftMargin">
-                             <number>11</number>
-                            </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_42">
+                            <item>
+                             <widget class="QLabel" name="dig_no_arrows">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="text">
+                               <string/>
+                              </property>
+                              <property name="scaledContents">
+                               <bool>true</bool>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
                            </layout>
                           </widget>
                          </item>
@@ -4138,8 +4154,8 @@ QLineEdit{
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>340</width>
-                  <height>731</height>
+                  <width>331</width>
+                  <height>752</height>
                  </rect>
                 </property>
                 <property name="styleSheet">
@@ -4982,8 +4998,8 @@ QDoubleSpinBox#spin_inf::down-arrow:disabled{
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>338</width>
-                  <height>731</height>
+                  <width>331</width>
+                  <height>752</height>
                  </rect>
                 </property>
                 <property name="styleSheet">
