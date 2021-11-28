@@ -179,8 +179,24 @@ class MainWindow(QMainWindow):
         self.ui.dig_no_arrows.setObjectName("dig_no_arrows")
         self.ui.horizontalLayout_37.addWidget(self.ui.dig_no_arrows)
 
+        self.ui.dig_so_arrows = AngledLabel("tttttttt", 0)
+        self.ui.dig_so_arrows.setParent(self.ui.f_dig_so_arrows)
+        self.ui.dig_so_arrows.label.setParent(self.ui.f_dig_so_arrows)
 
-
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy2 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.ui.dig_so_arrows.setSizePolicy(sizePolicy)
+        self.ui.dig_so_arrows.label.setSizePolicy(sizePolicy2)
+        self.ui.dig_so_arrows.setMinimumWidth(0)
+        self.ui.dig_so_arrows.setText("")
+        self.ui.dig_so_arrows.label.setScaledContents(True)
+        self.ui.dig_so_arrows.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_so_arrows.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.ui.dig_so_arrows.setObjectName("dig_so_arrows")
+        self.ui.horizontalLayout_40.addWidget(self.ui.dig_so_arrows)
 
         self.ui.slide_menu_container.setFixedWidth(0)
         self.tempAuthor = ""
@@ -193,6 +209,7 @@ class MainWindow(QMainWindow):
         self.show()
         self.rotate_pixmap()
         self.editSize()
+
 
         #  Edit menu info
         self.style_mcu = \

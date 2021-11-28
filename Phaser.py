@@ -1,6 +1,7 @@
 import ctypes
+import os
 import timeit
-
+import pulp as pl
 import openpyxl as xl
 
 from b_optimiztion import b_optimization
@@ -149,11 +150,17 @@ def main(list_from_JNUCUI):
     info_list = list_from_JNUCUI
 
     print(info_list)
-    cwd = 'os.getcwd()'  # solverdir = r'cbc-windeps-win64-msvc16-mtd\bin\cbc.exe'  # extracted and renamed CBC solver binary
-    # solverdir = os.path.join(cwd, solverdir)
-    # solver = pl.COIN_CMD(solverdir)
+    #cwd = 'os.getcwd()'
+    #solverdir = r'cbc-windeps-win64-msvc16-mtd\bin\cbc.exe'  # extracted and renamed CBC solver binary
+    #solverdir = os.path.join(cwd, solverdir)
+    #solver = pl.COIN_CMD(solverdir)
+    cwd = os.getcwd()
+    solverdir = 'cbc-windeps-win64-msvc16-mtd\\bin\\cbc.exe'  # extracted and renamed CBC solver binary
+    solverdir = os.path.join(cwd, solverdir)
+    solver = pl.COIN_CMD(solverdir)
 
-    solver = 1
+
+    #solver = 1
     start = timeit.default_timer()
     run = 0
     junc_list = []
@@ -168,17 +175,17 @@ def main(list_from_JNUCUI):
         else:
             print("             night:")
 
-        def update_excel(optimal_lanes, min_v_c):
-            for i in range(4):
-                for j in range(7):
-                    ws.cell(row=8, column=3 + 8 * i + j).value = optimal_lanes[i * 7 + j]
-            ws['M31'] = min_v_c
+        # def update_excel(optimal_lanes, min_v_c):
+        #     for i in range(4):
+        #         for j in range(7):
+        #             ws.cell(row=8, column=3 + 8 * i + j).value = optimal_lanes[i * 7 + j]
+        #     ws['M31'] = min_v_c
+        #
+        #     wb.save('volume_calculator.xlsx')
+        #     wb.close()
 
-            wb.save('volume_calculator.xlsx')
-            wb.close()
-
-        wb = xl.load_workbook('volume_calculator.xlsx')
-        ws = wb.active
+        # wb = xl.load_workbook('volume_calculator.xlsx')
+        # ws = wb.active
         print("after morning")
 
         # volume, lanes, instructions, rakal_instructions, nataz, streets, junc_instructions, excel_properties, junc_nataz = read_from_excel(
@@ -361,7 +368,7 @@ def main(list_from_JNUCUI):
             print('\n\n\noptimal lanes =', optimal_lanes)
             print('v/c =', min_v_c)
             print_dict(pulp_vars)
-            update_excel(optimal_lanes, min_v_c)
+            # update_excel(optimal_lanes, min_v_c)
 
         else:
             # בדיקת צומת יחיד על סמך הניתוב שהוזן

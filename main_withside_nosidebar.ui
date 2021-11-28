@@ -2283,27 +2283,7 @@ border-bottom-left-radius: 20px;
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_40">
-                         <item>
-                          <widget class="QLabel" name="dig_so_arrows">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
+                        <layout class="QHBoxLayout" name="horizontalLayout_40"/>
                        </widget>
                       </item>
                       <item>
@@ -2729,7 +2709,7 @@ border-bottom-left-radius: 20px;
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="4" alignment="Qt::AlignLeft">
+                   <item row="2" column="4" alignment="Qt::AlignRight">
                     <widget class="QFrame" name="f_dig_l_b">
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
@@ -2749,7 +2729,7 @@ border-bottom-left-radius: 20px;
                         <layout class="QVBoxLayout" name="verticalLayout_34"/>
                        </widget>
                       </item>
-                      <item>
+                      <item alignment="Qt::AlignRight">
                        <widget class="QFrame" name="f_run_panel">
                         <property name="styleSheet">
                          <string notr="true">QFrame#f_run_panel, #f_edit_control_buttons{
@@ -3416,7 +3396,7 @@ color: rgba(66, 66, 66, 130);
                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                            </property>
                            <property name="wordWrap">
-                            <bool>false</bool>
+                            <bool>true</bool>
                            </property>
                            <property name="margin">
                             <number>7</number>

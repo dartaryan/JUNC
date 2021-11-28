@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebarhGyPhL.ui'
+# Form implementation generated from reading ui file 'C:/Users/darta/AppData/Local/Temp/main_withside_nosidebarXnOsyL.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -1088,17 +1088,6 @@ class Ui_MainWindow(object):
         self.f_dig_so_arrows.setObjectName("f_dig_so_arrows")
         self.horizontalLayout_40 = QtWidgets.QHBoxLayout(self.f_dig_so_arrows)
         self.horizontalLayout_40.setObjectName("horizontalLayout_40")
-        self.dig_so_arrows = QtWidgets.QLabel(self.f_dig_so_arrows)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dig_so_arrows.sizePolicy().hasHeightForWidth())
-        self.dig_so_arrows.setSizePolicy(sizePolicy)
-        self.dig_so_arrows.setText("")
-        self.dig_so_arrows.setScaledContents(True)
-        self.dig_so_arrows.setAlignment(QtCore.Qt.AlignCenter)
-        self.dig_so_arrows.setObjectName("dig_so_arrows")
-        self.horizontalLayout_40.addWidget(self.dig_so_arrows)
         self.verticalLayout_30.addWidget(self.f_dig_so_arrows)
         self.f_dig_so_vol = QtWidgets.QFrame(self.f_dig_so)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -1467,8 +1456,8 @@ class Ui_MainWindow(object):
 "}")
         self.b_run.setObjectName("b_run")
         self.horizontalLayout_43.addWidget(self.b_run)
-        self.verticalLayout_5.addWidget(self.f_run_panel)
-        self.gridLayout.addWidget(self.f_dig_l_b, 2, 4, 1, 1, QtCore.Qt.AlignLeft)
+        self.verticalLayout_5.addWidget(self.f_run_panel, 0, QtCore.Qt.AlignRight)
+        self.gridLayout.addWidget(self.f_dig_l_b, 2, 4, 1, 1, QtCore.Qt.AlignRight)
         self.f_dig_ea = QtWidgets.QFrame(self.f_diagram_base)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -1654,7 +1643,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.warning_txt.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.warning_txt.setWordWrap(False)
+        self.warning_txt.setWordWrap(True)
         self.warning_txt.setObjectName("warning_txt")
         self.horizontalLayout_46.addWidget(self.warning_txt, 0, QtCore.Qt.AlignLeft)
         self.horizontalLayout_29.addWidget(self.f_warning, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)

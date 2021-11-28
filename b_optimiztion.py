@@ -3,42 +3,40 @@ from functools import reduce
 from itertools import permutations
 import ctypes
 
+
 def n_choose_2(n):
-    return int(reduce(lambda x, y: x * y[0] / y[1], zip(range(n - 2 + 1, n+1), range(1, 2+1)), 1))
+    return int(reduce(lambda x, y: x * y[0] / y[1], zip(range(n - 2 + 1, n + 1), range(1, 2 + 1)), 1))
+
 
 def n_permutations_2(n):
-    l = permutations(range(n),2)
+    l = permutations(range(n), 2)
     return [l1 for l1 in l if l1[0] < l1[1]]
 
 
-DIRECTIONS = ['N','S','E','W']
-LANE_TYPES = ['R','RT','T','TL','L','RTL','RL']
+DIRECTIONS = ['N', 'S', 'E', 'W']
+LANE_TYPES = ['R', 'RT', 'T', 'TL', 'L', 'RTL', 'RL']
 
 
-
-#EXCEL_FILENAME = 'criticalvolume.xlsx'
-
-
-#נתוני ספירות תחזיות
-
-def b_optimization(volume,lanes,nataz,solver):
-    NcountR = round(volume[0],0)
-    NcountT = round(volume[1],0)
-    NcountL = round(volume[2],0)
-    ScountR = round(volume[3],0)
-    ScountT = round(volume[4],0)
-    ScountL = round(volume[5],0)
-    EcountR = round(volume[6],0)
-    EcountT = round(volume[7],0)
-    EcountL = round(volume[8],0)
-    WcountR = round(volume[9],0)
-    WcountT = round(volume[10],0)
-    WcountL = round(volume[11],0)
+# EXCEL_FILENAME = 'criticalvolume.xlsx'
 
 
+# נתוני ספירות תחזיות
 
+def b_optimization(volume, lanes, nataz, solver):
+    NcountR = round(volume[0], 0)
+    NcountT = round(volume[1], 0)
+    NcountL = round(volume[2], 0)
+    ScountR = round(volume[3], 0)
+    ScountT = round(volume[4], 0)
+    ScountL = round(volume[5], 0)
+    EcountR = round(volume[6], 0)
+    EcountT = round(volume[7], 0)
+    EcountL = round(volume[8], 0)
+    WcountR = round(volume[9], 0)
+    WcountT = round(volume[10], 0)
+    WcountL = round(volume[11], 0)
 
-    #נתוני ספירות /תחזיות
+    # נתוני ספירות /תחזיות
 
     NlanesR = lanes[0]
     NlanesRT = lanes[1]
@@ -70,42 +68,42 @@ def b_optimization(volume,lanes,nataz,solver):
     WlanesRL = lanes[27]
 
     lanes_count_dict = {}
-    for i,d in enumerate(DIRECTIONS):
+    for i, d in enumerate(DIRECTIONS):
         lanes_count_dict[d] = {}
-        for j,lt in enumerate(LANE_TYPES):
-            lanes_count_dict[d][lt] = lanes[i *7 + j]
+        for j, lt in enumerate(LANE_TYPES):
+            lanes_count_dict[d][lt] = lanes[i * 7 + j]
 
-    #תוספת משתני נת"צ בינאריים ייחודיים עבור מקרה של נתיב מורכב שהוא נת"צ בחלקו בלבד
+    # תוספת משתני נת"צ בינאריים ייחודיים עבור מקרה של נתיב מורכב שהוא נת"צ בחלקו בלבד
 
-    NtrafficRTrbin=1
-    NtrafficRLrbin=1
-    NtrafficRTtbin=1
-    NtrafficTLtbin=1
-    NtrafficTLlbin=1
-    NtrafficRLlbin=1
-    NtrafficRTLrbin=1
-    NtrafficRTLtbin=1
-    NtrafficRTLlbin=1
+    NtrafficRTrbin = 1
+    NtrafficRLrbin = 1
+    NtrafficRTtbin = 1
+    NtrafficTLtbin = 1
+    NtrafficTLlbin = 1
+    NtrafficRLlbin = 1
+    NtrafficRTLrbin = 1
+    NtrafficRTLtbin = 1
+    NtrafficRTLlbin = 1
 
-    if nataz[1]==2:
-        NtrafficRTrbin=0
+    if nataz[1] == 2:
+        NtrafficRTrbin = 0
     if nataz[1] == 3:
-        NtrafficRTtbin=0
-    if nataz[3]==3:
-        NtrafficTLtbin=0
-    if nataz[3]==4:
-        NtrafficTLlbin=0
-    if nataz[6]==2:
-        NtrafficRLrbin=0
-    if nataz[6]==4:
-        NtrafficRLlbin=0
+        NtrafficRTtbin = 0
+    if nataz[3] == 3:
+        NtrafficTLtbin = 0
+    if nataz[3] == 4:
+        NtrafficTLlbin = 0
+    if nataz[6] == 2:
+        NtrafficRLrbin = 0
+    if nataz[6] == 4:
+        NtrafficRLlbin = 0
 
-    if nataz[5] == 2 or nataz[5]==5 or nataz[5]==6:
-        NtrafficRTLrbin=0
-    if nataz[5] == 3 or nataz[5]==5 or nataz[5]==7:
-        NtrafficRTLtbin=0
-    if nataz[5] == 4 or nataz[5]==6 or nataz[5]==7:
-        NtrafficRTLlbin=0
+    if nataz[5] == 2 or nataz[5] == 5 or nataz[5] == 6:
+        NtrafficRTLrbin = 0
+    if nataz[5] == 3 or nataz[5] == 5 or nataz[5] == 7:
+        NtrafficRTLtbin = 0
+    if nataz[5] == 4 or nataz[5] == 6 or nataz[5] == 7:
+        NtrafficRTLlbin = 0
 
     StrafficRTrbin = 1
     StrafficRLrbin = 1
@@ -197,12 +195,12 @@ def b_optimization(volume,lanes,nataz,solver):
     if nataz[26] == 4 or nataz[26] == 6 or nataz[26] == 7:
         WtrafficRTLlbin = 0
 
-    #ימינה חופשי מוגדר מעל 9 נתיבים
+    # ימינה חופשי מוגדר מעל 9 נתיבים
     error = 0
-    message=0
+    message = 0
 
     if NlanesR >= 9:
-        if NcountR <900:
+        if NcountR < 900:
             NcountR = 0
         else:
             message = "north right turn dedicated lane exceed capacity"
@@ -222,36 +220,35 @@ def b_optimization(volume,lanes,nataz,solver):
         else:
             message = "west right turn dedicated lane exceed capacity"
 
-    if message !=0:
-        print (message)
+    if message != 0:
+        print(message)
         MessageBox = ctypes.windll.user32.MessageBoxW
         MessageBox(None, message, 'Phaser message', 1)
 
     # בדיקת שגיאות מספר נתיבים לא שלם
-    for i in range (28):
+    for i in range(28):
         try:
-            x = lanes[i]%1
-            y= nataz[i]%1
+            x = lanes[i] % 1
+            y = nataz[i] % 1
         except:
-            error= "number of lanes must be an integer"
+            error = "number of lanes must be an integer"
             MessageBox = ctypes.windll.user32.MessageBoxW
             MessageBox(None, error, 'Phaser error', 0)
             exit()
 
-        if x !=0 or y !=0:
-
-            error= "number of lanes must be an integer"
+        if x != 0 or y != 0:
+            error = "number of lanes must be an integer"
 
     # בדיקת שגיאות קוד נת"צ שגוי
-    if nataz[1] >3:
-        error= "nataz coding error"
-    if nataz[3]== 2 or nataz[3]>4:
-        error= "nataz coding error"
-
-    if nataz[6]==3 or nataz[6]>4:
+    if nataz[1] > 3:
+        error = "nataz coding error"
+    if nataz[3] == 2 or nataz[3] > 4:
         error = "nataz coding error"
 
-    if nataz[5] >7:
+    if nataz[6] == 3 or nataz[6] > 4:
+        error = "nataz coding error"
+
+    if nataz[5] > 7:
         error = "nataz coding error"
 
     if nataz[8] > 3:
@@ -287,53 +284,52 @@ def b_optimization(volume,lanes,nataz,solver):
     if nataz[26] > 7:
         error = "nataz coding error"
 
+    # בדיקת שגיאות יותר מנתיב מורכב אחד
+    if NlanesRT > 1 or NlanesRTL > 1 or NlanesRL > 1 or NlanesTL > 1:
+        error = "north routing is not possible- more then one complex lane"
+    if SlanesRT > 1 or SlanesRTL > 1 or SlanesRL > 1 or SlanesTL > 1:
+        error = "south routing is not possible- more then one complex lane"
+    if ElanesRT > 1 or ElanesRTL > 1 or ElanesRL > 1 or ElanesTL > 1:
+        error = "east routing is not possible- more then one complex lane"
+    if WlanesRT > 1 or WlanesRTL > 1 or WlanesRL > 1 or WlanesTL > 1:
+        error = "west routing is not possible- more then one complex lane"
 
-    #בדיקת שגיאות יותר מנתיב מורכב אחד
-    if NlanesRT>1 or NlanesRTL>1 or NlanesRL>1 or NlanesTL>1:
-        error= "north routing is not possible- more then one complex lane"
-    if SlanesRT>1 or SlanesRTL>1 or SlanesRL>1 or SlanesTL>1:
-        error= "south routing is not possible- more then one complex lane"
-    if ElanesRT>1 or ElanesRTL>1 or ElanesRL>1 or ElanesTL>1:
-        error= "east routing is not possible- more then one complex lane"
-    if WlanesRT>1 or WlanesRTL>1 or WlanesRL>1 or WlanesTL>1:
-        error= "west routing is not possible- more then one complex lane"
+    # בדיקת שגיאות עבור נפח בתנועה ללא נתיב מתאים (כולל נת"צ)
+    if NlanesR + NlanesRT + NlanesRTL + NlanesRL + NtrafficRTrbin + NtrafficRTLrbin + NtrafficRLrbin - 3 == 0 and NcountR > 0:
+        error = "missing north right turn"
+    if NlanesT + NlanesRT + NlanesRTL + NlanesTL + NtrafficRTtbin + NtrafficRTLtbin + NtrafficTLtbin - 3 == 0 and NcountT > 0:
+        error = "missing north through"
+    if NlanesL + NlanesTL + NlanesRTL + NlanesRL + NtrafficTLlbin + NtrafficRTLlbin + NtrafficRLlbin - 3 == 0 and NcountL > 0:
+        error = "missing north left turn"
 
-    #בדיקת שגיאות עבור נפח בתנועה ללא נתיב מתאים (כולל נת"צ)
-    if NlanesR+NlanesRT+NlanesRTL+NlanesRL +NtrafficRTrbin+NtrafficRTLrbin+NtrafficRLrbin-3 ==0 and NcountR>0:
-        error= "missing north right turn"
-    if NlanesT + NlanesRT + NlanesRTL + NlanesTL+NtrafficRTtbin+NtrafficRTLtbin+NtrafficTLtbin-3 == 0 and NcountT > 0:
-        error="missing north through"
-    if NlanesL + NlanesTL + NlanesRTL + NlanesRL+NtrafficTLlbin+NtrafficRTLlbin+NtrafficRLlbin-3 == 0 and NcountL > 0:
-        error="missing north left turn"
-
-    if SlanesR+SlanesRT+SlanesRTL+SlanesRL+StrafficRTrbin+StrafficRTLrbin+StrafficRLrbin-3==0 and ScountR>0:
-        error="missing south right turn"
-    if SlanesT + SlanesRT + SlanesRTL + SlanesTL+SlanesTL+StrafficRTtbin+StrafficRTLtbin+StrafficTLtbin-3 == 0 and ScountT > 0:
+    if SlanesR + SlanesRT + SlanesRTL + SlanesRL + StrafficRTrbin + StrafficRTLrbin + StrafficRLrbin - 3 == 0 and ScountR > 0:
+        error = "missing south right turn"
+    if SlanesT + SlanesRT + SlanesRTL + SlanesTL + SlanesTL + StrafficRTtbin + StrafficRTLtbin + StrafficTLtbin - 3 == 0 and ScountT > 0:
         error = "missing south through"
-    if SlanesL + SlanesTL + SlanesRTL + SlanesRL+StrafficTLlbin+StrafficRTLlbin+StrafficRLlbin-3 == 0 and ScountL > 0:
-        error= "missing south left turn"
+    if SlanesL + SlanesTL + SlanesRTL + SlanesRL + StrafficTLlbin + StrafficRTLlbin + StrafficRLlbin - 3 == 0 and ScountL > 0:
+        error = "missing south left turn"
 
-    if ElanesR+ElanesRT+ElanesRTL+ElanesRL+EtrafficRTrbin+EtrafficRTLrbin+EtrafficRLrbin-3==0 and EcountR>0:
-        error= "missing east right turn"
-    if ElanesT + ElanesRT + ElanesRTL + ElanesTL+EtrafficRTtbin+EtrafficRTLtbin+EtrafficTLtbin-3 == 0 and EcountT > 0:
+    if ElanesR + ElanesRT + ElanesRTL + ElanesRL + EtrafficRTrbin + EtrafficRTLrbin + EtrafficRLrbin - 3 == 0 and EcountR > 0:
+        error = "missing east right turn"
+    if ElanesT + ElanesRT + ElanesRTL + ElanesTL + EtrafficRTtbin + EtrafficRTLtbin + EtrafficTLtbin - 3 == 0 and EcountT > 0:
         error = "missing east through"
-    if ElanesL + ElanesTL + ElanesRTL + ElanesRL+EtrafficTLlbin+EtrafficRTLlbin+EtrafficRLlbin-3 == 0 and EcountL > 0:
-        error="missing east left turn"
+    if ElanesL + ElanesTL + ElanesRTL + ElanesRL + EtrafficTLlbin + EtrafficRTLlbin + EtrafficRLlbin - 3 == 0 and EcountL > 0:
+        error = "missing east left turn"
 
-    if WlanesR+WlanesRT+WlanesRTL+WlanesRL+WtrafficRTrbin+WtrafficRTLrbin+WtrafficRLrbin-3==0 and WcountR>0:
-        error ="missing west right turn"
-    if WlanesT + WlanesRT + WlanesRTL + WlanesTL+WtrafficRTtbin+WtrafficRTLtbin+WtrafficTLtbin-3 == 0 and WcountT > 0:
-        error ="missing west through"
-    if WlanesL + WlanesTL + WlanesRTL + WlanesRL+WtrafficTLlbin+WtrafficRTLlbin+WtrafficRLlbin-3 == 0 and WcountL > 0:
-        error="missing west left turn"
-    if error !=0:
-        print (error)
+    if WlanesR + WlanesRT + WlanesRTL + WlanesRL + WtrafficRTrbin + WtrafficRTLrbin + WtrafficRLrbin - 3 == 0 and WcountR > 0:
+        error = "missing west right turn"
+    if WlanesT + WlanesRT + WlanesRTL + WlanesTL + WtrafficRTtbin + WtrafficRTLtbin + WtrafficTLtbin - 3 == 0 and WcountT > 0:
+        error = "missing west through"
+    if WlanesL + WlanesTL + WlanesRTL + WlanesRL + WtrafficTLlbin + WtrafficRTLlbin + WtrafficRLlbin - 3 == 0 and WcountL > 0:
+        error = "missing west left turn"
+    if error != 0:
+        print(error)
         MessageBox = ctypes.windll.user32.MessageBoxW
         MessageBox(None, error, 'Phaser error', 0)
         exit()
 
     prob = LpProblem("wardrop", LpMinimize)
-    #משתני תנועה פנימיים. כמה פונים לכל כיוון ממי שנמצא בנתיב
+    # משתני תנועה פנימיים. כמה פונים לכל כיוון ממי שנמצא בנתיב
 
     NtrafficRr = LpVariable('NtrafficRr', 0, 10000, LpInteger)
     NtrafficRTr = LpVariable('NtrafficRTr', 0, 10000, LpInteger)
@@ -387,14 +383,11 @@ def b_optimization(volume,lanes,nataz,solver):
     WtrafficRLr = LpVariable('WtrafficRLr', 0, 10000, LpInteger)
     WtrafficRLl = LpVariable('WtrafficRLl', 0, 10000, LpInteger)
 
-
-
-
     inner_vars = {}
     sum_vars = {}
-    for j,d in enumerate(DIRECTIONS):
+    for j, d in enumerate(DIRECTIONS):
         inner_vars[d] = []
-        direction_lanes_sum = sum(lanes[j*7:(j+1)*7])
+        direction_lanes_sum = sum(lanes[j * 7:(j + 1) * 7])
         if direction_lanes_sum > 1:
             for i in range(n_choose_2(direction_lanes_sum)):
                 inner_vars[d].append(LpVariable(d + 'inner_' + str(i), 0, 10000, LpInteger))
@@ -416,26 +409,18 @@ def b_optimization(volume,lanes,nataz,solver):
     for d in DIRECTIONS:
         direction_sum_lanes = sum(lanes_count_dict[d].values())
         pairs = n_permutations_2(direction_sum_lanes)
-        for p in zip(pairs,inner_vars[d]):
+        for p in zip(pairs, inner_vars[d]):
             inner_var = p[1]
             sum_0 = p[0][0]
             sum_1 = p[0][1]
             prob += inner_var >= sum_for_inner_vars[d][sum_0]
             prob += inner_var >= sum_for_inner_vars[d][sum_1]
 
+    # מגבלה ראשונה- סכום הפונים פנייה מסוימת מכל נתיב שווה לנתון הראשוני לגבי אותה פנייה מהזרוע
 
-
-
-
-
-
-
-
-    #מגבלה ראשונה- סכום הפונים פנייה מסוימת מכל נתיב שווה לנתון הראשוני לגבי אותה פנייה מהזרוע
-
-    prob += NtrafficRr*NlanesR+NtrafficRTr*NtrafficRTrbin*NlanesRT+NtrafficRTLr*NtrafficRTLrbin*NlanesRTL+NtrafficRLr*NtrafficRLrbin*NlanesRL >= NcountR
-    prob += NtrafficTt*NlanesT+NtrafficRTt*NtrafficRTtbin*NlanesRT+NtrafficRTLt*NtrafficRTLtbin*NlanesRTL+NtrafficTLt*NtrafficTLtbin*NlanesTL >= NcountT
-    prob += NtrafficLl*NlanesL+NtrafficTLl*NtrafficTLlbin*NlanesTL+NtrafficRTLl*NtrafficRTLlbin*NlanesRTL+NtrafficRLl*NtrafficRLlbin*NlanesRL >= NcountL
+    prob += NtrafficRr * NlanesR + NtrafficRTr * NtrafficRTrbin * NlanesRT + NtrafficRTLr * NtrafficRTLrbin * NlanesRTL + NtrafficRLr * NtrafficRLrbin * NlanesRL >= NcountR
+    prob += NtrafficTt * NlanesT + NtrafficRTt * NtrafficRTtbin * NlanesRT + NtrafficRTLt * NtrafficRTLtbin * NlanesRTL + NtrafficTLt * NtrafficTLtbin * NlanesTL >= NcountT
+    prob += NtrafficLl * NlanesL + NtrafficTLl * NtrafficTLlbin * NlanesTL + NtrafficRTLl * NtrafficRTLlbin * NlanesRTL + NtrafficRLl * NtrafficRLlbin * NlanesRL >= NcountL
 
     prob += StrafficRr * SlanesR + StrafficRTr * StrafficRTrbin * SlanesRT + StrafficRTLr * StrafficRTLrbin * SlanesRTL + StrafficRLr * StrafficRLrbin * SlanesRL >= ScountR
     prob += StrafficTt * SlanesT + StrafficRTt * StrafficRTtbin * SlanesRT + StrafficRTLt * StrafficRTLtbin * SlanesRTL + StrafficTLt * StrafficTLtbin * SlanesTL >= ScountT
@@ -449,12 +434,11 @@ def b_optimization(volume,lanes,nataz,solver):
     prob += WtrafficTt * WlanesT + WtrafficRTt * WtrafficRTtbin * WlanesRT + WtrafficRTLt * WtrafficRTLtbin * WlanesRTL + WtrafficTLt * WtrafficTLtbin * WlanesTL >= WcountT
     prob += WtrafficLl * WlanesL + WtrafficTLl * WtrafficTLlbin * WlanesTL + WtrafficRTLl * WtrafficRTLlbin * WlanesRTL + WtrafficRLl * WtrafficRLlbin * WlanesRL >= WcountL
 
-
-    #באמצעות המשתנה הבינארי להכרזה על נת"צ שבנתיב מורכב, נקבע משתנים חדשים להכרזה על תוספת נפל לאוטובוסים
-    NtrafficRTbus = (1- min(NtrafficRTrbin,NtrafficRTtbin))*50
-    NtrafficTLbus = (1- min(NtrafficTLlbin,NtrafficTLtbin))*50
-    NtrafficRLbus = (1- min(NtrafficRLrbin,NtrafficRLlbin))*50
-    NtrafficRTLbus = (1- min(NtrafficRTLrbin,NtrafficRTLtbin,NtrafficRTLlbin))*50
+    # באמצעות המשתנה הבינארי להכרזה על נת"צ שבנתיב מורכב, נקבע משתנים חדשים להכרזה על תוספת נפל לאוטובוסים
+    NtrafficRTbus = (1 - min(NtrafficRTrbin, NtrafficRTtbin)) * 50
+    NtrafficTLbus = (1 - min(NtrafficTLlbin, NtrafficTLtbin)) * 50
+    NtrafficRLbus = (1 - min(NtrafficRLrbin, NtrafficRLlbin)) * 50
+    NtrafficRTLbus = (1 - min(NtrafficRTLrbin, NtrafficRTLtbin, NtrafficRTLlbin)) * 50
 
     StrafficRTbus = (1 - min(StrafficRTrbin, StrafficRTtbin)) * 50
     StrafficTLbus = (1 - min(StrafficTLlbin, StrafficTLtbin)) * 50
@@ -471,16 +455,15 @@ def b_optimization(volume,lanes,nataz,solver):
     WtrafficRLbus = (1 - min(WtrafficRLrbin, WtrafficRLlbin)) * 50
     WtrafficRTLbus = (1 - min(WtrafficRTLrbin, WtrafficRTLtbin, WtrafficRTLlbin)) * 50
 
+    # מגבלה שנייה- הנפח בנתיב, שווה לסכום הנפחים באותו נתיב עבור כלל סוגי הפניות
 
-    #מגבלה שנייה- הנפח בנתיב, שווה לסכום הנפחים באותו נתיב עבור כלל סוגי הפניות
-
-    prob += NtrafficRr ==  sum_vars['N']['NsumR']
+    prob += NtrafficRr == sum_vars['N']['NsumR']
     prob += NtrafficRTr + NtrafficRTt + NtrafficRTbus == sum_vars['N']['NsumRT']
     prob += NtrafficTt == sum_vars['N']['NsumT']
-    prob += NtrafficTLt + NtrafficTLl + NtrafficTLbus== sum_vars['N']['NsumTL']
+    prob += NtrafficTLt + NtrafficTLl + NtrafficTLbus == sum_vars['N']['NsumTL']
     prob += NtrafficLl == sum_vars['N']['NsumL']
-    prob += NtrafficRTLr +NtrafficRTLt+NtrafficRTLl+ NtrafficRTLbus== sum_vars['N']['NsumRTL']
-    prob += NtrafficRLr +NtrafficRLl+ NtrafficRLbus== sum_vars['N']['NsumRL']
+    prob += NtrafficRTLr + NtrafficRTLt + NtrafficRTLl + NtrafficRTLbus == sum_vars['N']['NsumRTL']
+    prob += NtrafficRLr + NtrafficRLl + NtrafficRLbus == sum_vars['N']['NsumRL']
 
     prob += StrafficRr == sum_vars['S']['SsumR']
     prob += StrafficRTr + StrafficRTt + StrafficRTbus == sum_vars['S']['SsumRT']
@@ -506,22 +489,21 @@ def b_optimization(volume,lanes,nataz,solver):
     prob += WtrafficRTLr + WtrafficRTLt + WtrafficRTLl + WtrafficRTLbus == sum_vars['W']['WsumRTL']
     prob += WtrafficRLr + WtrafficRLl + WtrafficRLbus == sum_vars['W']['WsumRL']
 
-
     #  הגדרת  פונקציית המטרה של הזרוע כסכום כל המשתנים המדומים יהיה נקודת האופטימום שמייצגת את היותם קרובים ככל הניתן
 
     inner_vars_list = []
     for d in DIRECTIONS:
         size = len(inner_vars[d])
-        i_list = ["inner_vars['"+d+"']["+str(i)+"]" for i in range(len(inner_vars[d]))]
+        i_list = ["inner_vars['" + d + "'][" + str(i) + "]" for i in range(len(inner_vars[d]))]
         inner_vars_list.extend(i_list)
     target_function = 'prob += ' + '+'.join(inner_vars_list)
     exec(target_function)
 
-
     #  פתרון והדפסה
-    prob.solve(PULP_CBC_CMD(msg=False))
-    #prob.solve(PULP_CBC_CMD(msg=False))
-    #prob.solve()
+
+    # prob.solve(PULP_CBC_CMD(msg=False))
+    # prob.solve(PULP_CBC_CMD(msg=False))
+    prob.solve()
     print("Status:", LpStatus[prob.status])
     if LpStatus[prob.status] != "Optimal":
         error = "solution not optimal (b)"
@@ -529,8 +511,8 @@ def b_optimization(volume,lanes,nataz,solver):
         MessageBox(None, error, 'Phaser error', 0)
         exit()
 
-   # for v in prob.variables():
-     #  if v.varValue > 1:
+    # for v in prob.variables():
+    #  if v.varValue > 1:
 
     #    print(v.name, "=", v.varValue)
 
@@ -541,10 +523,5 @@ def b_optimization(volume,lanes,nataz,solver):
                 ret_vals.append(int(sum_vars[d][d + 'sum' + lt].varValue))
             else:
                 ret_vals.append(0)
-    #print (ret_vals)
+    # print (ret_vals)
     return ret_vals
-
-
-
-
-

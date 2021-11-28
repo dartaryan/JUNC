@@ -1837,8 +1837,8 @@ def c_optimization(car_sum,instructions,nataz,solver):
     prob += ASrcheck+lrt_junction_ew <=1
     prob += AElcheck + lrt_junction_ew <= 1
 
-    #prob.solve()
-    prob.solve(PULP_CBC_CMD(msg=False))
+    prob.solve()
+    #prob.solve(PULP_CBC_CMD(msg=False))
     print("Status:", LpStatus[prob.status])
     if LpStatus[prob.status] != "Optimal":
         error = "solution not optimal (c)"
