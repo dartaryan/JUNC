@@ -17,7 +17,10 @@ from VOLCOV import VolCov
 from ui_main_withside_nosidebar import *
 from ui_window_arrows_with_complex import *
 from ui_window_volumes import *
+from ui_loading_screen import *
 import Main_ID
+
+from threading import Thread
 
 
 def get_display_name():
@@ -56,6 +59,8 @@ class MainWindow(QMainWindow):
         self.mainDiagram = Diagram()
         self.tempDiagram = Diagram()
         self.jucson = Jucson(self.mainDiagram, "")
+
+        self.loading_screen = LoadingForm()
         self.arrow_north_form = ArrowForm(self.mainDiagram, self.tempDiagram, "NO")
         self.arrow_south_form = ArrowForm(self.mainDiagram, self.tempDiagram, "SO")
         self.arrow_east_form = ArrowForm(self.mainDiagram, self.tempDiagram, "EA")
@@ -106,9 +111,11 @@ class MainWindow(QMainWindow):
         self.ui.slide_menu.setMaximumWidth(1)
         self.current_user_name = get_display_name()
         self.count_directions = {"NO": 0, "SO": 0, "EA": 0, "WE": 0}
-
+        self.loading_screen.show()
+        self.loading_screen.hide()
         self.ui.b_destfolder.clicked.connect(lambda: self.setOutputDirectory())
-        self.ui.b_run.clicked.connect(lambda: self.run_JUNC())
+        # self.ui.b_run.clicked.connect(lambda: self.run_JUNC())
+        self.ui.b_run.clicked.connect(lambda: self.run_thread())
 
         # Direction animations
 
@@ -120,6 +127,8 @@ class MainWindow(QMainWindow):
         self.anim_so_w = QPropertyAnimation(self.ui.f_dig_so, b"minimumWidth")
         self.anim_ea_w = QPropertyAnimation(self.ui.f_dig_ea, b"minimumWidth")
         self.anim_we_w = QPropertyAnimation(self.ui.f_dig_we, b"minimumWidth")
+
+
 
         # fix screen sizing #
 
@@ -208,8 +217,6 @@ class MainWindow(QMainWindow):
 
         self.show()
         self.rotate_pixmap()
-
-
 
         #  Edit menu info
         self.style_mcu = \
@@ -433,14 +440,57 @@ class MainWindow(QMainWindow):
         self.setCount()
         self.setMoreInfo()
 
+    def run_thread(self):
+
+        t1 = Thread(target=self.run_JUNC())
+        t1.start()
+
     def run_JUNC(self):
+
+        self.loading_h = QPropertyAnimation(self.ui.full_body, b"maximumHeight")
+        self.loading_w = QPropertyAnimation(self.ui.full_body, b"maximumWidth")
+        window_height = self.ui.full_body.height()
+        window_width = self.ui.full_body.width()
+        new_size = 0
+        print(window_height)
+
+        self.group2 = QtCore.QParallelAnimationGroup()
+        self.loading_h.setDuration(250)
+        self.loading_h.setStartValue(window_height)
+        self.loading_h.setEndValue(new_size)
+        self.loading_h.setEasingCurve(QEasingCurve.InOutSine)
+        self.group2.addAnimation(self.loading_h)
+        self.loading_w.setDuration(250)
+        self.loading_w.setStartValue(window_width)
+        self.loading_w.setEndValue(new_size)
+        self.loading_w.setEasingCurve(QEasingCurve.InOutSine)
+        self.group2.addAnimation(self.loading_w)
+        self.group2.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
+
+        time.sleep(10)
         self.mainDiagram.phsr_lst = self.phaser_input_list
         Main_ID.set_Diagram(self.mainDiagram)
         final_message = Main_ID.main()
         self.jucson.saveJucsonFromDiagram(self.mainDiagram.OUTPUT + "\\×JUNC×")
-        msgBox = QMessageBox()
-        msgBox.setText(final_message)
-        msgBox.exec()
+        # msgBox = QMessageBox()
+        # msgBox.setText("final_message")
+        # msgBox.exec()
+        old_size = 0
+
+        self.group3 = QtCore.QParallelAnimationGroup()
+        self.loading_h.setDuration(250)
+        self.loading_h.setStartValue(old_size)
+        self.loading_h.setEndValue(window_height)
+        self.loading_h.setEasingCurve(QEasingCurve.InOutSine)
+        self.group3.addAnimation(self.loading_h)
+        self.loading_w.setDuration(250)
+        self.loading_w.setStartValue(old_size)
+        self.loading_w.setEndValue(window_width)
+        self.loading_w.setEasingCurve(QEasingCurve.InOutSine)
+        self.group3.addAnimation(self.loading_w)
+        self.group3.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
+
+
 
     def setLrtNS(self):
         lrt_NS = 1 if self.ui.check_lrt_noso.isChecked() else 0
@@ -761,7 +811,7 @@ class MainWindow(QMainWindow):
 
         self.group1 = QtCore.QParallelAnimationGroup()
         for animation in all_animations:
-            print(animation," : ",old_size,new_size)
+            print(animation, " : ", old_size, new_size)
             animation.setDuration(550)
             animation.setStartValue(old_size)
             animation.setEndValue(new_size)
@@ -2178,6 +2228,21 @@ class VolumesForm(QtWidgets.QWidget):
         diag_dir = getattr(self.tempDiagram, orig_dir)
         diag_time = getattr(diag_dir, vol_time)
         setattr(diag_time, vol_side, l_vol.text())
+
+
+class LoadingForm(QtWidgets.QWidget):
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        self.ui_form = Loading_Form()
+        self.ui_form.setupUi(self)
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.ui_form.shadow = QGraphicsDropShadowEffect(self)
+        self.ui_form.shadow.setBlurRadius(10)
+        self.ui_form.shadow.setXOffset(0)
+        self.ui_form.shadow.setYOffset(0)
+        self.ui_form.shadow.setColor(QColor(1, 1, 1))
+        self.setGraphicsEffect(self.ui_form.shadow)
 
 
 if __name__ == "__main__":
