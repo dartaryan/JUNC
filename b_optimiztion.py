@@ -503,7 +503,7 @@ def b_optimization(volume, lanes, nataz, solver):
 
     # prob.solve(PULP_CBC_CMD(msg=False))
     # prob.solve(PULP_CBC_CMD(msg=False))
-    prob.solve()
+    prob.solve(solver)
     print("Status:", LpStatus[prob.status])
     if LpStatus[prob.status] != "Optimal":
         error = "solution not optimal (b)"

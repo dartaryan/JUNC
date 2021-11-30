@@ -112,10 +112,10 @@ class MainWindow(QMainWindow):
 
         # Direction animations
 
-        self.anim_no_h = QPropertyAnimation(self.ui.f_dig_no, b"maximumHeight")
-        self.anim_so_h = QPropertyAnimation(self.ui.f_dig_so, b"maximumHeight")
-        self.anim_ea_h = QPropertyAnimation(self.ui.f_dig_ea, b"maximumHeight")
-        self.anim_we_h = QPropertyAnimation(self.ui.f_dig_we, b"maximumHeight")
+        self.anim_no_h = QPropertyAnimation(self.ui.f_dig_no, b"minimumHeight")
+        self.anim_so_h = QPropertyAnimation(self.ui.f_dig_so, b"minimumHeight")
+        self.anim_ea_h = QPropertyAnimation(self.ui.f_dig_ea, b"minimumHeight")
+        self.anim_we_h = QPropertyAnimation(self.ui.f_dig_we, b"minimumHeight")
         self.anim_no_w = QPropertyAnimation(self.ui.f_dig_no, b"minimumWidth")
         self.anim_so_w = QPropertyAnimation(self.ui.f_dig_so, b"minimumWidth")
         self.anim_ea_w = QPropertyAnimation(self.ui.f_dig_ea, b"minimumWidth")
@@ -208,7 +208,7 @@ class MainWindow(QMainWindow):
 
         self.show()
         self.rotate_pixmap()
-        self.editSize()
+
 
 
         #  Edit menu info
@@ -281,6 +281,7 @@ class MainWindow(QMainWindow):
 
         self.setLostTime()
         self.first_checks_state()
+        self.editSize()
 
     def createSpinnerStyle(self, spinner):
         style_spinner = \
@@ -760,6 +761,7 @@ class MainWindow(QMainWindow):
 
         self.group1 = QtCore.QParallelAnimationGroup()
         for animation in all_animations:
+            print(animation," : ",old_size,new_size)
             animation.setDuration(550)
             animation.setStartValue(old_size)
             animation.setEndValue(new_size)
@@ -771,13 +773,13 @@ class MainWindow(QMainWindow):
         current_monitor = QDesktopWidget().screenNumber(self)
         if current_monitor != self.display_monitor:
             self.display_monitor = current_monitor
-            screen_size = self.allMonitors[self.display_monitor]
-            screen_app_ratio = 0.9
-            app_width_height_ratio = 1.28
-            self.app_height = int(round(screen_size[0] * screen_app_ratio, 0))
-            app_width = int(round(self.app_height * app_width_height_ratio, 0))
-            self.setFixedHeight(self.app_height)
-            self.setFixedWidth(app_width)
+        screen_size = self.allMonitors[self.display_monitor]
+        screen_app_ratio = 0.9
+        app_width_height_ratio = 1.28
+        self.app_height = int(round(screen_size[0] * screen_app_ratio, 0))
+        app_width = int(round(self.app_height * app_width_height_ratio, 0))
+        self.setFixedHeight(self.app_height)
+        self.setFixedWidth(app_width)
         self.editDiagramSize()
 
     def setMonitorSize(self):
@@ -794,7 +796,9 @@ class MainWindow(QMainWindow):
 
             self.ui.menu_button.setText("W")
             self.ui.body_header.setStyleSheet(
-                'QFrame#body_header{background-color: rgb(55, 62, 78);border-top-left-radius: 25px;}')
+                'QFrame#body_header{background-color: rgb(55, 62, 78);border-top-left-radius: 25px;} QToolTip {'
+                'background-color: rgba(43, 49, 63,150);font: 11pt "Rubik";color: rgb(238, 238, 238);border-radius: '
+                '2px;border-color: 3px solid rgb(238, 238, 238);}')
 
         else:
             newWidth = 0
@@ -804,7 +808,8 @@ class MainWindow(QMainWindow):
             self.ui.menu_button.setText("L")
             self.ui.body_header.setStyleSheet(
                 'QFrame#body_header{background-color: rgb(55, 62, 78);border-top-right-radius: '
-                '25px;border-top-left-radius: 25px;}')
+                '25px;border-top-left-radius: 25px;} QToolTip {background-color: rgba(43, 49, 63,150);font: 11pt '
+                '"Rubik";color: rgb(238, 238, 238);border-radius: 2px;border-color: 3px solid rgb(238, 238, 238);}')
 
         self.animation = QPropertyAnimation(self.ui.slide_menu_container, b"maximumWidth")
         self.animation.setDuration(350)

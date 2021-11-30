@@ -150,17 +150,18 @@ def main(list_from_JNUCUI):
     info_list = list_from_JNUCUI
 
     print(info_list)
-    #cwd = 'os.getcwd()'
-    #solverdir = r'cbc-windeps-win64-msvc16-mtd\bin\cbc.exe'  # extracted and renamed CBC solver binary
-    #solverdir = os.path.join(cwd, solverdir)
-    #solver = pl.COIN_CMD(solverdir)
+    # cwd = 'os.getcwd()'
+    # solverdir = r'cbc-windeps-win64-msvc16-mtd\bin\cbc.exe'  # extracted and renamed CBC solver binary
+    # solverdir = os.path.join(cwd, solverdir)
+    # solver = pl.COIN_CMD(solverdir)
     cwd = os.getcwd()
-    solverdir = 'cbc-windeps-win64-msvc16-mtd\\bin\\cbc.exe'  # extracted and renamed CBC solver binary
-    solverdir = os.path.join(cwd, solverdir)
-    solver = pl.COIN_CMD(solverdir)
+    solverdir = 'cbc\\bin\\cbc.exe'  # extracted and renamed CBC solver binary
+    solverdir1 = os.path.join(cwd, solverdir)
+    print("got here 1")
+    solver = pl.COIN_CMD(path=solverdir1)
+    print(solverdir1)
 
-
-    #solver = 1
+    # solver = 1
     start = timeit.default_timer()
     run = 0
     junc_list = []
@@ -196,7 +197,7 @@ def main(list_from_JNUCUI):
         rakal_instructions = info_list[4]
         nataz = info_list[5]
         junc_nataz = info_list[5]
-
+        print("got here 2")
         # שליחת נתונים לגאנק
         junc_list.append(volume)
         junc_list.append(lanes)
@@ -216,7 +217,7 @@ def main(list_from_JNUCUI):
         WcountR = round(volume[9], 0)
         WcountT = round(volume[10], 0)
         WcountL = round(volume[11], 0)
-
+        print("got here 3")
         if instructions[7] == 1:
             run = 2
 
@@ -401,7 +402,7 @@ def main(list_from_JNUCUI):
             for i in range(28):
                 if queue_list[i] > queue_max_list[i]:
                     queue_max_list[i] = queue_list[i]
-
+            print("got here 4")
             # counter=0
             # for i in range(12):
             # counter+=0.333

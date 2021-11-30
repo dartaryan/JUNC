@@ -61,7 +61,7 @@
  [],
  False,
  False,
- 1638100380,
+ 1638274268,
  [('run.exe',
    'c:\\users\\darta\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
    'EXECUTABLE')])
